@@ -50,8 +50,54 @@ const contributions = [
     stars: "13K+",
     prs: [
       { title: "pgconn: use fresh context for fallback connection in connectPreferred", number: 2554 },
+      { title: "pgconn: preserve full error chain in normalizeTimeoutError", number: 2556 },
     ],
     url: "https://github.com/jackc/pgx",
+  },
+  {
+    repo: "compose-spec/compose-go",
+    name: "compose-go",
+    stars: "600+",
+    prs: [
+      { title: "types: add Options field to IPAMConfig", number: 870 },
+    ],
+    url: "https://github.com/compose-spec/compose-go",
+  },
+  {
+    repo: "etcd-io/etcd",
+    name: "etcd",
+    stars: "48K+",
+    prs: [
+      { title: "clientv3: don't log warn/error for expected context cancellation on shutdown", number: 21739 },
+    ],
+    url: "https://github.com/etcd-io/etcd",
+  },
+  {
+    repo: "grpc/grpc-go",
+    name: "grpc-go",
+    stars: "21K+",
+    prs: [
+      { title: "stats/opentelemetry: set ai.method in clientTracingHandler.TagRPC", number: 9116 },
+    ],
+    url: "https://github.com/grpc/grpc-go",
+  },
+  {
+    repo: "launchbadge/sqlx",
+    name: "sqlx",
+    stars: "14K+",
+    prs: [
+      { title: "sqlx-cli: use cyan instead of white for help text literals", number: 4263 },
+    ],
+    url: "https://github.com/launchbadge/sqlx",
+  },
+  {
+    repo: "hashicorp/hcl",
+    name: "HCL",
+    stars: "5K+",
+    prs: [
+      { title: "hclsyntax: fix body SrcRange start when file begins with a comment", number: 797 },
+    ],
+    url: "https://github.com/hashicorp/hcl",
   },
 ];
 
