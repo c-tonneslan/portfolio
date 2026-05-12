@@ -91,6 +91,15 @@ const contributions = [
     url: "https://github.com/launchbadge/sqlx",
   },
   {
+    repo: "jmoiron/sqlx",
+    name: "jmoiron/sqlx",
+    stars: "16K+",
+    prs: [
+      { title: "In: skip ? inside SQL comments and string literals", number: 984 },
+    ],
+    url: "https://github.com/jmoiron/sqlx",
+  },
+  {
     repo: "hashicorp/hcl",
     name: "HCL",
     stars: "5K+",
@@ -98,6 +107,60 @@ const contributions = [
       { title: "hclsyntax: fix body SrcRange start when file begins with a comment", number: 797 },
     ],
     url: "https://github.com/hashicorp/hcl",
+  },
+  {
+    repo: "pterm/pterm",
+    name: "pterm",
+    stars: "5K+",
+    prs: [
+      { title: "fix: BasicTextPrinter.Sprintln appends two newlines instead of one", number: 784 },
+    ],
+    url: "https://github.com/pterm/pterm",
+  },
+  {
+    repo: "google/uuid",
+    name: "google/uuid",
+    stars: "5K+",
+    prs: [
+      { title: "null: fix NullUUID.Scan returning Valid=true for empty string/bytes", number: 216 },
+    ],
+    url: "https://github.com/google/uuid",
+  },
+  {
+    repo: "charmbracelet/log",
+    name: "charmbracelet/log",
+    stars: "2K+",
+    prs: [
+      { title: "Share level pointer so child loggers inherit parent level changes", number: 209 },
+    ],
+    url: "https://github.com/charmbracelet/log",
+  },
+  {
+    repo: "charmbracelet/bubbles",
+    name: "charmbracelet/bubbles",
+    stars: "5K+",
+    prs: [
+      { title: "list: fix RemoveItem using wrong index when a filter is active", number: 970 },
+    ],
+    url: "https://github.com/charmbracelet/bubbles",
+  },
+  {
+    repo: "spf13/afero",
+    name: "spf13/afero",
+    stars: "6K+",
+    prs: [
+      { title: "MemMapFs: Mkdir now errors when the parent directory doesn't exist", number: 599 },
+    ],
+    url: "https://github.com/spf13/afero",
+  },
+  {
+    repo: "nats-io/nats.go",
+    name: "nats.go",
+    stars: "6K+",
+    prs: [
+      { title: "kv: reject keys with consecutive dots in keyValid and searchKeyValid", number: 2076 },
+    ],
+    url: "https://github.com/nats-io/nats.go",
   },
 ];
 
