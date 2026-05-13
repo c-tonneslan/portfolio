@@ -11,8 +11,8 @@ const roles = [
 ];
 
 const stats = [
-  { label: "Open Source PRs", value: 23 },
-  { label: "Repos Contributed To", value: 17 },
+  { label: "Open Source PRs", value: 26 },
+  { label: "Repos Contributed To", value: 20 },
 ];
 
 function useTypingEffect(words: string[], typingSpeed = 80, pauseTime = 2000) {

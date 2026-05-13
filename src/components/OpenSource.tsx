@@ -162,6 +162,33 @@ const contributions = [
     ],
     url: "https://github.com/nats-io/nats.go",
   },
+  {
+    repo: "uber-go/goleak",
+    name: "goleak",
+    stars: "4K+",
+    prs: [
+      { title: "IgnoreAnyFunction: also check the created-by frame", number: 143 },
+    ],
+    url: "https://github.com/uber-go/goleak",
+  },
+  {
+    repo: "charmbracelet/huh",
+    name: "huh",
+    stars: "5K+",
+    prs: [
+      { title: "Scope navigation messages to their originating form", number: 778 },
+    ],
+    url: "https://github.com/charmbracelet/huh",
+  },
+  {
+    repo: "rs/zerolog",
+    name: "zerolog",
+    stars: "10K+",
+    prs: [
+      { title: "ctx: propagate Go context to events created via Ctx(ctx)", number: 769 },
+    ],
+    url: "https://github.com/rs/zerolog",
+  },
 ];
 
 export default function OpenSource() {
