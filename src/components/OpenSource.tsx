@@ -96,17 +96,9 @@ const contributions = [
     stars: "16K+",
     prs: [
       { title: "In: skip ? inside SQL comments and string literals", number: 984 },
+      { title: "named: support PostgreSQL :: cast directly after a named param", number: 985 },
     ],
     url: "https://github.com/jmoiron/sqlx",
-  },
-  {
-    repo: "hashicorp/hcl",
-    name: "HCL",
-    stars: "5K+",
-    prs: [
-      { title: "hclsyntax: fix body SrcRange start when file begins with a comment", number: 797 },
-    ],
-    url: "https://github.com/hashicorp/hcl",
   },
   {
     repo: "pterm/pterm",
@@ -114,6 +106,8 @@ const contributions = [
     stars: "5K+",
     prs: [
       { title: "fix: BasicTextPrinter.Sprintln appends two newlines instead of one", number: 784 },
+      { title: "fix: InteractiveMultiselect right arrow selects only filtered options", number: 785 },
+      { title: "fix(spinner): remove data race on SpinnerPrinter IsActive and Text", number: 786 },
     ],
     url: "https://github.com/pterm/pterm",
   },
@@ -132,6 +126,8 @@ const contributions = [
     stars: "2K+",
     prs: [
       { title: "Share level pointer so child loggers inherit parent level changes", number: 209 },
+      { title: "fix: share mutex between a logger and its With() clones", number: 210 },
+      { title: "fix: don't drop user keyvals named like reserved keys", number: 211 },
     ],
     url: "https://github.com/charmbracelet/log",
   },
@@ -141,6 +137,8 @@ const contributions = [
     stars: "5K+",
     prs: [
       { title: "list: fix RemoveItem using wrong index when a filter is active", number: 970 },
+      { title: "fix(textinput): stop applying Text/Placeholder style to padding", number: 973 },
+      { title: "fix(textarea): stop wordLeft from spinning on an empty buffer", number: 974 },
     ],
     url: "https://github.com/charmbracelet/bubbles",
   },
@@ -168,6 +166,7 @@ const contributions = [
     stars: "4K+",
     prs: [
       { title: "IgnoreAnyFunction: also check the created-by frame", number: 143 },
+      { title: "filter: add default filter for the pure-Go DNS resolver", number: 144 },
     ],
     url: "https://github.com/uber-go/goleak",
   },
@@ -181,13 +180,177 @@ const contributions = [
     url: "https://github.com/charmbracelet/huh",
   },
   {
-    repo: "rs/zerolog",
-    name: "zerolog",
-    stars: "10K+",
+    repo: "charmbracelet/lipgloss",
+    name: "lipgloss",
+    stars: "9K+",
     prs: [
-      { title: "ctx: propagate Go context to events created via Ctx(ctx)", number: 769 },
+      { title: "GetBorder* bool getters return true when only BorderStyle is set", number: 675 },
+      { title: "fix(tree): stop swapping Offset start and end", number: 676 },
     ],
-    url: "https://github.com/rs/zerolog",
+    url: "https://github.com/charmbracelet/lipgloss",
+  },
+  {
+    repo: "fatih/color",
+    name: "fatih/color",
+    stars: "7K+",
+    prs: [
+      { title: "fix: correct AddBgRGB godoc and tighten both RGB examples", number: 287 },
+    ],
+    url: "https://github.com/fatih/color",
+  },
+  {
+    repo: "lima-vm/lima",
+    name: "lima",
+    stars: "17K+",
+    prs: [
+      { title: "docs: document missing LIMA_CIDATA_* env vars", number: 4988 },
+    ],
+    url: "https://github.com/lima-vm/lima",
+  },
+  {
+    repo: "uber-go/atomic",
+    name: "uber-go/atomic",
+    stars: "2K+",
+    prs: [
+      { title: "atomic.Time: add MarshalJSON / UnmarshalJSON", number: 208 },
+    ],
+    url: "https://github.com/uber-go/atomic",
+  },
+  {
+    repo: "charmbracelet/skate",
+    name: "skate",
+    stars: "2K+",
+    prs: [
+      { title: "feat(list): show single-line previews for long/multiline values", number: 177 },
+    ],
+    url: "https://github.com/charmbracelet/skate",
+  },
+  {
+    repo: "charmbracelet/glamour",
+    name: "glamour",
+    stars: "3K+",
+    prs: [
+      { title: "fix(ansi): honor Conceal in renderText", number: 550 },
+      { title: "fix(ansi): handle all CommonMark backslash escapes", number: 551 },
+    ],
+    url: "https://github.com/charmbracelet/glamour",
+  },
+  {
+    repo: "rs/cors",
+    name: "rs/cors",
+    stars: "3K+",
+    prs: [
+      { title: "docs: point Martini link at the active repo", number: 214 },
+    ],
+    url: "https://github.com/rs/cors",
+  },
+  {
+    repo: "charmbracelet/ssh",
+    name: "charmbracelet/ssh",
+    stars: "1K+",
+    prs: [
+      { title: "docs: replace dead Gliderlabs Slack link with Charm Discord", number: 42 },
+    ],
+    url: "https://github.com/charmbracelet/ssh",
+  },
+  {
+    repo: "tsenart/vegeta",
+    name: "vegeta",
+    stars: "23K+",
+    prs: [
+      { title: "docs: point TDigest reference at javadoc.io", number: 761 },
+    ],
+    url: "https://github.com/tsenart/vegeta",
+  },
+  {
+    repo: "bradleyjkemp/cupaloy",
+    name: "cupaloy",
+    stars: "400+",
+    prs: [
+      { title: "fix: scrub Go-module-path-invalid chars from snapshot filenames", number: 89 },
+    ],
+    url: "https://github.com/bradleyjkemp/cupaloy",
+  },
+  {
+    repo: "go-kit/kit",
+    name: "go-kit",
+    stars: "27K+",
+    prs: [
+      { title: "all: replace deprecated io/ioutil usage", number: 1312 },
+    ],
+    url: "https://github.com/go-kit/kit",
+  },
+  {
+    repo: "urfave/cli",
+    name: "urfave/cli",
+    stars: "22K+",
+    prs: [
+      { title: "test: regression for empty positional arg after a flag", number: 2328 },
+    ],
+    url: "https://github.com/urfave/cli",
+  },
+  {
+    repo: "go-jose/go-jose",
+    name: "go-jose",
+    stars: "2K+",
+    prs: [
+      { title: "json: report actual JSON kind in UnmarshalText type errors", number: 232 },
+    ],
+    url: "https://github.com/go-jose/go-jose",
+  },
+  {
+    repo: "goccy/go-yaml",
+    name: "goccy/go-yaml",
+    stars: "3K+",
+    prs: [
+      { title: "parser: keep grouping trailing documents after adjacent ---", number: 877 },
+    ],
+    url: "https://github.com/goccy/go-yaml",
+  },
+  {
+    repo: "aquasecurity/trivy",
+    name: "Trivy",
+    stars: "27K+",
+    prs: [
+      { title: "fix(nodejs): silently skip package.json files with invalid names", number: 10668 },
+    ],
+    url: "https://github.com/aquasecurity/trivy",
+  },
+  {
+    repo: "go-chi/chi",
+    name: "go-chi/chi",
+    stars: "20K+",
+    prs: [
+      { title: "middleware: stop double-counting BytesWritten in httpFancyWriter.ReadFrom", number: 1093 },
+    ],
+    url: "https://github.com/go-chi/chi",
+  },
+  {
+    repo: "gorilla/schema",
+    name: "gorilla/schema",
+    stars: "1K+",
+    prs: [
+      { title: "decoder: don't panic when path crosses an unexported pointer field", number: 243 },
+    ],
+    url: "https://github.com/gorilla/schema",
+  },
+  {
+    repo: "gorilla/sessions",
+    name: "gorilla/sessions",
+    stars: "3K+",
+    prs: [
+      { title: "registry: don't panic when store.New returns a nil session", number: 291 },
+    ],
+    url: "https://github.com/gorilla/sessions",
+  },
+  {
+    repo: "coreos/go-oidc",
+    name: "go-oidc",
+    stars: "2K+",
+    prs: [
+      { title: "oidc: expose typed error and sentinel for issuer-mismatch failures", number: 481 },
+    ],
+    url: "https://github.com/coreos/go-oidc",
   },
 ];
 

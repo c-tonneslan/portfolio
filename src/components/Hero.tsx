@@ -5,14 +5,14 @@ import { useEffect, useState } from "react";
 
 const roles = [
   "Full-Stack Developer",
-  "AI/ML Engineer",
-  "Open Source Contributor",
   "Systems Programmer",
+  "Open Source Contributor",
+  "Tool Builder",
 ];
 
 const stats = [
-  { label: "Open Source PRs", value: 26 },
-  { label: "Repos Contributed To", value: 20 },
+  { label: "Open Source PRs", value: 53 },
+  { label: "Repos Contributed To", value: 37 },
 ];
 
 function useTypingEffect(words: string[], typingSpeed = 80, pauseTime = 2000) {
@@ -101,9 +101,9 @@ export default function Hero() {
           </h1>
 
           <p className="text-lg md:text-xl text-muted max-w-2xl mx-auto mb-10 leading-relaxed">
-            I build real-time systems, developer tools, and AI-powered
-            applications across TypeScript, Python, Go, and Rust. I contribute
-            to open source projects at{" "}
+            I build interactive web tools, developer tooling, and systems
+            software, mostly in TypeScript, Go, Python, and Rust. I contribute
+            to open source at{" "}
             <span className="text-foreground">Tailscale</span> and{" "}
             <span className="text-foreground">LiveKit</span>.
           </p>

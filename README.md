@@ -1,96 +1,39 @@
-# charlietonneslan.dev
+# Portfolio
 
-My developer portfolio — a central hub showcasing AI-powered applications, full-stack platforms, backend microservices, and developer tools I've built.
+Personal developer portfolio. Lives at **[c-tonneslan-portfolio.vercel.app](https://c-tonneslan-portfolio.vercel.app)**.
 
-## Live Site
+## Stack
 
-**[portfolio-one-fawn-81.vercel.app](https://portfolio-one-fawn-81.vercel.app)**
-
-## Tech Stack
-
-| Layer | Technology |
-|-------|-----------|
-| Framework | Next.js 15 (App Router) |
+| Layer | Tool |
+|---|---|
+| Framework | Next.js 16 (App Router) |
 | Language | TypeScript |
 | Styling | Tailwind CSS v4 |
 | Animations | Framer Motion |
 | Deployment | Vercel |
 
-## Features
+## Featured projects
 
-- **Project showcase** with category filtering (AI/ML, Full Stack, Backend, Dev Tools)
-- **Smooth scroll-triggered animations** via Framer Motion
-- **Dark theme** with custom color system
-- **Responsive** across all breakpoints
-- **Static generation** for fast page loads
-- **SEO optimized** with Open Graph metadata
+| Project | Stack | What it is |
+|---|---|---|
+| [fretwise](https://github.com/c-tonneslan/fretwise) | TypeScript, Web Audio | Interactive fretboard with Karplus-Strong audio synthesis |
+| [littledb](https://github.com/c-tonneslan/littledb) | Go | Embedded KV store with a copy-on-write B+tree |
+| [pr-pulse](https://github.com/c-tonneslan/pr-pulse) | Python, DuckDB | Data analysis on 4,750 OSS pull requests |
+| [agent-eval](https://github.com/c-tonneslan/agent-eval) | TypeScript, Anthropic SDK | From-scratch LLM eval harness |
 
-## Projects Showcased
-
-| Project | Stack | Description |
-|---------|-------|-------------|
-| RAG Knowledge Base | Python, FastAPI, Pinecone | Production RAG pipeline with vector search and streaming responses |
-| Real-Time Collab Board | Next.js, Y.js, WebSockets | Collaborative whiteboard with CRDTs and offline sync |
-| AI SaaS Platform | Next.js, Prisma, Stripe | Full-stack SaaS with auth, payments, and AI document analysis |
-| DevFlow CLI | Rust, Tokio, SQLite | Developer productivity CLI for PR reviews and changelog generation |
-| Auth Microservice | Go, Gin, Redis, Docker | Standalone auth with JWT, RBAC, rate limiting, and observability |
-| AI Agent Workflow | Python, LangGraph, Claude API | Autonomous agent for GitHub issue triage and multi-step workflows |
-
-## Getting Started
+## Run locally
 
 ```bash
-# Clone
-git clone https://github.com/ctonneslan/portfolio.git
+git clone https://github.com/c-tonneslan/portfolio.git
 cd portfolio
-
-# Install dependencies
 npm install
-
-# Run development server
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Then open <http://localhost:3000>.
 
-## Project Structure
+## Adding a project
 
-```
-src/
-├── app/
-│   ├── globals.css      # Global styles + CSS variables
-│   ├── layout.tsx       # Root layout with metadata
-│   └── page.tsx         # Home page composition
-├── components/
-│   ├── Navbar.tsx       # Fixed nav with scroll detection
-│   ├── Hero.tsx         # Landing section with CTA
-│   ├── About.tsx        # Bio + tech overview
-│   ├── Projects.tsx     # Filterable project grid
-│   ├── ProjectCard.tsx  # Individual project card
-│   ├── Skills.tsx       # Categorized skills display
-│   ├── Contact.tsx      # Contact links
-│   └── Footer.tsx       # Footer
-└── data/
-    └── projects.ts      # Project definitions + types
-```
+Edit `src/data/projects.ts` and add an entry to the `projects` array. To also feature it on the home page, add it to `src/components/Featured.tsx`.
 
-## Adding a New Project
-
-Edit `src/data/projects.ts` and add an entry to the `projects` array:
-
-```ts
-{
-  id: "my-project",
-  title: "My Project",
-  description: "One-line description.",
-  longDescription: "Detailed description for project page.",
-  tech: ["TypeScript", "React"],
-  github: "https://github.com/ctonneslan/my-project",
-  live: "https://my-project.vercel.app",
-  status: "live",       // "live" | "in-progress" | "planned"
-  category: "fullstack", // "ai" | "fullstack" | "backend" | "devtool"
-}
-```
-
-## License
-
-MIT
+MIT.

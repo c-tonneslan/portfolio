@@ -69,11 +69,11 @@ export default function About() {
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {[
-                    "AI/RAG Pipelines",
-                    "Real-Time Systems",
-                    "Auth & Security",
-                    "Developer Tools",
-                    "CI/CD & DevOps",
+                    "Developer Tooling",
+                    "Systems & Storage",
+                    "Interactive Web Apps",
+                    "Data Analysis",
+                    "Open Source",
                   ].map((area) => (
                     <span
                       key={area}

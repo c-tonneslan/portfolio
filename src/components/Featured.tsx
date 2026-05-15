@@ -4,43 +4,93 @@ import { motion } from "framer-motion";
 
 const featured = [
   {
-    title: "RAG Knowledge Base",
+    title: "groundwork",
     description:
-      "Full RAG pipeline with vector search, streaming AI responses, and source citations. Upload PDFs, Markdown, or text files and ask questions grounded in your data.",
-    metrics: ["Sub-2s query latency", "5-source citations", "Streaming SSE"],
-    tech: ["Python", "FastAPI", "ChromaDB", "OpenAI", "Next.js"],
+      "Interactive map of every affordable-housing project in NYC's HPD pipeline. 3,707 projects aggregated from 8,983 building-level rows of NYC Open Data, plotted with MapLibre and Carto basemaps. Click any marker for the income-tier breakdown, bedroom mix, council district, and a contact link. Filter by borough, construction type, year, and project size, the map and list stay in sync.",
+    metrics: ["3,707 NYC projects", "MapLibre + clustering", "Real civic data"],
+    tech: ["TypeScript", "Next.js", "MapLibre GL", "Socrata", "Tailwind"],
+    gradient: "from-emerald-500/15 to-teal-500/10",
+    borderGlow: "hover:shadow-emerald-500/15",
+    github: "https://github.com/c-tonneslan/groundwork",
+    live: "https://groundwork-tan.vercel.app",
+  },
+  {
+    title: "airwaves",
+    description:
+      "Tune into about 5,000 live internet radio stations from a spinning 3D globe. Pick a country, click any glowing marker, hit play. Built on Next.js, Three.js (via globe.gl), and the volunteer-run Radio Browser API. The whole thing runs in the browser, no backend.",
+    metrics: ["3D globe", "5,000 stations", "Zero backend"],
+    tech: ["TypeScript", "Next.js", "Three.js", "Tailwind"],
+    gradient: "from-amber-500/15 to-yellow-500/10",
+    borderGlow: "hover:shadow-amber-500/15",
+    github: "https://github.com/c-tonneslan/airwaves",
+    live: "https://airwaves-steel.vercel.app",
+  },
+  {
+    title: "fretwise",
+    description:
+      "Interactive fretboard editor for guitar and bass. 40+ scales, modes, arpeggios, and bebop vocabulary, with Karplus-Strong plucked-string synthesis running entirely in the browser. No samples, no Tone.js, just the algorithm.",
+    metrics: ["10 tunings", "Karplus-Strong synth", "URL-shareable state"],
+    tech: ["TypeScript", "Next.js", "Web Audio API", "Tailwind"],
+    gradient: "from-amber-500/10 to-orange-500/10",
+    borderGlow: "hover:shadow-amber-500/10",
+    github: "https://github.com/c-tonneslan/fretwise",
+    live: "https://fretwise-neon.vercel.app",
+  },
+  {
+    title: "littledb",
+    description:
+      "Tiny embedded key/value store in Go. Single-file ACID with a copy-on-write B+tree, two-meta-page commits, and MVCC-style snapshot reads. Around 1,500 lines. Benchmarks within 5% of bbolt on writes (both bottleneck on fsync); ~6x slower on reads because there's deliberately no mmap.",
+    metrics: ["~1.5k LOC", "ACID + COW", "Tied with bbolt on writes"],
+    tech: ["Go", "B+tree", "Copy-on-Write", "CRC32C"],
+    gradient: "from-emerald-500/10 to-teal-500/10",
+    borderGlow: "hover:shadow-emerald-500/10",
+    github: "https://github.com/c-tonneslan/littledb",
+  },
+  {
+    title: "flamectl",
+    description:
+      "Render a pprof profile as a single-file interactive SVG flamegraph. Takes input from a file, an HTTP URL, or stdin; emits one SVG you can open in any browser. About 600 lines of Go with hand-rolled tree aggregation and SVG layout.",
+    metrics: ["~600 LOC", "Single-file SVG", "Hover-to-inspect"],
+    tech: ["Go", "pprof", "SVG"],
+    gradient: "from-red-500/10 to-amber-500/10",
+    borderGlow: "hover:shadow-red-500/10",
+    github: "https://github.com/c-tonneslan/flamectl",
+  },
+  {
+    title: "tcppulse",
+    description:
+      "Multi-target TCP latency monitor with a live TUI. Probes hosts in parallel, draws sparklines per target, and reports p50/p90/p99 + loss rate. About 400 lines of Rust across four files (CLI, async probes, metrics, TUI). Tokio + Ratatui, no unsafe.",
+    metrics: ["Tokio + Ratatui", "~400 LOC", "Async probes"],
+    tech: ["Rust", "Tokio", "Ratatui", "Crossterm"],
+    gradient: "from-cyan-500/10 to-sky-500/10",
+    borderGlow: "hover:shadow-cyan-500/10",
+    github: "https://github.com/c-tonneslan/tcppulse",
+  },
+  {
+    title: "pr-pulse",
+    description:
+      "What actually predicts whether an OSS pull request gets merged? Pulled 4,750 PRs from 24 popular repos (Go, Rust, TypeScript, Python, C/C++), analyzed with DuckDB. Surprising headline: author association is the entire signal. Members merge at 87%, prior contributors at 69%, drive-by strangers at 2%.",
+    metrics: ["4,750 PRs", "24 repos", "5 findings, all charted"],
+    tech: ["Python", "DuckDB", "Pandas", "Matplotlib", "GraphQL"],
+    gradient: "from-rose-500/10 to-pink-500/10",
+    borderGlow: "hover:shadow-rose-500/10",
+    github: "https://github.com/c-tonneslan/pr-pulse",
+  },
+  {
+    title: "agent-eval",
+    description:
+      "Evaluation framework for agentic LLMs, built from scratch with the Anthropic SDK. 28 tasks across web, code, multistep, and reasoning, scored with a mix of deterministic checks and LLM-as-judge rubrics. Reports per-category pass rates with 95% confidence intervals because n=28 means real uncertainty.",
+    metrics: ["28-task suite", "ReAct loop", "95% CI on results"],
+    tech: ["TypeScript", "Anthropic SDK", "LLM-as-Judge"],
     gradient: "from-blue-500/10 to-purple-500/10",
     borderGlow: "hover:shadow-blue-500/10",
-    github: "https://github.com/c-tonneslan/rag-knowledge-base",
-    live: "https://rag-knowledge-base-sandy.vercel.app",
-  },
-  {
-    title: "Real-Time Collab Board",
-    description:
-      "Collaborative whiteboard built on CRDTs for conflict-free editing. Multiple users draw, add sticky notes, and see live cursors simultaneously with zero merge conflicts.",
-    metrics: ["CRDT sync", "Live cursors", "Zero conflicts"],
-    tech: ["TypeScript", "Y.js", "WebSockets", "Canvas API"],
-    gradient: "from-green-500/10 to-emerald-500/10",
-    borderGlow: "hover:shadow-green-500/10",
-    github: "https://github.com/c-tonneslan/collab-board",
-    live: "https://collab-board-gules.vercel.app",
-  },
-  {
-    title: "mcpwire",
-    description:
-      "Open source npm library for connecting to MCP servers in two lines of code. Auto transport detection, server discovery from Claude/Cursor configs, and built-in tool formatting for OpenAI, Anthropic, and Gemini.",
-    metrics: ["Published on npm", "14 tests", "CLI included"],
-    tech: ["TypeScript", "MCP", "OpenAI", "Anthropic", "npm"],
-    gradient: "from-orange-500/10 to-amber-500/10",
-    borderGlow: "hover:shadow-orange-500/10",
-    github: "https://github.com/c-tonneslan/mcpwire",
-    live: "https://www.npmjs.com/package/mcpwire",
+    github: "https://github.com/c-tonneslan/agent-eval",
   },
 ];
 
 export default function Featured() {
   return (
-    <section className="py-20 px-6">
+    <section id="projects" className="py-20 px-6">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -96,14 +146,16 @@ export default function Featured() {
 
                     {/* Links */}
                     <div className="flex gap-4">
-                      <a
-                        href={project.live}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm px-5 py-2 bg-accent hover:bg-accent-hover text-white rounded-lg font-medium transition-all hover:-translate-y-0.5"
-                      >
-                        Live Demo
-                      </a>
+                      {project.live && (
+                        <a
+                          href={project.live}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm px-5 py-2 bg-accent hover:bg-accent-hover text-white rounded-lg font-medium transition-all hover:-translate-y-0.5"
+                        >
+                          Live Demo
+                        </a>
+                      )}
                       <a
                         href={project.github}
                         target="_blank"

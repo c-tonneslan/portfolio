@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
+import Featured from "@/components/Featured";
 import OpenSource from "@/components/OpenSource";
 import Skills from "@/components/Skills";
 import Contact from "@/components/Contact";
@@ -13,6 +14,7 @@ export default function Home() {
       <main>
         <Hero />
         <About />
+        <Featured />
         <OpenSource />
         <Skills />
         <Contact />
