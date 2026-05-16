@@ -18,15 +18,17 @@ export default function About() {
           <div className="grid md:grid-cols-2 gap-12">
             <div className="space-y-4 text-muted leading-relaxed">
               <p>
-                I&apos;m a software engineer interested in systems programming,
-                real-time infrastructure, and developer tooling. I work mostly
-                in TypeScript and Go, with some Python and Rust mixed in.
+                I&apos;m a software engineer interested in developer tooling,
+                backend systems, and the occasional interactive web app. I work
+                mostly in TypeScript and Go, with some Python and Rust mixed
+                in.
               </p>
               <p>
-                I&apos;ve been contributing to open source projects at Tailscale
-                and LiveKit, fixing real bugs in production codebases. It&apos;s
-                a good way to learn how large Go projects are structured and
-                actually ship something useful.
+                I spend a lot of my time contributing to open source. So far
+                that&apos;s meant shipping bug fixes to Tailscale, LiveKit,
+                etcd, pgx, gRPC, and a handful of other Go projects. It&apos;s a
+                good way to learn how large codebases are actually structured
+                and to ship something other people use.
               </p>
               <p>
                 Currently looking for software engineering internships or

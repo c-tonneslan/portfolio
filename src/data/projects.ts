@@ -13,6 +13,94 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "vouch",
+    title: "vouch",
+    description:
+      "Go CLI tuned for the failure modes of AI-generated code. v1 ships a hallucination detector that runs go build, classifies the errors into four patterns the model tends to produce (undefined symbol, undefined method, arity mismatch, type mismatch), and optionally scopes the report to PR-touched lines via --diff. Roadmap covers gopls-backed signature checks, an over-mock detector for tests that would pass against a no-op implementation, refactor-residue detection, and an eval harness measuring precision/recall against a corpus of real AI-authored merged PRs.",
+    longDescription:
+      "Generic linters flag what's broken in any code; vouch flags what AI specifically gets wrong. The hallucination detector shells out to go build, parses the compiler error output, and classifies each error into one of four AI-failure patterns: undefined identifiers (called the wrong constructor name), undefined methods (invented a method on a real type), arity mismatches (off-by-one on argument lists), and type mismatches (passed the wrong type at a call site). Errors that don't match a pattern are dropped, so the output is signal not noise. The --diff <ref> flag reads `git diff <ref>...HEAD --unified=0` and only reports findings that touch lines changed in the PR, which is what you actually want during review. Text format for terminals, JSON for piping; exit 0 clean, 1 findings, 2 tool error. The interesting next step is the eval harness: a corpus of 50+ labeled real-world AI-authored PRs sourced from `Generated with Claude Code` / `Co-Authored-By: Claude` trailer searches plus Devin / Cursor / Sweep merges, with precision and recall measured against off-the-shelf linters. That's the credibility differentiator; without it vouch is just another AI linter.",
+    tech: ["Go", "go/build", "git"],
+    github: "https://github.com/c-tonneslan/vouch",
+    status: "in-progress",
+    category: "devtool",
+  },
+  {
+    id: "sideman",
+    title: "sideman",
+    description:
+      "Play a keyboard in your browser, hit a button, Claude composes a 4-bar drum + bass accompaniment to fit what you just played, and it plays back layered with your performance. Raw Web Audio synthesis (no Tone.js, no samples), Next.js, Anthropic Haiku.",
+    longDescription:
+      "Browser-based MIDI keyboard with two octaves, playable by mouse or QWERTY (Z-row + S/D/G/H/J for lower octave, Q-row + 2/3/5/6/7 for upper). The synth is all raw Web Audio: lead is a sawtooth through a lowpass with an ADSR-ish envelope, bass is a detuned sine + square mix through a 400 Hz lowpass, drums are synthesized (kick is a pitched sine, snare is filtered noise + a triangle body, hihat is high-passed noise with a short decay). White noise generated once into a shared AudioBuffer. Recording starts on the first note and captures midi + start ms + duration + velocity for every keypress. The accompany button POSTs the recording to a Next.js API route that hits Anthropic's Messages API with Claude Haiku, asks for a JSON spec of a 4-bar drum + bass groove that fits the performance, and validates the response. Without an API key, a deterministic fallback generates a straight-eighths kick-snare with a root-fifth-octave walking bass keyed to the most-played pitch class. Playback layers your original notes (scheduled against AudioContext.currentTime, sample-accurate) with the generated accompaniment. About 700 lines of TypeScript across the synth, keyboard layout, route, and page.",
+    tech: ["TypeScript", "Next.js 16", "Web Audio API", "Anthropic", "Tailwind v4"],
+    github: "https://github.com/c-tonneslan/sideman",
+    live: "https://sideman-97ix.vercel.app",
+    status: "live",
+    category: "fullstack",
+  },
+  {
+    id: "strata",
+    title: "strata",
+    description:
+      "Go CLI that maps how a codebase's architecture drifts over its git history. Samples N commits across the timeline, extracts the package import graph at each, diffs consecutive snapshots, and renders one self-contained HTML report showing packages born, packages died, edges added, edges severed, plus a drift score per commit.",
+    longDescription:
+      "Code review tools show you what changed in a diff, tag pages show you what shipped in a release. Neither answers 'how did the shape of this codebase evolve?' strata does. Point it at a Go repo, pick a sample size, and it walks the timeline in temp git worktrees, runs `go list -json -deps ./...` at each sample point (shelling out instead of using go/packages directly so historical commits with stale module caches don't blow up), and computes a structural diff between consecutive snapshots. The drift score is symmetric difference of nodes-plus-edges over their union, bounded 0 to 1, so spikes immediately flag architectural events: big refactors, module path renames, accidental new dependencies. The output is one HTML file you can open in any browser, with a sidebar of commits ranked by drift, a Cytoscape force-directed graph of whatever commit you select, and a structural-changes panel listing exactly what came and went. No build step on the consumer side, Cytoscape loaded from a CDN, everything else embedded. About 700 lines of Go across four internal packages (git, graph, diff, report). Tested against the lipgloss v1→v2 module rename, which it correctly flags as 100% drift on the rename commit.",
+    tech: ["Go", "Cytoscape.js", "html/template", "go list"],
+    github: "https://github.com/c-tonneslan/strata",
+    status: "live",
+    category: "devtool",
+  },
+  {
+    id: "agentstack",
+    title: "agentstack",
+    description:
+      "Q&A board where every answerer is an AI agent. Worker pool fans questions out in parallel, the judge ranks answers, reputation accrues on a Stack Overflow-style leaderboard. Single Go binary with embedded SQLite, templates, and CSS.",
+    longDescription:
+      "Self-hosted board with a chi router, html/template UI, and an embedded SQLite store. Posting a question lands it in a bounded worker pool that fans out to every registered agent in parallel, each call deadline-cancellable. The judge runs once the fan-in completes (or the timeout fires) and persists scores, ranks, and rationale, then adjusts agent reputation (+10 for first place, +1 for participating). Two pluggable interfaces: Answerer (one method) has a Mock implementation for offline demos and an Anthropic Messages-API implementation for real answers, with four personas in the default roster (skeptic, theorist, pragmatist, hacker). Judge (one method) has a heuristic judge that scores on length and keyword overlap, and an LLM judge that asks Claude Haiku to rate each answer 0-10 with a rationale, with automatic fallback to the heuristic if the API call fails. SQLite runs in WAL mode with foreign keys on, single open connection so writes serialize cleanly without busy retries. End-to-end test runs the full pipeline against a temp database with three mock agents and verifies reputation gets distributed correctly. About 1,400 lines of Go across six internal packages.",
+    tech: ["Go", "SQLite", "chi", "html/template", "Anthropic"],
+    github: "https://github.com/c-tonneslan/agentstack",
+    status: "live",
+    category: "backend",
+  },
+  {
+    id: "fourth-down-audit",
+    title: "fourth-down-audit",
+    description:
+      "NFL 4th-down decision audit. Scores every 4th down in 2018-2024 against a fresh XGBoost win-probability model (log-loss 0.465 vs nflfastR's 0.463 on held-out 2024) and reports 90% bootstrap CIs on each coach's total.",
+    longDescription:
+      "Trained a new XGBoost win-probability classifier on 300k plays of nflverse pbp. Held out 2024 entirely; landed at log-loss 0.465, within 0.3% of nflfastR's bundled WP model on the same plays. Added a logistic conversion model, a logistic FG-make model, and an empirical punt-net lookup, then computed E[WP|go], E[WP|punt], E[WP|FG] for every 4th down in 2018-2024 with 1,500-iter bootstrap CIs per coach-season. Python pipeline runs locally against a DuckDB store (~50 MB on disk for seven seasons of play-by-play), then dumps every endpoint's response to JSON for a fully static Next.js export on Vercel. The dashboard ranks coaches by WP lost with confidence-interval bars, filters by season, situation (red zone, two-minute, own territory, FG range), and decision type, and on click pops a play drawer with the model's three-option breakdown and an animated WP curve over the surrounding plays. Coaches and the model agree about 57% of the time in 2024; the model says go-for-it on 900+ plays where the coach punted instead. The README is explicit about what the model can't see (opponent strength, weather, personnel) and treats decision quality as separate from outcome quality.",
+    tech: ["Python", "XGBoost", "DuckDB", "Next.js", "TypeScript", "Recharts", "Tailwind"],
+    github: "https://github.com/c-tonneslan/fourth-down-audit",
+    live: "https://fourth-down-audit.vercel.app",
+    status: "live",
+    category: "data",
+  },
+  {
+    id: "gigledger",
+    title: "gigledger",
+    description:
+      "Personal finance dashboard for 1099 freelancers. Self-employment tax, Section 179, quarterly estimates, and income-volatility runway, all in one place. Built while filing my own 2025 1099 return.",
+    longDescription:
+      "Next.js + FastAPI app for the four problems Mint and YNAB don't solve when you're self-employed: SE tax sneaks up on people who only budget for income tax, quarterly 1040-ES needs an honest YTD projection, platform fees eat the effective hourly rate, and one slow month is normal but three in a row is an emergency. Tax engine handles SE tax with the SS wage-base cap and Additional Medicare 0.9%, simplified QBI, federal brackets, and per-state math (PA flat 3.07% by default; lookup table for the rest). Section 179 is modeled per-transaction so a laptop purchase reduces this year's tax instead of depreciating. The transaction classifier is two-tier: a learned MerchantRule table handles repeat merchants deterministically, Anthropic Claude Haiku only runs on novel merchants, and every user correction creates a rule so the LLM cost trends to zero. Plaid sandbox for bank connections with a clean demo-data fallback so the app demos without keys. 11 passing tests pin the tax math.",
+    tech: ["TypeScript", "Next.js", "Python", "FastAPI", "Postgres", "Plaid", "Anthropic"],
+    github: "https://github.com/c-tonneslan/gigledger",
+    live: "https://gigledger-lovat.vercel.app",
+    status: "live",
+    category: "fullstack",
+  },
+  {
+    id: "act-pacing-coach",
+    title: "act-pacing-coach",
+    description:
+      "Timed ACT math practice that finds where you bled minutes, not just what you got wrong. 20-question ramped half-session with a per-question pace target, then a report with accuracy buckets, difficulty bands, and coach-notes pulled from your data.",
+    longDescription:
+      "Built while tutoring high schoolers for the ACT. Every kid I've worked with has the same problem: they know the math, they just can't do it fast enough, and Khan Academy doesn't surface that. The app runs a 20-question half-session that ramps in difficulty (D1 pre-algebra up to D6 trig/log) the same way the real ACT math section does, gives every question a pace target (30s for the easy ones, 90-120s for the back-end trig problems), and tracks per-question time even across skips and revisits. End-of-session report has a time-per-question bar chart with the target overlaid as a dashed line, accuracy bucketed by how long you spent (`<30s`, `30-60s`, `60-120s`, `120s+`), difficulty band breakdown so you can see where the wheels come off, topic breakdown across the six ACT math strands, and a coach-notes section that turns the raw data into one-liners a tutor would actually say (\"you spent 2.1x on Q14 and still got it wrong, mark and move next time\", \"3 questions left blank, on the real test guess on everything\"). Skip queue lets you mark and return without losing the per-question timer state. Pure static export, no backend, sessionStorage holds the result. Question bank is a plain TS file so adding sections (English, Reading, Science) is the same pattern. Recommendation engine is six pure functions in `src/lib/analytics.ts`.",
+    tech: ["TypeScript", "Next.js 16", "Tailwind v4"],
+    github: "https://github.com/c-tonneslan/act-pacing-coach",
+    live: "https://act-pacing-coach.vercel.app",
+    status: "live",
+    category: "fullstack",
+  },
+  {
     id: "playcaller",
     title: "playcaller",
     description:
@@ -77,10 +165,10 @@ export const projects: Project[] = [
     id: "groundwork",
     title: "groundwork",
     description:
-      "Interactive map of every affordable-housing project in NYC's HPD pipeline. Filter by borough, construction type, and project size; click a marker for the full income-tier and bedroom mix.",
+      "Interactive map of 6,500+ affordable-housing projects across six U.S. cities. Layered with census-tract rent burden, a supply-demand gap analysis, and the elected representative for every project's district.",
     longDescription:
-      "Aggregates 8,983 building-level rows from NYC's Open Data Socrata API into 3,707 projects, computes centroid coordinates per project, and plots them on a MapLibre GL map with cluster-on-zoom. Sidebar list and map stay in sync; the detail panel shows income-tier breakdown (extremely-low through middle income), bedroom mix, council district, community board, prevailing-wage and extended-affordability flags. Data is fetched at build time and shipped as a 2.2 MB JSON in /public, so the page renders with no backend.",
-    tech: ["TypeScript", "Next.js", "MapLibre GL", "Socrata", "Tailwind"],
+      "Pulls live open data from NYC, SF, LA, DC, Chicago, and Philly (Socrata + ArcGIS feature services) and normalizes ~6,500 projects into a single Postgres + PostGIS schema. Every project is a GEOGRAPHY point so the map can do bbox-bound queries via GIST index. A second layer pulls ACS 5-year tract demographics + TIGERweb polygons and computes a per-tract supply-demand gap (rent-burdened households per affordable unit within 1 km) as a pure PostGIS spatial join — surfaces underserved neighborhoods in seconds. A third layer scrapes 85 council members / supervisors so clicking any project surfaces the elected rep, district totals, and sibling projects they're stewarding. Frontend is Leaflet + canvas markercluster (pivoted from MapLibre after a CSP eval issue) with a side-by-side city comparison view.",
+    tech: ["TypeScript", "Next.js", "Postgres", "PostGIS", "Leaflet", "Census ACS"],
     github: "https://github.com/c-tonneslan/groundwork",
     live: "https://groundwork-tan.vercel.app",
     status: "live",

@@ -3,17 +3,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-const roles = [
-  "Full-Stack Developer",
-  "Systems Programmer",
-  "Open Source Contributor",
-  "Tool Builder",
-];
-
-const stats = [
-  { label: "Open Source PRs", value: 53 },
-  { label: "Repos Contributed To", value: 37 },
-];
+const roles = ["Full-Stack Developer", "Open Source Contributor"];
 
 function useTypingEffect(words: string[], typingSpeed = 80, pauseTime = 2000) {
   const [text, setText] = useState("");
@@ -43,28 +33,6 @@ function useTypingEffect(words: string[], typingSpeed = 80, pauseTime = 2000) {
   }, [text, isDeleting, wordIndex, words, typingSpeed, pauseTime]);
 
   return text;
-}
-
-function AnimatedCounter({ value }: { value: number }) {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    let start = 0;
-    const duration = 1500;
-    const step = Math.ceil(value / (duration / 16));
-    const timer = setInterval(() => {
-      start += step;
-      if (start >= value) {
-        setCount(value);
-        clearInterval(timer);
-      } else {
-        setCount(start);
-      }
-    }, 16);
-    return () => clearInterval(timer);
-  }, [value]);
-
-  return <>{count}</>;
 }
 
 export default function Hero() {
@@ -102,13 +70,14 @@ export default function Hero() {
 
           <p className="text-lg md:text-xl text-muted max-w-2xl mx-auto mb-10 leading-relaxed">
             I build interactive web tools, developer tooling, and systems
-            software, mostly in TypeScript, Go, Python, and Rust. I contribute
-            to open source at{" "}
-            <span className="text-foreground">Tailscale</span> and{" "}
-            <span className="text-foreground">LiveKit</span>.
+            software, mostly in TypeScript, Go, Python, and Rust. I&apos;ve
+            shipped patches to{" "}
+            <span className="text-foreground">Tailscale</span>,{" "}
+            <span className="text-foreground">LiveKit</span>, etcd, pgx, and a
+            handful of other Go projects.
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-4 mb-14">
+          <div className="flex flex-wrap items-center justify-center gap-4">
             <a
               href="#opensource"
               className="px-7 py-3.5 bg-accent hover:bg-accent-hover text-white rounded-xl font-medium transition-all hover:shadow-lg hover:shadow-accent/20 hover:-translate-y-0.5"
@@ -122,42 +91,6 @@ export default function Hero() {
               Contact Me
             </a>
           </div>
-
-          {/* Stats with animated counters */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-            className="grid grid-cols-2 gap-4 max-w-sm mx-auto"
-          >
-            {stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="bg-card-bg/50 border border-card-border rounded-xl p-4 backdrop-blur-sm"
-              >
-                <div className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-foreground to-muted">
-                  <AnimatedCounter value={stat.value} />
-                </div>
-                <div className="text-xs text-muted mt-1">{stat.label}</div>
-              </div>
-            ))}
-          </motion.div>
-        </motion.div>
-
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
-        >
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ repeat: Infinity, duration: 2 }}
-            className="w-5 h-8 border-2 border-[#333] rounded-full flex justify-center pt-1"
-          >
-            <div className="w-1 h-2 bg-muted rounded-full" />
-          </motion.div>
         </motion.div>
       </div>
     </section>

@@ -15,7 +15,7 @@ export default function Contact() {
           <h2 className="text-3xl font-bold mb-2">Get in Touch</h2>
           <div className="w-12 h-1 bg-accent rounded mx-auto mb-6" />
           <p className="text-muted mb-10 leading-relaxed">
-            I&apos;m looking for full-stack, backend, and AI/ML engineering
+            I&apos;m looking for software engineering internships or full-time
             roles. If you&apos;re hiring or want to collaborate on something,
             reach out.
           </p>

@@ -4,39 +4,6 @@ import { motion } from "framer-motion";
 
 const featured = [
   {
-    title: "groundwork",
-    description:
-      "Interactive map of every affordable-housing project in NYC's HPD pipeline. 3,707 projects aggregated from 8,983 building-level rows of NYC Open Data, plotted with MapLibre and Carto basemaps. Click any marker for the income-tier breakdown, bedroom mix, council district, and a contact link. Filter by borough, construction type, year, and project size, the map and list stay in sync.",
-    metrics: ["3,707 NYC projects", "MapLibre + clustering", "Real civic data"],
-    tech: ["TypeScript", "Next.js", "MapLibre GL", "Socrata", "Tailwind"],
-    gradient: "from-emerald-500/15 to-teal-500/10",
-    borderGlow: "hover:shadow-emerald-500/15",
-    github: "https://github.com/c-tonneslan/groundwork",
-    live: "https://groundwork-tan.vercel.app",
-  },
-  {
-    title: "airwaves",
-    description:
-      "Tune into about 5,000 live internet radio stations from a spinning 3D globe. Pick a country, click any glowing marker, hit play. Built on Next.js, Three.js (via globe.gl), and the volunteer-run Radio Browser API. The whole thing runs in the browser, no backend.",
-    metrics: ["3D globe", "5,000 stations", "Zero backend"],
-    tech: ["TypeScript", "Next.js", "Three.js", "Tailwind"],
-    gradient: "from-amber-500/15 to-yellow-500/10",
-    borderGlow: "hover:shadow-amber-500/15",
-    github: "https://github.com/c-tonneslan/airwaves",
-    live: "https://airwaves-steel.vercel.app",
-  },
-  {
-    title: "fretwise",
-    description:
-      "Interactive fretboard editor for guitar and bass. 40+ scales, modes, arpeggios, and bebop vocabulary, with Karplus-Strong plucked-string synthesis running entirely in the browser. No samples, no Tone.js, just the algorithm.",
-    metrics: ["10 tunings", "Karplus-Strong synth", "URL-shareable state"],
-    tech: ["TypeScript", "Next.js", "Web Audio API", "Tailwind"],
-    gradient: "from-amber-500/10 to-orange-500/10",
-    borderGlow: "hover:shadow-amber-500/10",
-    github: "https://github.com/c-tonneslan/fretwise",
-    live: "https://fretwise-neon.vercel.app",
-  },
-  {
     title: "littledb",
     description:
       "Tiny embedded key/value store in Go. Single-file ACID with a copy-on-write B+tree, two-meta-page commits, and MVCC-style snapshot reads. Around 1,500 lines. Benchmarks within 5% of bbolt on writes (both bottleneck on fsync); ~6x slower on reads because there's deliberately no mmap.",
@@ -45,6 +12,39 @@ const featured = [
     gradient: "from-emerald-500/10 to-teal-500/10",
     borderGlow: "hover:shadow-emerald-500/10",
     github: "https://github.com/c-tonneslan/littledb",
+  },
+  {
+    title: "civic-philly",
+    description:
+      "A real-asset civic tool, not a data viz. 5,000+ housing developments, zoning permits, transit projects, and capital infrastructure investments in Philadelphia, joined against 408 ACS census tracts, 10 council district polygons, 239 Registered Community Organizations, every city council member's contact info, 4,212 OPA property owners (the shell-LLC pattern catcher), and 6,400+ L&I displacement signals (demolition permits + housing-code violations). Postgres tsvector full-text search. Top-applicants and top-owners leaderboards. Per-district briefing pages with year-by-year activity charts. Status-history accountability tracker for stalled projects. Equity overlay choropleth on the map. Mobile bottom-sheet for organizers at meetings. /this-week content homepage with weekly aggregations. RSS feeds per district. Dynamic next/og preview cards for every project and district. Sitemap.xml so project pages are Google-indexable. /embed iframe for blogs and CDC sites. Public JSON API at /api/v1. Cited methodology page. Email alerts and weekly per-district digests via Resend. Built for council aides, organizers, and reporters.",
+    metrics: ["5,000+ projects · 4,200+ owners · 6,400+ signals", "Full-text search · public API · RSS · OG", "Equity + accountability + displacement layers"],
+    tech: ["TypeScript", "Next.js 16", "MapLibre GL", "PostGIS", "Census ACS", "next/og"],
+    gradient: "from-sky-500/15 to-teal-500/10",
+    borderGlow: "hover:shadow-sky-500/15",
+    github: "https://github.com/c-tonneslan/civic-philly",
+    live: "https://civic-philly.vercel.app",
+  },
+  {
+    title: "groundwork",
+    description:
+      "Interactive map of 6,500+ affordable-housing projects across six U.S. cities (NYC, SF, LA, DC, Chicago, Philly), unified into one Postgres + PostGIS schema. Adds a census-tract rent-burden choropleth, a supply-demand gap analysis (burdened households per nearby affordable unit, pure PostGIS spatial join), and a stakeholders panel that surfaces the elected representative for any clicked development.",
+    metrics: ["6 cities, 6,500+ projects", "PostGIS spatial joins", "85 elected reps scraped"],
+    tech: ["TypeScript", "Next.js", "Postgres", "PostGIS", "Leaflet", "Census ACS"],
+    gradient: "from-emerald-500/15 to-teal-500/10",
+    borderGlow: "hover:shadow-emerald-500/15",
+    github: "https://github.com/c-tonneslan/groundwork",
+    live: "https://groundwork-tan.vercel.app",
+  },
+  {
+    title: "fourth-down-audit",
+    description:
+      "NFL 4th-down decision audit. Trained a new XGBoost win-probability model on 300k plays of nflverse pbp; held out 2024 and landed at log-loss 0.465, within 0.3% of nflfastR's bundled WP model on the same plays. Added a conversion logit, an FG-make logit, and an empirical punt-net lookup, then scored every 4th down in 2018-2024 with 1,500-iter bootstrap CIs per coach-season. The dashboard ranks coaches by WP lost with confidence-interval bars, filters by situation (red zone, two-minute, own territory, FG range) and decision type, and on click pops a play drawer with the three-option E[WP] breakdown and an animated WP curve over the surrounding plays.",
+    metrics: ["300k plays · 7 seasons", "Log-loss 0.465", "1,500-iter bootstrap CIs"],
+    tech: ["Python", "XGBoost", "DuckDB", "Next.js"],
+    gradient: "from-amber-500/15 to-orange-500/10",
+    borderGlow: "hover:shadow-amber-500/15",
+    github: "https://github.com/c-tonneslan/fourth-down-audit",
+    live: "https://fourth-down-audit.vercel.app",
   },
   {
     title: "flamectl",
@@ -57,26 +57,6 @@ const featured = [
     github: "https://github.com/c-tonneslan/flamectl",
   },
   {
-    title: "tcppulse",
-    description:
-      "Multi-target TCP latency monitor with a live TUI. Probes hosts in parallel, draws sparklines per target, and reports p50/p90/p99 + loss rate. About 400 lines of Rust across four files (CLI, async probes, metrics, TUI). Tokio + Ratatui, no unsafe.",
-    metrics: ["Tokio + Ratatui", "~400 LOC", "Async probes"],
-    tech: ["Rust", "Tokio", "Ratatui", "Crossterm"],
-    gradient: "from-cyan-500/10 to-sky-500/10",
-    borderGlow: "hover:shadow-cyan-500/10",
-    github: "https://github.com/c-tonneslan/tcppulse",
-  },
-  {
-    title: "pr-pulse",
-    description:
-      "What actually predicts whether an OSS pull request gets merged? Pulled 4,750 PRs from 24 popular repos (Go, Rust, TypeScript, Python, C/C++), analyzed with DuckDB. Surprising headline: author association is the entire signal. Members merge at 87%, prior contributors at 69%, drive-by strangers at 2%.",
-    metrics: ["4,750 PRs", "24 repos", "5 findings, all charted"],
-    tech: ["Python", "DuckDB", "Pandas", "Matplotlib", "GraphQL"],
-    gradient: "from-rose-500/10 to-pink-500/10",
-    borderGlow: "hover:shadow-rose-500/10",
-    github: "https://github.com/c-tonneslan/pr-pulse",
-  },
-  {
     title: "agent-eval",
     description:
       "Evaluation framework for agentic LLMs, built from scratch with the Anthropic SDK. 28 tasks across web, code, multistep, and reasoning, scored with a mix of deterministic checks and LLM-as-judge rubrics. Reports per-category pass rates with 95% confidence intervals because n=28 means real uncertainty.",
@@ -85,6 +65,17 @@ const featured = [
     gradient: "from-blue-500/10 to-purple-500/10",
     borderGlow: "hover:shadow-blue-500/10",
     github: "https://github.com/c-tonneslan/agent-eval",
+  },
+  {
+    title: "airwaves",
+    description:
+      "Tune into about 5,000 live internet radio stations from a spinning 3D globe. Pick a country, click any glowing marker, hit play. Built on Next.js, Three.js (via globe.gl), and the volunteer-run Radio Browser API. The whole thing runs in the browser, no backend.",
+    metrics: ["3D globe", "5,000 stations", "Zero backend"],
+    tech: ["TypeScript", "Next.js", "Three.js", "Tailwind"],
+    gradient: "from-amber-500/15 to-yellow-500/10",
+    borderGlow: "hover:shadow-amber-500/15",
+    github: "https://github.com/c-tonneslan/airwaves",
+    live: "https://airwaves-steel.vercel.app",
   },
 ];
 

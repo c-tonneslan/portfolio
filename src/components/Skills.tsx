@@ -17,15 +17,15 @@ const skillGroups = [
   },
   {
     title: "Data & AI",
-    skills: ["PostgreSQL", "Redis", "Pinecone", "OpenAI", "LangChain"],
+    skills: ["PostgreSQL", "Redis", "DuckDB", "Anthropic SDK", "Pandas"],
   },
   {
     title: "Infrastructure",
-    skills: ["Docker", "GitHub Actions", "AWS", "Vercel", "Prometheus"],
+    skills: ["Docker", "GitHub Actions", "AWS", "Vercel"],
   },
   {
     title: "Practices",
-    skills: ["CI/CD", "Testing", "Observability", "System Design", "Security"],
+    skills: ["CI/CD", "Testing", "Code Review"],
   },
 ];
 
