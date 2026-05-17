@@ -1,46 +1,35 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 export default function Contact() {
   return (
-    <section id="contact" className="py-32 px-6">
-      <div className="max-w-2xl mx-auto text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-3xl font-bold mb-2">Get in Touch</h2>
-          <div className="w-12 h-1 bg-accent rounded mx-auto mb-6" />
-          <p className="text-muted mb-10 leading-relaxed">
-            I&apos;m looking for software engineering internships or full-time
-            roles. If you&apos;re hiring or want to collaborate on something,
-            reach out.
+    <section id="contact" className="py-24 px-6 border-t border-card-border">
+      <div className="max-w-4xl mx-auto">
+        <p className="text-xs font-mono text-muted uppercase tracking-widest mb-10">
+          § contact
+        </p>
+
+        <div className="max-w-xl space-y-4 text-muted leading-relaxed">
+          <p>
+            Looking for software engineering roles, especially anywhere code
+            meets cities, planning, or public infrastructure. If you&apos;re
+            hiring or want to collaborate, drop a line.
           </p>
+        </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-4 mb-8">
-            <a
-              href="mailto:cst0520@gmail.com"
-              className="px-6 py-3 bg-accent hover:bg-accent-hover text-white rounded-lg font-medium transition-colors"
-            >
-              Email Me
-            </a>
-            <a
-              href="https://github.com/c-tonneslan"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3 border border-[#333] hover:border-[#555] rounded-lg font-medium transition-colors"
-            >
-              GitHub
-            </a>
-          </div>
-
-          <p className="text-xs text-muted/50">
+        <div className="flex items-center gap-6 mt-8 text-sm">
+          <a
+            href="mailto:cst0520@gmail.com"
+            className="text-foreground border-b border-foreground/40 hover:border-foreground transition-colors pb-0.5"
+          >
             cst0520@gmail.com
-          </p>
-        </motion.div>
+          </a>
+          <a
+            href="https://github.com/c-tonneslan"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted hover:text-foreground transition-colors"
+          >
+            github
+          </a>
+        </div>
       </div>
     </section>
   );

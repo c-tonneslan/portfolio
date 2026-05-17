@@ -1,94 +1,41 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 export default function About() {
   return (
-    <section id="about" className="py-32 px-6">
-      <div className="max-w-4xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-3xl font-bold mb-2">About</h2>
-          <div className="w-12 h-1 bg-accent rounded mb-8" />
+    <section id="about" className="py-24 px-6 border-t border-card-border">
+      <div className="max-w-3xl mx-auto">
+        <p className="text-xs font-mono text-muted uppercase tracking-widest mb-10">
+          § about
+        </p>
 
-          <div className="grid md:grid-cols-2 gap-12">
-            <div className="space-y-4 text-muted leading-relaxed">
-              <p>
-                I&apos;m a software engineer interested in developer tooling,
-                backend systems, and the occasional interactive web app. I work
-                mostly in TypeScript and Go, with some Python and Rust mixed
-                in.
-              </p>
-              <p>
-                I spend a lot of my time contributing to open source. So far
-                that&apos;s meant shipping bug fixes to Tailscale, LiveKit,
-                etcd, pgx, gRPC, and a handful of other Go projects. It&apos;s a
-                good way to learn how large codebases are actually structured
-                and to ship something other people use.
-              </p>
-              <p>
-                Currently looking for software engineering internships or
-                full-time roles.
-              </p>
-            </div>
-
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-sm font-mono text-accent uppercase tracking-wider mb-3">
-                  What I Work With
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {[
-                    "TypeScript",
-                    "Python",
-                    "Go",
-                    "Rust",
-                    "React",
-                    "Next.js",
-                    "Node.js",
-                    "FastAPI",
-                    "PostgreSQL",
-                    "Redis",
-                    "Docker",
-                    "AWS",
-                  ].map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-3 py-1 text-sm bg-card-bg border border-card-border rounded-md text-muted"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <div>
-                <h3 className="text-sm font-mono text-accent uppercase tracking-wider mb-3">
-                  Focus Areas
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {[
-                    "Developer Tooling",
-                    "Systems & Storage",
-                    "Interactive Web Apps",
-                    "Data Analysis",
-                    "Open Source",
-                  ].map((area) => (
-                    <span
-                      key={area}
-                      className="px-3 py-1 text-sm bg-card-bg border border-card-border rounded-md text-muted"
-                    >
-                      {area}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
+        <div className="space-y-5 text-muted leading-relaxed">
+          <p>
+            Most of what I&apos;ve learned has come from reading large
+            codebases and trying to fix something small in them. The PRs in
+            the open source section below are how I got my hands on Go and
+            Rust beyond the toy-project level. It&apos;s also where I picked
+            up most of what I know about race conditions, retries, and the
+            shape of error handling people actually live with in production.
+          </p>
+          <p>
+            The projects I build for myself tend to land near cities and
+            transit. <span className="text-foreground">civic-philly</span> is
+            5,000+ Philadelphia housing and zoning records joined against
+            census tracts and council districts.{" "}
+            <span className="text-foreground">septa-live</span> is a live map
+            of every SEPTA line that publishes realtime data.{" "}
+            <span className="text-foreground">groundwork</span> stitches
+            6,500+ affordable-housing projects across six cities into one
+            schema with rent-burden overlays. The civic stuff sits next to
+            developer tooling like <span className="text-foreground">vouch</span>{" "}
+            (a Go CLI for catching AI-code failure modes) and{" "}
+            <span className="text-foreground">littledb</span> (a 1,500-line
+            embedded KV store with a copy-on-write B+tree).
+          </p>
+          <p>
+            Looking for software engineering work, particularly in civic tech,
+            urban systems, or developer tooling, though the real bar is
+            interesting problems and people who care about the craft.
+          </p>
+        </div>
       </div>
     </section>
   );

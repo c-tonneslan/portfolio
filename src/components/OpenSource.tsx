@@ -6,11 +6,11 @@ import { notable, other, type Contribution } from "@/data/contributions";
 function ContribCard({ contrib, index }: { contrib: Contribution; index: number }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 15 }}
+      initial={{ opacity: 0, y: 8 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.4, delay: Math.min(index * 0.05, 0.4) }}
-      className="group bg-card-bg border border-card-border rounded-xl p-5 hover:border-accent/30 transition-all"
+      viewport={{ once: true, margin: "-30px" }}
+      transition={{ duration: 0.35, delay: Math.min(index * 0.03, 0.25) }}
+      className="group bg-card-bg border border-card-border rounded-md p-5 hover:border-muted/50 transition-colors"
     >
       <a
         href={contrib.url}
@@ -18,7 +18,7 @@ function ContribCard({ contrib, index }: { contrib: Contribution; index: number 
         rel="noopener noreferrer"
         className="flex items-center justify-between mb-3"
       >
-        <span className="text-sm font-semibold group-hover:text-accent transition-colors">
+        <span className="text-sm font-mono group-hover:text-foreground text-foreground transition-colors">
           {contrib.name}
         </span>
         <span className="text-xs text-muted font-mono">{contrib.stars}</span>
@@ -32,13 +32,13 @@ function ContribCard({ contrib, index }: { contrib: Contribution; index: number 
             rel="noopener noreferrer"
             className="flex items-start gap-2 group/pr"
           >
-            <span className="text-accent text-xs font-mono mt-0.5 shrink-0">
+            <span className="text-muted text-xs font-mono mt-0.5 shrink-0">
               #{pr.number}
             </span>
             <span className="text-xs text-muted leading-relaxed group-hover/pr:text-foreground transition-colors">
               {pr.title}
               {pr.status === "merged" && (
-                <span className="ml-1.5 inline-block text-[10px] font-mono uppercase tracking-wider text-emerald-400 align-middle">
+                <span className="ml-1.5 inline-block text-[10px] font-mono uppercase tracking-wider text-emerald-400/90 align-middle">
                   merged
                 </span>
               )}
@@ -53,39 +53,29 @@ function ContribCard({ contrib, index }: { contrib: Contribution; index: number 
 
 export default function OpenSource() {
   return (
-    <section id="opensource" className="py-32 px-6 bg-[#080808]">
+    <section id="opensource" className="py-24 px-6 border-t border-card-border">
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-3xl font-bold mb-2">Open Source</h2>
-          <div className="w-12 h-1 bg-accent rounded mb-4" />
-          <p className="text-muted mb-10 max-w-xl">
-            Bug fixes, race conditions, and edge cases I&apos;ve run into in
-            the wild. Mostly Go and Rust.
-          </p>
+        <p className="text-xs font-mono text-muted uppercase tracking-widest mb-6">
+          § open source
+        </p>
+        <p className="text-muted mb-10 max-w-xl">
+          Bug fixes, race conditions, and edge cases I&apos;ve run into in
+          the wild. Mostly Go and Rust.
+        </p>
 
-          <h3 className="text-sm font-mono text-accent uppercase tracking-wider mb-4">
-            Notable
-          </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
-            {notable.map((contrib, i) => (
-              <ContribCard key={contrib.repo} contrib={contrib} index={i} />
-            ))}
-          </div>
+        <p className="text-xs font-mono text-muted/70 mb-4">notable</p>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 mb-12">
+          {notable.map((contrib, i) => (
+            <ContribCard key={contrib.repo} contrib={contrib} index={i} />
+          ))}
+        </div>
 
-          <h3 className="text-sm font-mono text-muted uppercase tracking-wider mb-4">
-            Other contributions
-          </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {other.map((contrib, i) => (
-              <ContribCard key={contrib.repo} contrib={contrib} index={i} />
-            ))}
-          </div>
-        </motion.div>
+        <p className="text-xs font-mono text-muted/70 mb-4">other</p>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+          {other.map((contrib, i) => (
+            <ContribCard key={contrib.repo} contrib={contrib} index={i} />
+          ))}
+        </div>
       </div>
     </section>
   );

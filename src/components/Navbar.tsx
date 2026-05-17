@@ -4,11 +4,12 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const links = [
-  { href: "#about", label: "About" },
-  { href: "#projects", label: "Projects" },
-  { href: "#opensource", label: "Open Source" },
-  { href: "#skills", label: "Skills" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#about", label: "about" },
+  { href: "/#projects", label: "projects" },
+  { href: "/#opensource", label: "open source" },
+  { href: "/writing", label: "writing" },
+  { href: "/notes", label: "notes" },
+  { href: "/#contact", label: "contact" },
 ];
 
 export default function Navbar() {
@@ -34,8 +35,11 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <a href="#" className="text-xl font-bold tracking-tight">
-            CT<span className="text-accent">.</span>
+          <a
+            href="/"
+            className="text-sm text-muted hover:text-foreground transition-colors"
+          >
+            charlie tonneslan
           </a>
 
           {/* Desktop links */}
@@ -55,7 +59,7 @@ export default function Navbar() {
               rel="noopener noreferrer"
               className="text-sm text-muted hover:text-foreground transition-colors"
             >
-              GitHub
+              github
             </a>
           </div>
 
@@ -105,7 +109,7 @@ export default function Navbar() {
                 onClick={() => setMobileOpen(false)}
                 className="text-2xl font-medium text-muted hover:text-foreground transition-colors"
               >
-                GitHub
+                github
               </a>
             </div>
           </motion.div>

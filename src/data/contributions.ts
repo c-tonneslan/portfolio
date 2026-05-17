@@ -16,6 +16,364 @@ export interface Contribution {
 
 export const notable: Contribution[] = [
   {
+    repo: "datamade/usaddress",
+    name: "usaddress (DataMade)",
+    stars: "1.6K+",
+    prs: [
+      { title: "stub: add RepeatedLabelError to __init__.pyi", number: 408 },
+    ],
+    url: "https://github.com/datamade/usaddress",
+  },
+  {
+    repo: "openstates/openstates-core",
+    name: "openstates-core (Open States)",
+    stars: "200+",
+    prs: [
+      { title: "Validate event document URLs as URIs", number: 192 },
+      { title: "Stop using deprecated datetime.utcnow()", number: 193 },
+    ],
+    url: "https://github.com/openstates/openstates-core",
+  },
+  {
+    repo: "openstates/openstates-scrapers",
+    name: "openstates-scrapers (Open States)",
+    stars: "1K+",
+    prs: [
+      { title: "Default the action categorizer Rule to case-insensitive matching", number: 5672 },
+      { title: "Drop redundant (?i) prefixes from utils.actions.Rule patterns", number: 5673 },
+      { title: "utils.actions: import Iterable from collections.abc", number: 5674 },
+    ],
+    url: "https://github.com/openstates/openstates-scrapers",
+  },
+  {
+    repo: "mysociety/mapit",
+    name: "MapIt (mySociety)",
+    stars: "400+",
+    prs: [
+      { title: "Return JSON for 404s, matching the rest of the API", number: 444 },
+      { title: "Surface decode errors when reading feature names during import", number: 445 },
+    ],
+    url: "https://github.com/mysociety/mapit",
+  },
+  {
+    repo: "mysociety/alaveteli",
+    name: "Alaveteli (mySociety FOI platform)",
+    stars: "700+",
+    prs: [
+      { title: "Stop relying on contributor order in update_contributors spec", number: 9258 },
+      { title: "Move setSelect into the Jcrop init callback on the photo crop page", number: 9259 },
+      { title: "Mask attachment HTML text nodes only, not href/src attributes", number: 9260 },
+      { title: "Pick up replacement file's content_type before regenerating filename", number: 9261 },
+    ],
+    url: "https://github.com/mysociety/alaveteli",
+  },
+  {
+    repo: "BlinkTagInc/gtfs-to-html",
+    name: "gtfs-to-html",
+    stars: "225+",
+    prs: [
+      { title: "Pin pbf to v3 to fix the missing dist/pbf.js error", number: 199 },
+    ],
+    url: "https://github.com/BlinkTagInc/gtfs-to-html",
+  },
+  {
+    repo: "openstates/openstates.org",
+    name: "openstates.org",
+    stars: "70+",
+    prs: [
+      { title: "Validate lat/lon as floats before interpolating into the geo GraphQL query", number: 463 },
+    ],
+    url: "https://github.com/openstates/openstates.org",
+  },
+  {
+    repo: "openstates/pyopenstates",
+    name: "pyopenstates",
+    stars: "30+",
+    prs: [
+      { title: "Sync legislator/district docstrings with actual signatures", number: 28 },
+    ],
+    url: "https://github.com/openstates/pyopenstates",
+  },
+  {
+    repo: "mysociety/mysoc-validator",
+    name: "mysoc-validator",
+    stars: "10+",
+    prs: [
+      { title: "Don't choke on duplicate identifier rows in from_identifier", number: 15 },
+    ],
+    url: "https://github.com/mysociety/mysoc-validator",
+  },
+  {
+    repo: "mysociety/fixmystreet",
+    name: "FixMyStreet (mySociety)",
+    stars: "900+",
+    prs: [
+      { title: "FAQ: point downtime guidance at the status page, not Twitter", number: 5979 },
+      { title: "Fix a few comment/doc typos", number: 5980 },
+      { title: "Don't redirect inspector form back to /report/update referer", number: 5981 },
+    ],
+    url: "https://github.com/mysociety/fixmystreet",
+  },
+  {
+    repo: "MobilityData/awesome-transit",
+    name: "awesome-transit (MobilityData)",
+    stars: "1.5K+",
+    prs: [
+      { title: "Update Dede entry; mark Instabus as no longer maintained", number: 371 },
+    ],
+    url: "https://github.com/MobilityData/awesome-transit",
+  },
+  {
+    repo: "MobilityData/gtfs-validator",
+    name: "gtfs-validator (MobilityData)",
+    stars: "300+",
+    prs: [
+      { title: "notice(non_ascii_or_non_printable_char): use standard fieldName", number: 2165 },
+    ],
+    url: "https://github.com/MobilityData/gtfs-validator",
+  },
+  {
+    repo: "MobilityData/gtfs.org",
+    name: "gtfs.org (MobilityData)",
+    stars: "100+",
+    prs: [
+      { title: "active projects: drop merged GTFS Governance, link to open PRs", number: 675 },
+    ],
+    url: "https://github.com/MobilityData/gtfs.org",
+  },
+  {
+    repo: "simonw/datasette.io",
+    name: "datasette.io (Simon Willison)",
+    stars: "100+",
+    prs: [
+      { title: "data-journalism: replace dead sba-loans demo link with archive", number: 182 },
+    ],
+    url: "https://github.com/simonw/datasette.io",
+  },
+  {
+    repo: "simonw/datasette",
+    name: "Datasette (Simon Willison)",
+    stars: "9K+",
+    prs: [
+      { title: "docs: mention WAL mode for concurrently written databases", number: 2718 },
+    ],
+    url: "https://github.com/simonw/datasette",
+  },
+  {
+    repo: "18F/charlie",
+    name: "charlie (18F Slack bot)",
+    stars: "30+",
+    prs: [
+      { title: "tau-bot: skip times the author marked as local", number: 602 },
+      { title: "InclusionBot: move religious-tradition entries from Racist to Other", number: 603 },
+    ],
+    url: "https://github.com/18F/charlie",
+  },
+  {
+    repo: "codeforboston/maple",
+    name: "MAPLE (Code for Boston)",
+    stars: "60+",
+    prs: [
+      { title: "Remove showLLMFeatures feature flag", number: 2142 },
+      { title: "Send logged-out users to login when clicking Follow", number: 2143 },
+    ],
+    url: "https://github.com/codeforboston/maple",
+  },
+  {
+    repo: "bloom-housing/bloom",
+    name: "Bloom (Exygy affordable housing)",
+    stars: "100+",
+    prs: [
+      { title: "listing: skip amiChart findMany when no units carry an AMI chart", number: 6316 },
+    ],
+    url: "https://github.com/bloom-housing/bloom",
+  },
+  {
+    repo: "nycdb/nycdb",
+    name: "NYCDB (NYC Housing Database)",
+    stars: "200+",
+    prs: [
+      { title: "docs: cover scripts/test and create_dataset.py in the new-dataset guide", number: 401 },
+      { title: "src/README: correct Python and Postgres minimums", number: 402 },
+      { title: "List sql/data subdirectories in packages to silence build warnings", number: 403 },
+    ],
+    url: "https://github.com/nycdb/nycdb",
+  },
+  {
+    repo: "DemocracyClub/WhoCanIVoteFor",
+    name: "WhoCanIVoteFor (Democracy Club UK)",
+    stars: "70+",
+    prs: [
+      { title: "Strip query strings when extracting Facebook/Instagram usernames", number: 2392 },
+      { title: "Clear emblem_url when a party drops its emblem upstream", number: 2393 },
+      { title: "Fix 'Idenfitier' and 'psuedo' typos on Party.ec_id", number: 2394 },
+      { title: "Sweep up stale wikipedia_bio rows in the daily import", number: 2395 },
+    ],
+    url: "https://github.com/DemocracyClub/WhoCanIVoteFor",
+  },
+  {
+    repo: "DemocracyClub/UK-Polling-Stations",
+    name: "UK-Polling-Stations (Democracy Club UK)",
+    stars: "60+",
+    prs: [
+      { title: "councils: don't pick import_fake_*.py as the import script", number: 9418 },
+    ],
+    url: "https://github.com/DemocracyClub/UK-Polling-Stations",
+  },
+  {
+    repo: "DemocracyClub/yournextrepresentative",
+    name: "yournextrepresentative (Democracy Club UK)",
+    stars: "150+",
+    prs: [
+      { title: "Allow 18-year-olds to enter their birth year", number: 2752 },
+      { title: "Strip mailto: prefix from email identifiers", number: 2753 },
+      { title: "Shuffle the open duplicate-suggestion list", number: 2754 },
+      { title: "Fix 'seperate' / 'moemnt' typos in comments and docs", number: 2755 },
+      { title: "Reject adding a person to two ballots from the same election", number: 2756 },
+      { title: "Skip diff_html for photo actions", number: 2757 },
+    ],
+    url: "https://github.com/DemocracyClub/yournextrepresentative",
+  },
+  {
+    repo: "openelections/openelections-core",
+    name: "openelections-core",
+    stars: "400+",
+    prs: [
+      { title: "bake: tell the user when there's nothing to bake", number: 293 },
+    ],
+    url: "https://github.com/openelections/openelections-core",
+  },
+  {
+    repo: "openelections/openelections-data-pa",
+    name: "openelections-data-pa",
+    stars: "30+",
+    prs: [
+      { title: "readme: update year range from 2000-2012 to 2000 onward", number: 171 },
+    ],
+    url: "https://github.com/openelections/openelections-data-pa",
+  },
+  {
+    repo: "openelections/openelections-data-ma",
+    name: "openelections-data-ma",
+    stars: "15+",
+    prs: [
+      { title: "parsers: pass html.parser to BeautifulSoup explicitly", number: 35 },
+    ],
+    url: "https://github.com/openelections/openelections-data-ma",
+  },
+  {
+    repo: "openelections/openelections-data-ga",
+    name: "openelections-data-ga",
+    stars: "20+",
+    prs: [
+      { title: "county_parser: pass lxml to BeautifulSoup to match the rest of the repo", number: 299 },
+    ],
+    url: "https://github.com/openelections/openelections-data-ga",
+  },
+  {
+    repo: "openelections/openelections-data-tx",
+    name: "openelections-data-tx",
+    stars: "40+",
+    prs: [
+      { title: "readme: add 2022 + 2024 to the precinct results coverage table", number: 461 },
+    ],
+    url: "https://github.com/openelections/openelections-data-tx",
+  },
+  {
+    repo: "openelections/openelections-data-ny",
+    name: "openelections-data-ny",
+    stars: "30+",
+    prs: [
+      { title: "readme: add 2018/2020/2022/2024 to precinct results table", number: 150 },
+    ],
+    url: "https://github.com/openelections/openelections-data-ny",
+  },
+  {
+    repo: "codeforamerica/safety-net-blueprint",
+    name: "safety-net-blueprint (Code for America)",
+    stars: "10+",
+    prs: [
+      { title: "mock-server: skip CAST AS REAL for ISO date comparisons", number: 297 },
+    ],
+    url: "https://github.com/codeforamerica/safety-net-blueprint",
+  },
+  {
+    repo: "mysociety/theyworkforyou",
+    name: "TheyWorkForYou (mySociety)",
+    stars: "1K+",
+    prs: [
+      { title: "Use Plaid Cymru's green for the party dot", number: 2017 },
+      { title: "Fix 'seperate' typos in two comments", number: 2018 },
+    ],
+    url: "https://github.com/mysociety/theyworkforyou",
+  },
+  {
+    repo: "CodeForPhilly/philly-ward-leaders",
+    name: "philly-ward-leaders (Code for Philly)",
+    stars: "20+",
+    prs: [
+      { title: "Shrink font further on long ward-leader names", number: 357 },
+    ],
+    url: "https://github.com/CodeForPhilly/philly-ward-leaders",
+  },
+  {
+    repo: "datamade/census",
+    name: "census (DataMade)",
+    stars: "681",
+    prs: [
+      { title: "Switch ACS/SF1/PL endpoints on fields() too", number: 168 },
+      { title: "ACS5: restrict state_county_blockgroup to 2013+", number: 169 },
+    ],
+    url: "https://github.com/datamade/census",
+  },
+  {
+    repo: "datamade/django-councilmatic",
+    name: "django-councilmatic (DataMade)",
+    stars: "50+",
+    prs: [
+      { title: "Escape Solr-special chars and colons in RSS facet values", number: 295 },
+    ],
+    url: "https://github.com/datamade/django-councilmatic",
+  },
+  {
+    repo: "datamade/parserator",
+    name: "parserator (DataMade)",
+    stars: "800+",
+    prs: [
+      { title: "docs: fix represention typo", number: 55 },
+      { title: "Skip XML comments and empty sequences in TrainingData iteration", number: 56 },
+    ],
+    url: "https://github.com/datamade/parserator",
+  },
+  {
+    repo: "datamade/searchable-map-template-csv",
+    name: "searchable-map-template-csv (DataMade)",
+    stars: "60+",
+    prs: [
+      { title: "Skip CSV rows with empty or non-numeric lat/lng", number: 33 },
+      { title: "about.html: use relative asset paths so the template works in a subdir", number: 34 },
+    ],
+    url: "https://github.com/datamade/searchable-map-template-csv",
+  },
+  {
+    repo: "datamade/cookiecutter-django-app",
+    name: "cookiecutter-django-app (DataMade)",
+    stars: "30+",
+    prs: [
+      { title: "Make flake8 pre-commit exclude a proper regex", number: 15 },
+    ],
+    url: "https://github.com/datamade/cookiecutter-django-app",
+  },
+  {
+    repo: "datamade/chi-councilmatic",
+    name: "chi-councilmatic (DataMade)",
+    stars: "40+",
+    prs: [
+      { title: "get_legistar_link: rewrite stale chicago.legistar.com URLs to eLMS", number: 430 },
+    ],
+    url: "https://github.com/datamade/chi-councilmatic",
+  },
+  {
     repo: "tailscale/tailscale",
     name: "Tailscale",
     stars: "29K+",
@@ -92,6 +450,7 @@ export const notable: Contribution[] = [
       { title: "fix: BasicTextPrinter.Sprintln appends two newlines instead of one", number: 784 },
       { title: "fix: InteractiveMultiselect right arrow selects only filtered options", number: 785 },
       { title: "fix(spinner): remove data race on SpinnerPrinter IsActive and Text", number: 786 },
+      { title: "fix(table): use unicode vertical bar in default Separator", number: 787 },
     ],
     url: "https://github.com/pterm/pterm",
   },
@@ -231,6 +590,15 @@ export const notable: Contribution[] = [
     url: "https://github.com/gorilla/schema",
   },
   {
+    repo: "gorilla/csrf",
+    name: "gorilla/csrf",
+    stars: "1K+",
+    prs: [
+      { title: "csrf: reject Origin: null as an opaque origin", number: 207 },
+    ],
+    url: "https://github.com/gorilla/csrf",
+  },
+  {
     repo: "gorilla/sessions",
     name: "gorilla/sessions",
     stars: "3K+",
@@ -253,7 +621,7 @@ export const notable: Contribution[] = [
     name: "colly",
     stars: "24K+",
     prs: [
-      { title: "drop deprecated rand.Seed call in httpBackend.Init", number: 873 },
+      { title: "drop deprecated rand.Seed call in httpBackend.Init", number: 873, status: "merged" },
     ],
     url: "https://github.com/gocolly/colly",
   },
@@ -312,6 +680,88 @@ export const notable: Contribution[] = [
     url: "https://github.com/r3labs/sse",
   },
   {
+    repo: "muesli/mango",
+    name: "mango",
+    stars: "200+",
+    prs: [
+      { title: "feat: honor SOURCE_DATE_EPOCH for the man page heading timestamp", number: 28 },
+    ],
+    url: "https://github.com/muesli/mango",
+  },
+  {
+    repo: "muesli/gamut",
+    name: "gamut",
+    stars: "1K+",
+    prs: [
+      { title: "palette: switch Color literals to keyed form to silence go vet", number: 26 },
+    ],
+    url: "https://github.com/muesli/gamut",
+  },
+  {
+    repo: "muesli/gitcha",
+    name: "gitcha",
+    stars: "100+",
+    prs: [
+      { title: "fix: don't ignore-match the root path itself in FindFiles", number: 9 },
+    ],
+    url: "https://github.com/muesli/gitcha",
+  },
+  {
+    repo: "coreos/go-iptables",
+    name: "go-iptables",
+    stars: "600+",
+    prs: [
+      { title: "iptables: return error from ListById when chain has no matching rule", number: 136 },
+    ],
+    url: "https://github.com/coreos/go-iptables",
+  },
+  {
+    repo: "fatih/structtag",
+    name: "structtag",
+    stars: "500+",
+    prs: [
+      { title: "export sentinel errors so callers can use errors.Is", number: 27 },
+      { title: "docs: rewrite Tags.Get doc comment", number: 28 },
+    ],
+    url: "https://github.com/fatih/structtag",
+  },
+  {
+    repo: "bwmarrin/discordgo",
+    name: "discordgo",
+    stars: "5K+",
+    prs: [
+      { title: "fix: nil-check wsConn in Op1 heartbeat and ChannelVoiceJoinManual", number: 1719 },
+    ],
+    url: "https://github.com/bwmarrin/discordgo",
+  },
+  {
+    repo: "go-playground/locales",
+    name: "locales",
+    stars: "1K+",
+    prs: [
+      { title: "docs: clarify Ordinal/CardinalPluralRule README example output", number: 51 },
+    ],
+    url: "https://github.com/go-playground/locales",
+  },
+  {
+    repo: "alexedwards/scs",
+    name: "scs",
+    stars: "2K+",
+    prs: [
+      { title: "gormstore: export Session for callers using custom migration tooling", number: 263 },
+    ],
+    url: "https://github.com/alexedwards/scs",
+  },
+  {
+    repo: "rs/xid",
+    name: "xid",
+    stars: "5K+",
+    prs: [
+      { title: "docs(NewWithTime): note 4-byte timestamp can't hold post-2106 times", number: 116 },
+    ],
+    url: "https://github.com/rs/xid",
+  },
+  {
     repo: "chasefleming/elem-go",
     name: "elem-go",
     stars: "500+",
@@ -320,6 +770,7 @@ export const notable: Contribution[] = [
       { title: "feat: add Track element constructor", number: 176 },
       { title: "feat: add Picture element constructor", number: 177 },
       { title: "feat: add Bdi and Bdo element constructors", number: 178 },
+      { title: "feat(attrs): add ClassNames helper for conditional class lists", number: 179 },
     ],
     url: "https://github.com/chasefleming/elem-go",
   },
@@ -377,6 +828,7 @@ export const other: Contribution[] = [
       { title: "scanner: bump offset over the '#' in scanComment", number: 878 },
       { title: "printer: check Alias not Anchor in the AliasType branch", number: 879 },
       { title: "ast: keep trailing blank lines when rendering |+ literals", number: 880 },
+      { title: "playground: add Docs link to pkg.go.dev", number: 881 },
     ],
     url: "https://github.com/goccy/go-yaml",
   },
@@ -401,14 +853,20 @@ export const other: Contribution[] = [
     repo: "caarlos0/env",
     name: "caarlos0/env",
     stars: "5K+",
-    prs: [{ title: "respect env values over non-zero fields under SetDefaultsForZeroValuesOnly", number: 420 }],
+    prs: [
+      { title: "respect env values over non-zero fields under SetDefaultsForZeroValuesOnly", number: 420 },
+      { title: "feat: AllowEmpty option to keep empty env values instead of defaults", number: 421 },
+    ],
     url: "https://github.com/caarlos0/env",
   },
   {
     repo: "charmbracelet/fang",
     name: "fang",
     stars: "1K+",
-    prs: [{ title: "style the --version output to match the rest of fang", number: 98 }],
+    prs: [
+      { title: "style the --version output to match the rest of fang", number: 98 },
+      { title: "style 'unknown help topic' errors", number: 99 },
+    ],
     url: "https://github.com/charmbracelet/fang",
   },
   {
@@ -540,7 +998,10 @@ export const other: Contribution[] = [
     repo: "tucnak/telebot",
     name: "telebot",
     stars: "4K+",
-    prs: [{ title: "errors: redact bot token from wrapped transport errors", number: 809 }],
+    prs: [
+      { title: "errors: redact bot token from wrapped transport errors", number: 809 },
+      { title: "fix(file): default the multipart filename to the on-disk basename", number: 810 },
+    ],
     url: "https://github.com/tucnak/telebot",
   },
   {
@@ -651,7 +1112,10 @@ export const other: Contribution[] = [
     repo: "charmbracelet/x",
     name: "charm/x",
     stars: "300+",
-    prs: [{ title: "ansi: document that StringWidth treats tabs as zero width", number: 864 }],
+    prs: [
+      { title: "ansi: document that StringWidth treats tabs as zero width", number: 864 },
+      { title: "fix(ansi): emit DECSWT/DECSIN with correct OSC numbers and ST", number: 865 },
+    ],
     url: "https://github.com/charmbracelet/x",
   },
   {
@@ -668,7 +1132,10 @@ export const other: Contribution[] = [
     repo: "simonw/sqlite-utils",
     name: "sqlite-utils",
     stars: "2K+",
-    prs: [{ title: "docs: set smartquotes_action=\"qe\" so '--' doesn't render as an en dash", number: 735 }],
+    prs: [
+      { title: "Don't transform empty CSV table that was never created", number: 736 },
+      { title: "docs: render --convert and --functions literally in install section", number: 737 },
+    ],
     url: "https://github.com/simonw/sqlite-utils",
   },
   {
@@ -682,7 +1149,11 @@ export const other: Contribution[] = [
     repo: "rust-itertools/itertools",
     name: "itertools",
     stars: "3K+",
-    prs: [{ title: "take_while_inclusive: tighten FusedIterator to require I: FusedIterator", number: 1101 }],
+    prs: [
+      { title: "take_while_inclusive: tighten FusedIterator to require I: FusedIterator", number: 1101 },
+      { title: "InterleaveShortest: don't overflow size_hint lower bound", number: 1102 },
+      { title: "PeekNth: don't panic on peek_nth(usize::MAX)", number: 1103 },
+    ],
     url: "https://github.com/rust-itertools/itertools",
   },
   {
@@ -779,7 +1250,10 @@ export const other: Contribution[] = [
     repo: "go-ldap/ldap",
     name: "go-ldap",
     stars: "2K+",
-    prs: [{ title: "v3/control: replace unchecked type asserts in DecodeControl with comma-ok", number: 589 }],
+    prs: [
+      { title: "v3/control: replace unchecked type asserts in DecodeControl with comma-ok", number: 589 },
+      { title: "fix(conn): parse ldapi:// URLs per RFC 4516", number: 590 },
+    ],
     url: "https://github.com/go-ldap/ldap",
   },
   {
@@ -851,6 +1325,48 @@ export const other: Contribution[] = [
     stars: "7K+",
     prs: [{ title: "shared: point users at cargo and cross-toolchains in no-image error", number: 1775 }],
     url: "https://github.com/cross-rs/cross",
+  },
+  {
+    repo: "jj-vcs/jj",
+    name: "Jujutsu (jj)",
+    stars: "15K+",
+    prs: [{ title: "templates: expose builtin_workspace_list alias", number: 9518 }],
+    url: "https://github.com/jj-vcs/jj",
+  },
+  {
+    repo: "BurntSushi/walkdir",
+    name: "walkdir",
+    stars: "1K+",
+    prs: [{ title: "include parent directory path on mid-iteration errors", number: 211 }],
+    url: "https://github.com/BurntSushi/walkdir",
+  },
+  {
+    repo: "risingwavelabs/risingwave",
+    name: "RisingWave",
+    stars: "9K+",
+    prs: [{ title: "test(interval): cover mid-string +/- separators", number: 25676 }],
+    url: "https://github.com/risingwavelabs/risingwave",
+  },
+  {
+    repo: "jbeder/yaml-cpp",
+    name: "yaml-cpp",
+    stars: "5K+",
+    prs: [{ title: "emit secondary tag handles (e.g. !!str) on Node::SetTag", number: 1437 }],
+    url: "https://github.com/jbeder/yaml-cpp",
+  },
+  {
+    repo: "quickwit-oss/tantivy",
+    name: "tantivy",
+    stars: "12K+",
+    prs: [{ title: "postings: add a basic test for TermFrequencyRecorder", number: 2934 }],
+    url: "https://github.com/quickwit-oss/tantivy",
+  },
+  {
+    repo: "BurntSushi/fst",
+    name: "fst",
+    stars: "2K+",
+    prs: [{ title: "docs: fix memmap2 link and drop unused Streamer import", number: 180 }],
+    url: "https://github.com/BurntSushi/fst",
   },
 ];
 

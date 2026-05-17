@@ -13,6 +13,68 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "soda",
+    title: "soda",
+    description:
+      "A Go CLI for Socrata-based open data portals. 49 government portals preconfigured (NYC, Chicago, Seattle, LA, the CDC, plus 44 others). Nine commands: search across every portal, list/pull/info on one, stats/open utilities, watch for new rows on an interval, diff two snapshots row-by-row. Outputs JSON, NDJSON, CSV, or directly into a SQLite database with auto-pagination for million-row datasets. Single static binary, no Python interpreter required.",
+    longDescription:
+      "Most major US municipal and state governments publish open data through Socrata. The API is solid but the dev experience around it is rough: the web UI is slow, the existing Python clients (sodapy) require writing a script for every one-off pull, and there's no go-to terminal tool. soda fills that gap. Nine commands: portals (list known), ls (datasets in a portal), info (metadata + column schema), stats (row count + date range without downloading), search (Discovery API across every portal or one), pull (download rows with full SoQL filter support — --where / --order / --select — plus --all auto-pagination for datasets that span millions of rows), watch (poll a dataset on an interval, emit only rows whose :updated_at exceeds a stored high-watermark; state persists in ~/.cache/soda so cron runs pick up where they left off; --once for cron use), diff (row-level compare two JSON snapshots keyed on :id with field-level old/new for changed rows), and open (browser shortcut). Four output sinks: pretty JSON (default), NDJSON (one record per line, for jq), CSV, and SQLite (one table per dataset, columns typed from the SODA schema, upserts on :id, unknown columns added on the fly). --cache stores GET responses under ~/.cache/soda for iterative work. --verbose logs every URL hit. 49 portals preconfigured and smoke-tested: every major US city (NYC, Chicago, LA, Seattle, SF, DC, Boston, Baltimore, Philly, Austin, Dallas, Houston, Denver, Phoenix, Honolulu, Nashville, Miami, plus more), state portals (NY, CT, MD, WA, IL, TX, OR, HI, IA, VT), federal (CDC, HealthData.gov, Medicare, Energy, Transportation), and international (Edmonton, Australia). Adding a new portal is a one-line entry. Built on Go 1.25 + cobra + stdlib net/http; SQLite via pure-Go modernc.org/sqlite so cross-compilation needs no CGO. Tests cover diff, sqlitesink, cache, socrata, and portals packages using httptest with custom RoundTrippers that rewrite hostnames so the real URL builder runs unchanged. Race-flagged in CI. Release workflow on tag push cross-compiles to 5 platform/arch combos, bundles each as a tar.gz, computes SHA256SUMS, and generates a Homebrew formula that's auto-pushed to a tap repo. Full mkdocs-material docs site at c-tonneslan.github.io/soda with quick-start, per-command pages, SoQL reference, SQLite recipe, and change-detection recipe. Pairs with convene for civic-tech work: convene gets meeting data from Legistar/Granicus, soda gets every other dataset cities publish through Socrata.",
+    tech: ["Go 1.25+", "cobra", "modernc.org/sqlite", "Socrata SODA + Discovery API"],
+    github: "https://github.com/c-tonneslan/soda",
+    status: "live",
+    category: "devtool",
+  },
+  {
+    id: "convene",
+    title: "convene",
+    description:
+      "Pull municipal meeting data from 24 US city portals into one normalized JSON or SQLite shape. Hits the official Legistar Web API plus an HTML scraper for Granicus's older ViewPublisher pages. Adding a new city is a one-line registry entry. Full coverage of events, agenda items, roll-call votes, legislation, sponsors, action history, councils, committees, council members, and committee memberships. Incremental sync via --since-modified, on-disk cache, one-command SQLite output, ndjson streaming, reusable GitHub Action for daily snapshots, and a full mkdocs site.",
+    longDescription:
+      "Two-platform municipal-data tool. LegistarAdapter hits Legistar's official REST/OData API at webapi.legistar.com that almost nobody uses (the existing python-legistar-scraper goes after HTML pages, brittle, and pupa drags in Django+Mongo for what should be a request-and-normalize job). GranicusAdapter scrapes Granicus's ViewPublisher archive pages, which have a consistent DOM across tenants but no API at all. CLI: convene events / matters / bodies / people / memberships. Date filters on --since (EventDate / MatterIntroDate) and --since-modified (LastModifiedUtc, for incremental sync). Optional deep fetches: --include-items (agenda lines, learned that Legistar's bulk events endpoint returns empty EventItems arrays so you have to ask per-event), --include-votes (roll-call votes, EventItemRollCallFlag is unreliable so when the user opts in we just ask the /votes endpoint), --include-sponsors (bill sponsors per matter), --include-history (the full MatterAction trail with each action carrying a joinable event_id that maps back to the originating meeting). Output shapes loosely model Open Civic Data so Councilmatic and friends can ingest with minimal remapping. Vote values normalize across cities ('In Favor'/'Yea'/'Aye'→yes, 'Against'/'Nay'→no, 'Excused'/'Not Present'→absent) and the platform's verbatim label is preserved in raw_value. Output sinks: pretty JSON, ndjson for piping to jq, or --to FILE.db for a normalized SQLite database (9 tables, upserts on OCD ID so reruns refresh rather than duplicate). On-disk HTTP cache for iterative work. 24 cities preconfigured and individually smoke-tested against live portals: 20 Legistar (Philly, Chicago, Seattle, Boston, Pittsburgh, Detroit, Phoenix, Denver, Nashville, Miami-Dade, Charlotte, Sacramento, San Jose, Minneapolis, KC, Louisville, Oakland, Baltimore, SF with /events skipped due to tenant misconfig, NYC behind a free token) plus 4 Granicus (St Paul, New Orleans, Scranton, Duluth). Error messages are first-class: 400s carry Legistar's body text, 401/403 hints at the token flag, 5xx explains it's usually per-tenant config, Granicus 404s suggest checking the view_id. Reusable composite action at .github/actions/snapshot pulls one or more cities and writes JSON into a directory, designed to commit nightly to a git-versioned civic-data archive repo. Full mkdocs-material docs site with getting started, recipes (SQLite, sync, GitHub Action), CLI/API reference, and an adapter-authoring guide. PyPI release workflow on tag push via trusted publishing. 34 tests, all using frozen real-API fixtures through an httpx MockTransport so CI never hits the network. GitHub Actions runs ruff + pytest on Python 3.11, 3.12, 3.13.",
+    tech: ["Python 3.11+", "Pydantic 2", "httpx", "Typer", "BeautifulSoup", "SQLite", "Legistar Web API", "Granicus", "Open Civic Data"],
+    github: "https://github.com/c-tonneslan/convene",
+    status: "live",
+    category: "devtool",
+  },
+  {
+    id: "personnel",
+    title: "personnel",
+    description:
+      "Trace who played on what record. Search any musician, walk their discography, click any collaborator on any track to land on their page. The whole point: see how the room moves between records, and how every musician you love is connected to every other one. Built on MusicBrainz, which is open + free.",
+    longDescription:
+      "Six-degrees-of-separation for music personnel, built on MusicBrainz (the open, free music encyclopedia). Server-side fetch through Next.js API routes that respect the 1-req-per-sec anonymous rate limit with a serialized fetch + 1.1s gap between calls, and a 1-hour edge revalidate so the same artist page doesn't keep hitting upstream. Each artist page renders bio + life span + external links (Discogs / Wikipedia / official site / streaming) + a year-grouped discography of every release-group + a sidebar of related artists pulled from MusicBrainz's artist-rel relationships (band membership, marriages, mentor links, etc.). Each release-group page renders the track list with per-track artist credits (so a guest player on one track is a clickable link straight to their page), the full personnel pulled from those credits sorted by track count, MusicBrainz-supplied external links, and constructed-URL listen links for Spotify / YouTube / Apple Music since those aren't in MusicBrainz directly. The whole app is navigation: every artist name and every release title is a link, every page loads fast (edge-cached after first fetch), and you can spend an hour walking the connections.",
+    tech: ["TypeScript", "Next.js 16", "Tailwind v4", "MusicBrainz"],
+    github: "https://github.com/c-tonneslan/personnel",
+    live: "https://personnel-iota.vercel.app",
+    status: "live",
+    category: "fullstack",
+  },
+  {
+    id: "septa-live",
+    title: "septa-live",
+    description:
+      "Live map of every SEPTA mode that publishes realtime data: Regional Rail, BSL, MFL, NHSL, all five subway-surface trolleys (T1-T5), Girard Avenue (G/Route 15), Media (D1), Sharon Hill (D2). Color-coded with SEPTA Metro's brand palette, line shapes drawn between every station, RR trains and surface vehicles polled separately and overlaid on the map. ~140 stations pinned accurately along Market, Broad, Front, and Kensington. Click a station for the next 10 arrivals, click a train or trolley for its current stop and delay. Alerts and elevator outages roll up into a banner.",
+    longDescription:
+      "Built because the official SEPTA app is a list of departures and the agency's website is a static schedule PDF, and neither one lets you see the system actually move. Hits five SEPTA endpoints. TrainView for RR positions (15s). TransitViewAll for every in-service trolley and NHSL car (15s). Arrivals for the next N departures from a station on click (20s). Alerts for system service events (60s). Elevator for accessibility outages (5min). Every call is fronted by a Next.js API route so Vercel's edge cache absorbs the load and the client never sees an upstream shape change. SEPTA's feeds are inconsistent (Arrivals spells Chestnut Hill East three different ways across one response, TransitViewAll uses Metro letters like T2 while Alerts uses the long name Market-Frankford), so src/data/lines.ts carries an apiNames array per line that canonicalizes every variant onto one Line entry with one color. Leaflet on the canvas renderer over a dark CARTO basemap. Polylines for every line draw through stationOrder in SEPTA Metro brand colors (orange B, blue L, purple M, green T, yellow G, teal D), and each RR line uses its individual published color. Train and vehicle markers are reused across polls so they slide instead of flicker. The station list (~140 entries) has BSL coords pinned to the Broad Street centerline, MFL pinned to Market then up Front then bent into Kensington and Frankford for the El, the full NHSL run from 69th to Norristown, the shared subway-surface tunnel, and every trolley terminus + key intermediate stop. Sidebar groups lines by mode (RR / Subway & Light Rail / Trolley) with per-group hide/show, a most-delayed leaderboard pulling from both feeds, a type-ahead station picker, and detail panels for trains, vehicles, and stations.",
+    tech: ["TypeScript", "Next.js 16", "Leaflet", "SEPTA APIs", "Tailwind v4"],
+    github: "https://github.com/c-tonneslan/septa-live",
+    live: "https://septa-live.vercel.app",
+    status: "live",
+    category: "fullstack",
+  },
+  {
+    id: "datamade-challenge",
+    title: "Chicago Restaurant Permits Map (DataMade challenge)",
+    description:
+      "Django + React-Leaflet choropleth of Chicago restaurant permit issuance by community area, by year. Completion of DataMade's public code challenge. Single aggregate query in the view, AbortController-cancelled fetches, color legend keyed to that year's max, hover popups with raw counts, top-5 sidebar.",
+    longDescription:
+      "DataMade is a Chicago civic-tech shop and their public code-challenge-v2 repo is the work sample they screen candidates with. I did it as a portfolio piece because civic data tools are the kind of thing I want to build. The skeleton ships with stubs in serializers.py, RestaurantPermitMap.js, and tests/test_views.py; my job was to fill them in. On the backend, get_num_permits reads counts from a context dict built once in MapDataView so the serializer is a pure projection and the year filter is a single GROUP BY query instead of 77 per-area SELECTs. On the frontend, the React component fetches with AbortController so changing the year mid-flight doesn't race, memoizes counts and totals, builds the choropleth from a quartile scale relative to that year's max, and renders a small legend that spells out the bucket ranges so the colors mean a concrete number. Hover toggles popup + thicker border, mouseout resets. I also added a top-5 areas sidebar to give the page a takeaway beyond the map itself. Tests went from one stubbed case to three (correct counts, no-year handling, areas with zero permits), all passing against the project's real PostGIS container.",
+    tech: ["Django", "Django REST Framework", "React", "react-leaflet", "PostGIS", "Docker"],
+    github: "https://github.com/c-tonneslan/code-challenge-v2",
+    status: "live",
+    category: "fullstack",
+  },
+  {
     id: "vouch",
     title: "vouch",
     description:

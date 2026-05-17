@@ -15,11 +15,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Charlie Tonneslan | Developer Portfolio",
   description:
-    "Full-stack developer building interactive web tools, developer tooling, and systems software in TypeScript, Go, Python, and Rust.",
+    "Software engineer working on civic and urban systems: housing, zoning, transit, civil infrastructure, and the policy underneath. TypeScript, Go, Python, and Rust.",
   openGraph: {
     title: "Charlie Tonneslan | Developer Portfolio",
     description:
-      "Full-stack developer building interactive web tools, developer tooling, and systems software in TypeScript, Go, Python, and Rust.",
+      "Software engineer working on civic and urban systems: housing, zoning, transit, civil infrastructure, and the policy underneath. TypeScript, Go, Python, and Rust.",
     type: "website",
   },
 };
