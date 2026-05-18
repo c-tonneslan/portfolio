@@ -31,6 +31,9 @@ export const notable: Contribution[] = [
     prs: [
       { title: "Validate event document URLs as URIs", number: 192 },
       { title: "Stop using deprecated datetime.utcnow()", number: 193 },
+      { title: "cli: drop utcnow() from latest_bill_update / latest_people_update writes", number: 194 },
+      { title: "Validate bill citation URLs as URIs", number: 195 },
+      { title: "ansistrm: narrow bare except to Exception", number: 196 },
     ],
     url: "https://github.com/openstates/openstates-core",
   },
@@ -41,19 +44,12 @@ export const notable: Contribution[] = [
     prs: [
       { title: "Default the action categorizer Rule to case-insensitive matching", number: 5672 },
       { title: "Drop redundant (?i) prefixes from utils.actions.Rule patterns", number: 5673 },
-      { title: "utils.actions: import Iterable from collections.abc", number: 5674 },
+      { title: "utils.actions: import Iterable from collections.abc", number: 5674, status: "merged" },
+      { title: "nh: drop deprecated datetime.utcnow() in get_session_list", number: 5675, status: "merged" },
+      { title: "utils.actions: drop six.string_types in favour of str", number: 5676, status: "merged" },
+      { title: "Replace deprecated Logger.warn with .warning", number: 5677 },
     ],
     url: "https://github.com/openstates/openstates-scrapers",
-  },
-  {
-    repo: "mysociety/mapit",
-    name: "MapIt (mySociety)",
-    stars: "400+",
-    prs: [
-      { title: "Return JSON for 404s, matching the rest of the API", number: 444 },
-      { title: "Surface decode errors when reading feature names during import", number: 445 },
-    ],
-    url: "https://github.com/mysociety/mapit",
   },
   {
     repo: "mysociety/alaveteli",
@@ -64,6 +60,7 @@ export const notable: Contribution[] = [
       { title: "Move setSelect into the Jcrop init callback on the photo crop page", number: 9259 },
       { title: "Mask attachment HTML text nodes only, not href/src attributes", number: 9260 },
       { title: "Pick up replacement file's content_type before regenerating filename", number: 9261 },
+      { title: "Move setSelect into the Jcrop init callback", number: 9270 },
     ],
     url: "https://github.com/mysociety/alaveteli",
   },
@@ -82,6 +79,7 @@ export const notable: Contribution[] = [
     stars: "70+",
     prs: [
       { title: "Validate lat/lon as floats before interpolating into the geo GraphQL query", number: 463 },
+      { title: "Stop using deprecated datetime.utcnow() across the repo", number: 464 },
     ],
     url: "https://github.com/openstates/openstates.org",
   },
@@ -109,7 +107,7 @@ export const notable: Contribution[] = [
     stars: "900+",
     prs: [
       { title: "FAQ: point downtime guidance at the status page, not Twitter", number: 5979 },
-      { title: "Fix a few comment/doc typos", number: 5980 },
+      { title: "Fix a few comment/doc typos", number: 5980, status: "merged" },
       { title: "Don't redirect inspector form back to /report/update referer", number: 5981 },
     ],
     url: "https://github.com/mysociety/fixmystreet",
@@ -120,6 +118,11 @@ export const notable: Contribution[] = [
     stars: "1.5K+",
     prs: [
       { title: "Update Dede entry; mark Instabus as no longer maintained", number: 371 },
+      { title: "Add 'Is SEPTA Fucked?' and 'Is Metro Burning?' status dashboards", number: 372 },
+      { title: "Add BUS DATA (London ON) and Amtraker tracker", number: 373 },
+      { title: "Add El Tracker (CTA) and three WMATA tools", number: 374 },
+      { title: "Add GTFS.guru validator and gtfs-osm-import", number: 375 },
+      { title: "Add awesome-europe cross-link under a Related lists subhead", number: 376 },
     ],
     url: "https://github.com/MobilityData/awesome-transit",
   },
@@ -164,7 +167,7 @@ export const notable: Contribution[] = [
     name: "charlie (18F Slack bot)",
     stars: "30+",
     prs: [
-      { title: "tau-bot: skip times the author marked as local", number: 602 },
+      { title: "tau-bot: skip times the author marked as local", number: 602, status: "merged" },
       { title: "InclusionBot: move religious-tradition entries from Racist to Other", number: 603 },
     ],
     url: "https://github.com/18F/charlie",
@@ -196,6 +199,7 @@ export const notable: Contribution[] = [
       { title: "docs: cover scripts/test and create_dataset.py in the new-dataset guide", number: 401 },
       { title: "src/README: correct Python and Postgres minimums", number: 402 },
       { title: "List sql/data subdirectories in packages to silence build warnings", number: 403 },
+      { title: "download_file: narrow bare except, include cause in message", number: 404 },
     ],
     url: "https://github.com/nycdb/nycdb",
   },
@@ -208,6 +212,7 @@ export const notable: Contribution[] = [
       { title: "Clear emblem_url when a party drops its emblem upstream", number: 2393 },
       { title: "Fix 'Idenfitier' and 'psuedo' typos on Party.ec_id", number: 2394 },
       { title: "Sweep up stale wikipedia_bio rows in the daily import", number: 2395 },
+      { title: "show_data_on_error: catch Exception, not BaseException", number: 2398 },
     ],
     url: "https://github.com/DemocracyClub/WhoCanIVoteFor",
   },
@@ -231,6 +236,8 @@ export const notable: Contribution[] = [
       { title: "Fix 'seperate' / 'moemnt' typos in comments and docs", number: 2755 },
       { title: "Reject adding a person to two ballots from the same election", number: 2756 },
       { title: "Skip diff_html for photo actions", number: 2757 },
+      { title: "Stop using deprecated datetime.utcnow()", number: 2759 },
+      { title: "moderation_queue: drop the cgi import", number: 2760 },
     ],
     url: "https://github.com/DemocracyClub/yournextrepresentative",
   },
@@ -239,7 +246,10 @@ export const notable: Contribution[] = [
     name: "openelections-core",
     stars: "400+",
     prs: [
-      { title: "bake: tell the user when there's nothing to bake", number: 293 },
+      { title: "bake: tell the user when there's nothing to bake", number: 293, status: "merged" },
+      { title: "tests: replace deprecated assertEquals with assertEqual", number: 294 },
+      { title: "Replace deprecated logging.warn with .warning", number: 295 },
+      { title: "Narrow bare excepts in id/oh datasources", number: 296 },
     ],
     url: "https://github.com/openelections/openelections-core",
   },
@@ -249,6 +259,7 @@ export const notable: Contribution[] = [
     stars: "30+",
     prs: [
       { title: "readme: update year range from 2000-2012 to 2000 onward", number: 171 },
+      { title: "clarity_parser: narrow bare excepts to Exception", number: 172 },
     ],
     url: "https://github.com/openelections/openelections-data-pa",
   },
@@ -258,6 +269,7 @@ export const notable: Contribution[] = [
     stars: "15+",
     prs: [
       { title: "parsers: pass html.parser to BeautifulSoup explicitly", number: 35 },
+      { title: "primary_parser: narrow bare excepts to IndexError", number: 36 },
     ],
     url: "https://github.com/openelections/openelections-data-ma",
   },
@@ -267,6 +279,7 @@ export const notable: Contribution[] = [
     stars: "20+",
     prs: [
       { title: "county_parser: pass lxml to BeautifulSoup to match the rest of the repo", number: 299 },
+      { title: "clarity_parser: narrow bare except to Exception", number: 300 },
     ],
     url: "https://github.com/openelections/openelections-data-ga",
   },
@@ -276,6 +289,7 @@ export const notable: Contribution[] = [
     stars: "40+",
     prs: [
       { title: "readme: add 2022 + 2024 to the precinct results coverage table", number: 461 },
+      { title: "Narrow bare excepts to Exception across the TX parsers", number: 462 },
     ],
     url: "https://github.com/openelections/openelections-data-tx",
   },
@@ -285,8 +299,181 @@ export const notable: Contribution[] = [
     stars: "30+",
     prs: [
       { title: "readme: add 2018/2020/2022/2024 to precinct results table", number: 150 },
+      { title: "Narrow bare excepts to Exception in el30 / ulster parsers", number: 151 },
     ],
     url: "https://github.com/openelections/openelections-data-ny",
+  },
+  {
+    repo: "openelections/openelections-data-az",
+    name: "openelections-data-az",
+    stars: "10+",
+    prs: [
+      { title: "clarity_parser: narrow bare except to Exception", number: 72 },
+    ],
+    url: "https://github.com/openelections/openelections-data-az",
+  },
+  {
+    repo: "openelections/openelections-data-nj",
+    name: "openelections-data-nj",
+    stars: "10+",
+    prs: [
+      { title: "Narrow file-open bare excepts to OSError", number: 102 },
+    ],
+    url: "https://github.com/openelections/openelections-data-nj",
+  },
+  {
+    repo: "openelections/openelections-data-co",
+    name: "openelections-data-co",
+    stars: "10+",
+    prs: [
+      { title: "colorado_scraper: narrow bare excepts to IndexError", number: 71 },
+      { title: "clarity_parser: narrow bare except to Exception", number: 72 },
+    ],
+    url: "https://github.com/openelections/openelections-data-co",
+  },
+  {
+    repo: "openelections/openelections-data-sc",
+    name: "openelections-data-sc",
+    stars: "10+",
+    prs: [
+      { title: "clarity_parser: narrow bare excepts to Exception", number: 47 },
+    ],
+    url: "https://github.com/openelections/openelections-data-sc",
+  },
+  {
+    repo: "openelections/openelections-data-ky",
+    name: "openelections-data-ky",
+    stars: "10+",
+    prs: [
+      { title: "clarity_parser: narrow bare excepts to Exception", number: 50 },
+    ],
+    url: "https://github.com/openelections/openelections-data-ky",
+  },
+  {
+    repo: "openelections/openelections-data-ia",
+    name: "openelections-data-ia",
+    stars: "10+",
+    prs: [
+      { title: "Narrow bare excepts to Exception across the parsers", number: 58 },
+    ],
+    url: "https://github.com/openelections/openelections-data-ia",
+  },
+  {
+    repo: "openelections/openelections-data-in",
+    name: "openelections-data-in",
+    stars: "10+",
+    prs: [
+      { title: "el30_parser: narrow bare except to IndexError/ValueError", number: 90 },
+    ],
+    url: "https://github.com/openelections/openelections-data-in",
+  },
+  {
+    repo: "openelections/openelections-data-ar",
+    name: "openelections-data-ar",
+    stars: "10+",
+    prs: [
+      { title: "Narrow clarity bare excepts to Exception", number: 30 },
+    ],
+    url: "https://github.com/openelections/openelections-data-ar",
+  },
+  {
+    repo: "openelections/openelections-data-or",
+    name: "openelections-data-or",
+    stars: "10+",
+    prs: [
+      { title: "Narrow per-line bare excepts in the OR parsers", number: 234 },
+    ],
+    url: "https://github.com/openelections/openelections-data-or",
+  },
+  {
+    repo: "openelections/openelections-data-al",
+    name: "openelections-data-al",
+    stars: "10+",
+    prs: [
+      { title: "Narrow bare excepts to Exception across the AL helpers", number: 26 },
+    ],
+    url: "https://github.com/openelections/openelections-data-al",
+  },
+  {
+    repo: "openelections/openelections-data-ri",
+    name: "openelections-data-ri",
+    stars: "10+",
+    prs: [
+      { title: "converter: narrow bare except to IndexError", number: 34 },
+    ],
+    url: "https://github.com/openelections/openelections-data-ri",
+  },
+  {
+    repo: "openelections/openelections-data-ut",
+    name: "openelections-data-ut",
+    stars: "10+",
+    prs: [
+      { title: "clarity_parser: narrow bare except to Exception", number: 84 },
+    ],
+    url: "https://github.com/openelections/openelections-data-ut",
+  },
+  {
+    repo: "openelections/openelections-data-mn",
+    name: "openelections-data-mn",
+    stars: "10+",
+    prs: [
+      { title: "Narrow per-row bare excepts in the MN parsers", number: 22 },
+    ],
+    url: "https://github.com/openelections/openelections-data-mn",
+  },
+  {
+    repo: "openelections/openelections-data-wv",
+    name: "openelections-data-wv",
+    stars: "10+",
+    prs: [
+      { title: "clarity_parser: narrow bare except to Exception", number: 73 },
+    ],
+    url: "https://github.com/openelections/openelections-data-wv",
+  },
+  {
+    repo: "openelections/openelections-data-mi",
+    name: "openelections-data-mi",
+    stars: "10+",
+    prs: [
+      { title: "Narrow bare excepts to Exception in clarity_parser / macomb", number: 81 },
+    ],
+    url: "https://github.com/openelections/openelections-data-mi",
+  },
+  {
+    repo: "openelections/openelections-data-de",
+    name: "openelections-data-de",
+    stars: "10+",
+    prs: [
+      { title: "Narrow bare excepts to KeyError/IndexError in the DE parsers", number: 22 },
+    ],
+    url: "https://github.com/openelections/openelections-data-de",
+  },
+  {
+    repo: "openelections/openelections-data-nh",
+    name: "openelections-data-nh",
+    stars: "10+",
+    prs: [
+      { title: "Narrow bare excepts to Exception in the 2012 NH scrapers", number: 38 },
+    ],
+    url: "https://github.com/openelections/openelections-data-nh",
+  },
+  {
+    repo: "openelections/openelections-data-nv",
+    name: "openelections-data-nv",
+    stars: "10+",
+    prs: [
+      { title: "README: note 2016/2018/2020/2022 coverage", number: 49 },
+    ],
+    url: "https://github.com/openelections/openelections-data-nv",
+  },
+  {
+    repo: "openstates/api-v3",
+    name: "api-v3 (Open States)",
+    stars: "20+",
+    prs: [
+      { title: "Stop using deprecated datetime.utcnow()", number: 43 },
+    ],
+    url: "https://github.com/openstates/api-v3",
   },
   {
     repo: "codeforamerica/safety-net-blueprint",
@@ -298,6 +485,79 @@ export const notable: Contribution[] = [
     url: "https://github.com/codeforamerica/safety-net-blueprint",
   },
   {
+    repo: "unitedstates/python-us",
+    name: "python-us (@unitedstates)",
+    stars: "500+",
+    prs: [
+      { title: "states.lookup: strip 'State' / 'State of' / 'Commonwealth of' qualifiers", number: 96 },
+    ],
+    url: "https://github.com/unitedstates/python-us",
+  },
+  {
+    repo: "unitedstates/congress-legislators",
+    name: "congress-legislators (@unitedstates)",
+    stars: "2K+",
+    prs: [
+      { title: "readme: refresh 'Who's Using This Data' to drop discontinued projects", number: 1048 },
+      { title: "Narrow bare excepts in retire and house_history scripts", number: 1049 },
+    ],
+    url: "https://github.com/unitedstates/congress-legislators",
+  },
+  {
+    repo: "unitedstates/districts",
+    name: "districts (@unitedstates)",
+    stars: "280+",
+    prs: [
+      { title: "readme: clarify that newer year folders only contain states that changed", number: 33 },
+    ],
+    url: "https://github.com/unitedstates/districts",
+  },
+  {
+    repo: "alephdata/aleph",
+    name: "Aleph (ICIJ data investigation platform)",
+    stars: "2K+",
+    prs: [
+      { title: "ui: format Audio.duration as h:mm:ss instead of raw seconds", number: 4414 },
+    ],
+    url: "https://github.com/alephdata/aleph",
+  },
+  {
+    repo: "freelawproject/courts-db",
+    name: "courts-db (Free Law Project)",
+    stars: "100+",
+    prs: [
+      { title: "Fix 'Washignton' typo in courts.json locations", number: 134 },
+    ],
+    url: "https://github.com/freelawproject/courts-db",
+  },
+  {
+    repo: "openelections/openelections-data-wi",
+    name: "openelections-data-wi",
+    stars: "10+",
+    prs: [
+      { title: "Drop dead Travis badge from README", number: 75 },
+    ],
+    url: "https://github.com/openelections/openelections-data-wi",
+  },
+  {
+    repo: "5calls/5calls",
+    name: "5 Calls",
+    stars: "20+",
+    prs: [
+      { title: "Use state-specific titles for state legislators", number: 130 },
+    ],
+    url: "https://github.com/5calls/5calls",
+  },
+  {
+    repo: "opencivicdata/docs.opencivicdata.org",
+    name: "docs.opencivicdata.org",
+    stars: "49",
+    prs: [
+      { title: "Point Popolo links at https://www.popoloproject.com", number: 118 },
+    ],
+    url: "https://github.com/opencivicdata/docs.opencivicdata.org",
+  },
+  {
     repo: "mysociety/theyworkforyou",
     name: "TheyWorkForYou (mySociety)",
     stars: "1K+",
@@ -306,6 +566,33 @@ export const notable: Contribution[] = [
       { title: "Fix 'seperate' typos in two comments", number: 2018 },
     ],
     url: "https://github.com/mysociety/theyworkforyou",
+  },
+  {
+    repo: "rclone/rclone",
+    name: "rclone",
+    stars: "55K+",
+    prs: [
+      { title: "operations: fix DeleteFile godoc, it doesn't honor --backup-dir", number: 9440 },
+    ],
+    url: "https://github.com/rclone/rclone",
+  },
+  {
+    repo: "sharkdp/hyperfine",
+    name: "hyperfine",
+    stars: "26K+",
+    prs: [
+      { title: "Expose HYPERFINE_ITERATION to prepare and conclude commands", number: 882 },
+    ],
+    url: "https://github.com/sharkdp/hyperfine",
+  },
+  {
+    repo: "pola-rs/polars",
+    name: "polars",
+    stars: "35K+",
+    prs: [
+      { title: "py: make next() on GroupBy lazily set up iteration state", number: 27652 },
+    ],
+    url: "https://github.com/pola-rs/polars",
   },
   {
     repo: "CodeForPhilly/philly-ward-leaders",
@@ -463,6 +750,7 @@ export const notable: Contribution[] = [
       { title: "fix(textinput): stop applying Text/Placeholder style to padding", number: 973 },
       { title: "fix(textarea): stop wordLeft from spinning on an empty buffer", number: 974 },
       { title: "textinput: render the full placeholder when Width is 0", number: 976 },
+      { title: "stopwatch: default Interval to 1s in New() to match the documented default", number: 985 },
     ],
     url: "https://github.com/charmbracelet/bubbles",
   },
@@ -551,15 +839,6 @@ export const notable: Contribution[] = [
       { title: "kv: reject keys with consecutive dots in keyValid and searchKeyValid", number: 2076, status: "merged" },
     ],
     url: "https://github.com/nats-io/nats.go",
-  },
-  {
-    repo: "aquasecurity/trivy",
-    name: "Trivy",
-    stars: "27K+",
-    prs: [
-      { title: "fix(nodejs): silently skip package.json files with invalid names", number: 10668 },
-    ],
-    url: "https://github.com/aquasecurity/trivy",
   },
   {
     repo: "go-playground/validator",
@@ -657,7 +936,7 @@ export const notable: Contribution[] = [
     name: "go-pty",
     stars: "200+",
     prs: [
-      { title: "cmd_windows: return *exec.ExitError on non-zero exit", number: 50 },
+      { title: "cmd_windows: return *exec.ExitError on non-zero exit", number: 50, status: "merged" },
     ],
     url: "https://github.com/aymanbagabas/go-pty",
   },
@@ -774,6 +1053,51 @@ export const notable: Contribution[] = [
     ],
     url: "https://github.com/chasefleming/elem-go",
   },
+  {
+    repo: "svix/svix-webhooks",
+    name: "svix-webhooks",
+    stars: "3K+",
+    prs: [
+      { title: "csharp: use Random.Shared for svix-req-id", number: 2335 },
+    ],
+    url: "https://github.com/svix/svix-webhooks",
+  },
+  {
+    repo: "stretchr/testify",
+    name: "testify",
+    stars: "23K+",
+    prs: [
+      { title: "assert: don't crash diff() when spew panics on awkward inputs", number: 1894 },
+    ],
+    url: "https://github.com/stretchr/testify",
+  },
+  {
+    repo: "cosmos/cosmos-sdk",
+    name: "cosmos-sdk",
+    stars: "6K+",
+    prs: [
+      { title: "types/query: saturate Paginate end when offset+limit overflows", number: 26430 },
+    ],
+    url: "https://github.com/cosmos/cosmos-sdk",
+  },
+  {
+    repo: "elastic/beats",
+    name: "beats",
+    stars: "12K+",
+    prs: [
+      { title: "filebeat: nil-check UDP RemoteAddr before formatting in debug log", number: 50770 },
+    ],
+    url: "https://github.com/elastic/beats",
+  },
+  {
+    repo: "google/go-jsonnet",
+    name: "go-jsonnet",
+    stars: "1.6K+",
+    prs: [
+      { title: "parseYaml: drop the stray null when the stream starts with comments", number: 875 },
+    ],
+    url: "https://github.com/google/go-jsonnet",
+  },
 ];
 
 export const other: Contribution[] = [
@@ -829,6 +1153,8 @@ export const other: Contribution[] = [
       { title: "printer: check Alias not Anchor in the AliasType branch", number: 879 },
       { title: "ast: keep trailing blank lines when rendering |+ literals", number: 880 },
       { title: "playground: add Docs link to pkg.go.dev", number: 881 },
+      { title: "scanner: bump offset past '#' so post-comment tokens land at correct Position.Offset", number: 883 },
+      { title: "parser: keep parsing after a comment-only document", number: 884 },
     ],
     url: "https://github.com/goccy/go-yaml",
   },
@@ -951,8 +1277,8 @@ export const other: Contribution[] = [
     name: "kong",
     stars: "3K+",
     prs: [
-      { title: "allow ${env} in the help template of a positional argument", number: 599 },
-      { title: "fire AfterApply for env-only flags", number: 600 },
+      { title: "Support the env tag on positional arguments", number: 601 },
+      { title: "fire AfterApply for env-only flags", number: 600, status: "merged" },
     ],
     url: "https://github.com/alecthomas/kong",
   },
@@ -999,8 +1325,8 @@ export const other: Contribution[] = [
     name: "telebot",
     stars: "4K+",
     prs: [
-      { title: "errors: redact bot token from wrapped transport errors", number: 809 },
-      { title: "fix(file): default the multipart filename to the on-disk basename", number: 810 },
+      { title: "errors: redact bot token from wrapped transport errors", number: 809, status: "merged" },
+      { title: "fix(file): default the multipart filename to the on-disk basename", number: 810, status: "merged" },
     ],
     url: "https://github.com/tucnak/telebot",
   },
@@ -1013,6 +1339,7 @@ export const other: Contribution[] = [
       { title: "from-csv: print sqlite's stderr as text instead of hex", number: 1042 },
       { title: "db create: derive group from source db when forking", number: 1043 },
       { title: "csv-table-name: reject invalid SQLite identifiers up front", number: 1044 },
+      { title: "Drop unused token arg from TokensClient.Validate", number: 1045 },
     ],
     url: "https://github.com/tursodatabase/turso-cli",
   },
@@ -1135,6 +1462,7 @@ export const other: Contribution[] = [
     prs: [
       { title: "Don't transform empty CSV table that was never created", number: 736 },
       { title: "docs: render --convert and --functions literally in install section", number: 737 },
+      { title: "cli: honor --no-headers for table and tabulate-style formats", number: 740 },
     ],
     url: "https://github.com/simonw/sqlite-utils",
   },
@@ -1233,13 +1561,6 @@ export const other: Contribution[] = [
     url: "https://github.com/charmbracelet/vhs",
   },
   {
-    repo: "pallets/click",
-    name: "click",
-    stars: "16K+",
-    prs: [{ title: "Don't break hyphenated options across lines in the usage line", number: 3437 }],
-    url: "https://github.com/pallets/click",
-  },
-  {
     repo: "golang-jwt/jwt",
     name: "golang-jwt/jwt",
     stars: "8K+",
@@ -1251,7 +1572,7 @@ export const other: Contribution[] = [
     name: "go-ldap",
     stars: "2K+",
     prs: [
-      { title: "v3/control: replace unchecked type asserts in DecodeControl with comma-ok", number: 589 },
+      { title: "v3/control: replace unchecked type asserts in DecodeControl with comma-ok", number: 589, status: "merged" },
       { title: "fix(conn): parse ldapi:// URLs per RFC 4516", number: 590 },
     ],
     url: "https://github.com/go-ldap/ldap",
@@ -1260,7 +1581,7 @@ export const other: Contribution[] = [
     repo: "cli/cli",
     name: "GitHub CLI",
     stars: "53K+",
-    prs: [{ title: "docs: drop --repo gh-cli from dnf install lines", number: 13444 }],
+    prs: [{ title: "docs: drop --repo gh-cli from dnf install lines", number: 13444, status: "merged" }],
     url: "https://github.com/cli/cli",
   },
   {
@@ -1316,7 +1637,7 @@ export const other: Contribution[] = [
     repo: "gleam-lang/gleam",
     name: "Gleam",
     stars: "18K+",
-    prs: [{ title: "remove: don't fail when manifest.toml is missing", number: 5721 }],
+    prs: [{ title: "remove: don't fail when manifest.toml is missing", number: 5721, status: "merged" }],
     url: "https://github.com/gleam-lang/gleam",
   },
   {
@@ -1367,6 +1688,62 @@ export const other: Contribution[] = [
     stars: "2K+",
     prs: [{ title: "docs: fix memmap2 link and drop unused Streamer import", number: 180 }],
     url: "https://github.com/BurntSushi/fst",
+  },
+  {
+    repo: "betterleaks/betterleaks",
+    name: "betterleaks",
+    stars: "950+",
+    prs: [{ title: "cmd: fail when --experiments has unknown values", number: 135 }],
+    url: "https://github.com/betterleaks/betterleaks",
+  },
+  {
+    repo: "gobuffalo/fizz",
+    name: "fizz",
+    stars: "100+",
+    prs: [{ title: "translators/postgres: respect null: false in change_column", number: 144 }],
+    url: "https://github.com/gobuffalo/fizz",
+  },
+  {
+    repo: "wagoodman/dive",
+    name: "dive",
+    stars: "47K+",
+    prs: [{ title: "fix(efficiency): report reclaimable bytes, not the sum of every copy", number: 696 }],
+    url: "https://github.com/wagoodman/dive",
+  },
+  {
+    repo: "schollz/croc",
+    name: "croc",
+    stars: "30K+",
+    prs: [{ title: "Dockerfile: bump builder image to golang:1.25", number: 1108 }],
+    url: "https://github.com/schollz/croc",
+  },
+  {
+    repo: "SchemaStore/schemastore",
+    name: "schemastore",
+    stars: "3K+",
+    prs: [{ title: "claude-code-settings: add MultiEdit to permission rule regex", number: 5701 }],
+    url: "https://github.com/SchemaStore/schemastore",
+  },
+  {
+    repo: "twpayne/chezmoi",
+    name: "chezmoi",
+    stars: "15K+",
+    prs: [{ title: "install.sh: map armv6/armv7 uname to chezmoi armv6 release", number: 5063 }],
+    url: "https://github.com/twpayne/chezmoi",
+  },
+  {
+    repo: "gorilla/securecookie",
+    name: "gorilla/securecookie",
+    stars: "900+",
+    prs: [{ title: "Add SecureCookie.Err for surfacing deferred configuration errors", number: 92 }],
+    url: "https://github.com/gorilla/securecookie",
+  },
+  {
+    repo: "influxdata/influxdb-client-go",
+    name: "influxdb-client-go",
+    stars: "800+",
+    prs: [{ title: "write/service: handle a nil URL from url.Parse without panicking", number: 427 }],
+    url: "https://github.com/influxdata/influxdb-client-go",
   },
 ];
 

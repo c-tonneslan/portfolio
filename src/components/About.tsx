@@ -32,8 +32,7 @@ export default function About() {
           </p>
           <p>
             Looking for software engineering work, particularly in civic tech,
-            urban systems, or developer tooling, though the real bar is
-            interesting problems and people who care about the craft.
+            urban systems, or developer tooling.
           </p>
         </div>
       </div>

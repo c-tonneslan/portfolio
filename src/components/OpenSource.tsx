@@ -3,6 +3,23 @@
 import { motion } from "framer-motion";
 import { notable, other, type Contribution } from "@/data/contributions";
 
+function mergedCount(c: Contribution): number {
+  return c.prs.filter((pr) => pr.status === "merged").length;
+}
+
+function mergedFirst(list: Contribution[]): Contribution[] {
+  return [...list]
+    .map((c) => ({
+      ...c,
+      prs: [...c.prs].sort((a, b) => {
+        const am = a.status === "merged" ? 0 : 1;
+        const bm = b.status === "merged" ? 0 : 1;
+        return am - bm;
+      }),
+    }))
+    .sort((a, b) => mergedCount(b) - mergedCount(a));
+}
+
 function ContribCard({ contrib, index }: { contrib: Contribution; index: number }) {
   return (
     <motion.div
@@ -65,14 +82,14 @@ export default function OpenSource() {
 
         <p className="text-xs font-mono text-muted/70 mb-4">notable</p>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 mb-12">
-          {notable.map((contrib, i) => (
+          {mergedFirst(notable).map((contrib, i) => (
             <ContribCard key={contrib.repo} contrib={contrib} index={i} />
           ))}
         </div>
 
         <p className="text-xs font-mono text-muted/70 mb-4">other</p>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
-          {other.map((contrib, i) => (
+          {mergedFirst(other).map((contrib, i) => (
             <ContribCard key={contrib.repo} contrib={contrib} index={i} />
           ))}
         </div>
