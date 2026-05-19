@@ -106,7 +106,7 @@ export const notable: Contribution[] = [
     name: "FixMyStreet (mySociety)",
     stars: "900+",
     prs: [
-      { title: "FAQ: point downtime guidance at the status page, not Twitter", number: 5979 },
+      { title: "FAQ: point downtime guidance at the status page, not Twitter", number: 5979, status: "merged" },
       { title: "Fix a few comment/doc typos", number: 5980, status: "merged" },
       { title: "Don't redirect inspector form back to /report/update referer", number: 5981 },
     ],
@@ -526,7 +526,7 @@ export const notable: Contribution[] = [
     name: "courts-db (Free Law Project)",
     stars: "100+",
     prs: [
-      { title: "Fix 'Washignton' typo in courts.json locations", number: 134 },
+      { title: "Fix 'Washignton' typo in courts.json locations", number: 134, status: "merged" },
     ],
     url: "https://github.com/freelawproject/courts-db",
   },
@@ -535,7 +535,7 @@ export const notable: Contribution[] = [
     name: "openelections-data-wi",
     stars: "10+",
     prs: [
-      { title: "Drop dead Travis badge from README", number: 75 },
+      { title: "Drop dead Travis badge from README", number: 75, status: "merged" },
     ],
     url: "https://github.com/openelections/openelections-data-wi",
   },
@@ -562,8 +562,8 @@ export const notable: Contribution[] = [
     name: "TheyWorkForYou (mySociety)",
     stars: "1K+",
     prs: [
-      { title: "Use Plaid Cymru's green for the party dot", number: 2017 },
-      { title: "Fix 'seperate' typos in two comments", number: 2018 },
+      { title: "Use Plaid Cymru's green for the party dot", number: 2017, status: "merged" },
+      { title: "Fix 'seperate' typos in two comments", number: 2018, status: "merged" },
     ],
     url: "https://github.com/mysociety/theyworkforyou",
   },
@@ -1058,7 +1058,7 @@ export const notable: Contribution[] = [
     name: "svix-webhooks",
     stars: "3K+",
     prs: [
-      { title: "csharp: use Random.Shared for svix-req-id", number: 2335 },
+      { title: "csharp: use Random.Shared for svix-req-id", number: 2335, status: "merged" },
     ],
     url: "https://github.com/svix/svix-webhooks",
   },
@@ -1277,7 +1277,7 @@ export const other: Contribution[] = [
     name: "kong",
     stars: "3K+",
     prs: [
-      { title: "Support the env tag on positional arguments", number: 601 },
+      { title: "Support the env tag on positional arguments", number: 601, status: "merged" },
       { title: "fire AfterApply for env-only flags", number: 600, status: "merged" },
     ],
     url: "https://github.com/alecthomas/kong",
@@ -1599,6 +1599,13 @@ export const other: Contribution[] = [
     url: "https://github.com/open-telemetry/opentelemetry-go-contrib",
   },
   {
+    repo: "hetznercloud/hcloud-go",
+    name: "hcloud-go (Hetzner Cloud)",
+    stars: "500+",
+    prs: [{ title: "metadata: add context-aware Client methods", number: 852 }],
+    url: "https://github.com/hetznercloud/hcloud-go",
+  },
+  {
     repo: "rs/cors",
     name: "rs/cors",
     stars: "3K+",
@@ -1714,7 +1721,7 @@ export const other: Contribution[] = [
     repo: "schollz/croc",
     name: "croc",
     stars: "30K+",
-    prs: [{ title: "Dockerfile: bump builder image to golang:1.25", number: 1108 }],
+    prs: [{ title: "Dockerfile: bump builder image to golang:1.25", number: 1108, status: "merged" }],
     url: "https://github.com/schollz/croc",
   },
   {
