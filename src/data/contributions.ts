@@ -1640,7 +1640,11 @@ export const other: Contribution[] = [
     repo: "gleam-lang/gleam",
     name: "Gleam",
     stars: "18K+",
-    prs: [{ title: "remove: don't fail when manifest.toml is missing", number: 5721, status: "merged" }],
+    prs: [
+      { title: "remove: don't fail when manifest.toml is missing", number: 5721, status: "merged" },
+      { title: "Simplify the failed Hex API key decryption error message", number: 5741 },
+      { title: "Show a readable error when reverting a release that's too old", number: 5742 },
+    ],
     url: "https://github.com/gleam-lang/gleam",
   },
   {
@@ -1780,7 +1784,7 @@ export const other: Contribution[] = [
     repo: "bloomberg/pystack",
     name: "pystack",
     stars: "1K+",
-    prs: [{ title: "conftest: exit with a clear message when ptrace_scope blocks the test suite", number: 309 }],
+    prs: [{ title: "conftest: exit with a clear message when ptrace_scope blocks the test suite", number: 309, status: "merged" }],
     url: "https://github.com/bloomberg/pystack",
   },
   {
@@ -1803,6 +1807,51 @@ export const other: Contribution[] = [
     stars: "2K+",
     prs: [{ title: "server: guard web contract unpack against path traversal", number: 4204 }],
     url: "https://github.com/freenet/freenet-core",
+  },
+  {
+    repo: "VictoriaMetrics/VictoriaMetrics",
+    name: "VictoriaMetrics",
+    stars: "13K+",
+    prs: [{ title: "app/vmalert: don't evaluate a rule one interval in the future", number: 10987 }],
+    url: "https://github.com/VictoriaMetrics/VictoriaMetrics",
+  },
+  {
+    repo: "simonw/llm",
+    name: "llm",
+    stars: "11K+",
+    prs: [
+      { title: "Keep monotonic_ulid monotonic when the system clock moves backward", number: 1454 },
+      { title: "Recognize ${braced} variables in template extract_vars", number: 1455 },
+    ],
+    url: "https://github.com/simonw/llm",
+  },
+  {
+    repo: "tobymao/sqlglot",
+    name: "sqlglot",
+    stars: "9K+",
+    prs: [{ title: "Raise ParseError, not IndexError, on an unclosed JSONPath filter", number: 7665, status: "merged" }],
+    url: "https://github.com/tobymao/sqlglot",
+  },
+  {
+    repo: "Textualize/textual",
+    name: "textual",
+    stars: "30K+",
+    prs: [{ title: "Fix TwoWayDict reverse map going stale on key reassignment", number: 6551 }],
+    url: "https://github.com/Textualize/textual",
+  },
+  {
+    repo: "Delgan/loguru",
+    name: "loguru",
+    stars: "19K+",
+    prs: [{ title: "Fix parsing of 12-hour rotation times without seconds", number: 1474 }],
+    url: "https://github.com/Delgan/loguru",
+  },
+  {
+    repo: "python-humanize/humanize",
+    name: "humanize",
+    stars: "700+",
+    prs: [{ title: "Return an empty string from natural_list for an empty list", number: 318 }],
+    url: "https://github.com/python-humanize/humanize",
   },
 ];
 
