@@ -163,6 +163,42 @@ export const notable: Contribution[] = [
     url: "https://github.com/simonw/datasette",
   },
   {
+    repo: "simonw/json-flatten",
+    name: "json-flatten (Simon Willison)",
+    stars: "50+",
+    prs: [
+      { title: "Fix unflatten crashing on keys that contain a dollar sign", number: 11 },
+    ],
+    url: "https://github.com/simonw/json-flatten",
+  },
+  {
+    repo: "simonw/symbex",
+    name: "symbex (Simon Willison)",
+    stars: "300+",
+    prs: [
+      { title: "Render dotted base classes and metaclass values instead of dropping them", number: 49 },
+    ],
+    url: "https://github.com/simonw/symbex",
+  },
+  {
+    repo: "huggingface/accelerate",
+    name: "Hugging Face Accelerate",
+    stars: "9.7K+",
+    prs: [
+      { title: "logging: stop warning_once from crashing on unhashable kwargs like extra={...}", number: 4047 },
+    ],
+    url: "https://github.com/huggingface/accelerate",
+  },
+  {
+    repo: "huggingface/tokenizers",
+    name: "Hugging Face Tokenizers",
+    stars: "10.7K+",
+    prs: [
+      { title: "Fix typo in EncodingVisualizer.annotation_converter attribute", number: 2068 },
+    ],
+    url: "https://github.com/huggingface/tokenizers",
+  },
+  {
     repo: "18F/charlie",
     name: "charlie (18F Slack bot)",
     stars: "30+",
@@ -1831,13 +1867,6 @@ export const other: Contribution[] = [
     stars: "9K+",
     prs: [{ title: "Raise ParseError, not IndexError, on an unclosed JSONPath filter", number: 7665, status: "merged" }],
     url: "https://github.com/tobymao/sqlglot",
-  },
-  {
-    repo: "Textualize/textual",
-    name: "textual",
-    stars: "30K+",
-    prs: [{ title: "Fix TwoWayDict reverse map going stale on key reassignment", number: 6551 }],
-    url: "https://github.com/Textualize/textual",
   },
   {
     repo: "Delgan/loguru",

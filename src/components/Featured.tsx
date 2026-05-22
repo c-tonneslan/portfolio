@@ -4,6 +4,14 @@ import { motion } from "framer-motion";
 
 const featured = [
   {
+    title: "scour",
+    description:
+      "A fast, parallel, gitignore-aware recursive grep written from scratch in Rust. A worker pool walks the directory tree across every core, and termination is handled by an atomic counter incremented before a subdirectory is queued and decremented after a directory is done, so whichever worker drops it to zero knows the walk is finished. .gitignore patterns compile to per-rule regexes, matched against paths relative to each .gitignore's own directory, with the deepest opinion winning so a nested negation rule can re-include. Matching runs on raw bytes so a non-UTF-8 file doesn't crash the search, smart-case mirrors ripgrep, and there's match-highlighted color output, stdin support, and grep-style exit codes. Six modules, around 900 lines, 29 tests.",
+    metrics: ["~900 LOC, 6 modules", "parallel worker-pool walk", "gitignore-aware, 29 tests"],
+    tech: ["Rust", "regex", "crossbeam-channel", "clap"],
+    github: "https://github.com/c-tonneslan/scour",
+  },
+  {
     title: "soda",
     description:
       "A Go CLI for Socrata-based open data portals. 49 government portals preconfigured (NYC, Chicago, Seattle, LA, the CDC, plus 44 others). Nine commands: search across every portal at once, list / info / pull / stats on one, watch a dataset for new rows on an interval, diff two snapshots row-by-row with field-level old/new for changed rows. Outputs JSON, NDJSON, CSV, or directly into a SQLite database — pull --all auto-paginates million-row datasets, upserts on :id, schema typed from SODA metadata. Single static binary, no Python required. SoQL filter support pass-through (--where / --order / --select). Full mkdocs site, Homebrew tap formula auto-generated on tag push. Pairs with convene for civic-tech work.",

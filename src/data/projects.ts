@@ -13,6 +13,18 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "scour",
+    title: "scour",
+    description:
+      "A fast, parallel, gitignore-aware recursive grep written from scratch in Rust. A worker pool walks the directory tree across every core, an atomic counter handles termination, .gitignore patterns compile to per-rule regexes, and matching runs on raw bytes so non-UTF-8 files don't crash the search. Smart-case, colored output, stdin, grep-style exit codes. Six modules, ~900 lines, 29 tests.",
+    longDescription:
+      "scour is a from-scratch take on the ripgrep idea, kept small enough to read in one sitting. The interesting part is the walk: a pool of worker threads shares one queue of directories, each worker pops a directory, reads it, hands files to the search code, and pushes subdirectories back onto the queue. Termination is the subtle bit, an atomic counter is incremented before a subdirectory is queued and decremented after a directory is fully processed, so whichever worker drops it to zero knows the whole tree is done and signals the rest to shut down. Gitignore handling parses each rule into a regex once (a single star becomes a no-slash wildcard, a double star crosses directory boundaries, a bracket class stays a class) and matches paths relative to the directory each .gitignore lives in; the walker keeps a stack of the .gitignore files above the current directory and the deepest one with an opinion wins, so a nested negation rule can re-include something a parent excluded. Matching runs on raw bytes through the regex crate's byte API, and files with a NUL byte near the start are treated as binary and skipped. Smart-case mirrors ripgrep: an all-lowercase pattern searches case-insensitively, a capital letter flips it to sensitive, and escapes don't count. Flags cover ignore-case, case-sensitive, fixed-strings, word-boundary, files-with-matches, per-file counts, hidden files, no-ignore, and a configurable thread count. Built on Rust with regex, clap, and crossbeam-channel; the matcher, the gitignore translation, the line search, and the output formatting each have their own unit tests.",
+    tech: ["Rust", "regex", "crossbeam-channel", "clap"],
+    github: "https://github.com/c-tonneslan/scour",
+    status: "live",
+    category: "devtool",
+  },
+  {
     id: "soda",
     title: "soda",
     description:
