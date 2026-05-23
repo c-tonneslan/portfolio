@@ -199,6 +199,15 @@ export const notable: Contribution[] = [
     url: "https://github.com/huggingface/tokenizers",
   },
   {
+    repo: "huggingface/peft",
+    name: "Hugging Face PEFT",
+    stars: "21K+",
+    prs: [
+      { title: "Return False from is_gptqmodel_available when gptqmodel isn't installed", number: 3255 },
+    ],
+    url: "https://github.com/huggingface/peft",
+  },
+  {
     repo: "18F/charlie",
     name: "charlie (18F Slack bot)",
     stars: "30+",
@@ -1121,7 +1130,7 @@ export const notable: Contribution[] = [
     name: "beats",
     stars: "12K+",
     prs: [
-      { title: "filebeat: nil-check UDP RemoteAddr before formatting in debug log", number: 50770 },
+      { title: "filebeat: nil-check UDP RemoteAddr before formatting in debug log", number: 50770, status: "merged" },
     ],
     url: "https://github.com/elastic/beats",
   },
@@ -1605,7 +1614,7 @@ export const other: Contribution[] = [
     stars: "2K+",
     prs: [
       { title: "v3/control: replace unchecked type asserts in DecodeControl with comma-ok", number: 589, status: "merged" },
-      { title: "fix(conn): parse ldapi:// URLs per RFC 4516", number: 590 },
+      { title: "fix(conn): parse ldapi:// URLs per RFC 4516", number: 590, status: "merged" },
     ],
     url: "https://github.com/go-ldap/ldap",
   },
@@ -1872,14 +1881,14 @@ export const other: Contribution[] = [
     repo: "Delgan/loguru",
     name: "loguru",
     stars: "19K+",
-    prs: [{ title: "Fix parsing of 12-hour rotation times without seconds", number: 1474 }],
+    prs: [{ title: "Fix parsing of 12-hour rotation times without seconds", number: 1474, status: "merged" }],
     url: "https://github.com/Delgan/loguru",
   },
   {
     repo: "python-humanize/humanize",
     name: "humanize",
     stars: "700+",
-    prs: [{ title: "Return an empty string from natural_list for an empty list", number: 318 }],
+    prs: [{ title: "Return an empty string from natural_list for an empty list", number: 318, status: "merged" }],
     url: "https://github.com/python-humanize/humanize",
   },
 ];
