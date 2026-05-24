@@ -313,7 +313,7 @@ export const notable: Contribution[] = [
     name: "openelections-data-ma",
     stars: "15+",
     prs: [
-      { title: "parsers: pass html.parser to BeautifulSoup explicitly", number: 35 },
+      { title: "parsers: pass html.parser to BeautifulSoup explicitly", number: 35, status: "merged" },
       { title: "primary_parser: narrow bare excepts to IndexError", number: 36 },
     ],
     url: "https://github.com/openelections/openelections-data-ma",
@@ -323,7 +323,7 @@ export const notable: Contribution[] = [
     name: "openelections-data-ga",
     stars: "20+",
     prs: [
-      { title: "county_parser: pass lxml to BeautifulSoup to match the rest of the repo", number: 299 },
+      { title: "county_parser: pass lxml to BeautifulSoup to match the rest of the repo", number: 299, status: "merged" },
       { title: "clarity_parser: narrow bare except to Exception", number: 300 },
     ],
     url: "https://github.com/openelections/openelections-data-ga",
@@ -353,7 +353,7 @@ export const notable: Contribution[] = [
     name: "openelections-data-az",
     stars: "10+",
     prs: [
-      { title: "clarity_parser: narrow bare except to Exception", number: 72 },
+      { title: "clarity_parser: narrow bare except to Exception", number: 72, status: "merged" },
     ],
     url: "https://github.com/openelections/openelections-data-az",
   },
@@ -362,7 +362,7 @@ export const notable: Contribution[] = [
     name: "openelections-data-nj",
     stars: "10+",
     prs: [
-      { title: "Narrow file-open bare excepts to OSError", number: 102 },
+      { title: "Narrow file-open bare excepts to OSError", number: 102, status: "merged" },
     ],
     url: "https://github.com/openelections/openelections-data-nj",
   },
@@ -1432,8 +1432,8 @@ export const other: Contribution[] = [
     name: "lo",
     stars: "20K+",
     prs: [
-      { title: "mutable: fix wrong/misleading doc comments on Filter, FilterI, Map, MapI", number: 888 },
-      { title: "docs(concat): example uses lo.Concat, not lo.Flatten", number: 889 },
+      { title: "mutable: fix wrong/misleading doc comments on Filter, FilterI, Map, MapI", number: 888, status: "merged" },
+      { title: "docs(concat): example uses lo.Concat, not lo.Flatten", number: 889, status: "merged" },
       { title: "mutable: zero out tail slots dropped by Filter and FilterI", number: 890 },
     ],
     url: "https://github.com/samber/lo",
@@ -1881,8 +1881,18 @@ export const other: Contribution[] = [
     repo: "Delgan/loguru",
     name: "loguru",
     stars: "19K+",
-    prs: [{ title: "Fix parsing of 12-hour rotation times without seconds", number: 1474, status: "merged" }],
+    prs: [
+      { title: "Fix parsing of 12-hour rotation times without seconds", number: 1474, status: "merged" },
+      { title: "docs(_string_parsers): parse_size returns bytes, not bits", number: 1477, status: "merged" },
+    ],
     url: "https://github.com/Delgan/loguru",
+  },
+  {
+    repo: "python-jsonschema/referencing",
+    name: "referencing",
+    stars: "260+",
+    prs: [{ title: "Fix Resource.anchors docstring: returns anchors, not the identifier", number: 358, status: "merged" }],
+    url: "https://github.com/python-jsonschema/referencing",
   },
   {
     repo: "python-humanize/humanize",
