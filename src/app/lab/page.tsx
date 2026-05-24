@@ -249,6 +249,87 @@ const demos: Demo[] = [
       </div>
     ),
   },
+  {
+    slug: "linear",
+    title: "linear.app, studied",
+    tag: "saas marketing",
+    blurb: "The canonical product page, rebuilt: mesh-gradient hero, animated issue list with status transitions, feature triptych, customer quote, logo wall.",
+    swatch: "from-[#5e6ad2]/30 via-[#7e5fff]/10 to-transparent",
+    preview: (
+      <div className="h-full bg-[#08090a] text-[#f7f8f8] rounded-md relative overflow-hidden p-1.5">
+        <div className="absolute inset-0">
+          <div className="absolute -top-4 left-1/3 w-20 h-20 rounded-full bg-[#5e6ad2] opacity-50 blur-2xl" />
+          <div className="absolute top-4 -right-4 w-16 h-16 rounded-full bg-[#26b5ce] opacity-40 blur-2xl" />
+        </div>
+        <div className="relative flex flex-col h-full">
+          <div className="flex items-center gap-1">
+            <span className="w-1.5 h-1.5 rounded-sm bg-gradient-to-br from-[#9aa1ff] to-[#5e6ad2]" />
+            <span className="text-[5px] font-semibold">Linear</span>
+          </div>
+          <p className="text-[7px] font-semibold mt-1 leading-tight tracking-tight">
+            The system for modern
+            <br />
+            <span className="bg-gradient-to-r from-[#c1c6ff] to-[#7da9ff] bg-clip-text text-transparent">software dev.</span>
+          </p>
+          <div className="mt-1 flex gap-0.5">
+            <div className="px-1 h-1 bg-white rounded-sm" />
+            <div className="px-1 h-1 bg-white/15 rounded-sm" />
+          </div>
+        </div>
+      </div>
+    ),
+  },
+  {
+    slug: "readcv",
+    title: "read.cv, studied",
+    tag: "professional network",
+    blurb: "Inter Display on warm off-white, profile grid with skill tags, an editorial 'what is read.cv' essay block, two-tier pricing.",
+    swatch: "from-[#1c1c1a]/15 via-[#faf9f5]/15 to-transparent",
+    preview: (
+      <div className="h-full bg-[#faf9f5] text-[#1c1c1a] rounded-md p-1.5 flex flex-col">
+        <p className="text-[6px] font-semibold tracking-tighter">read.cv<span className="opacity-30">.</span></p>
+        <p className="text-[8px] leading-tight mt-1 tracking-tight">
+          A quieter home for <span className="font-serif italic">your work.</span>
+        </p>
+        <div className="mt-1 grid grid-cols-2 gap-px bg-[#1c1c1a]/15 rounded overflow-hidden flex-1">
+          {Array.from({ length: 4 }).map((_, i) => (
+            <div key={i} className="bg-[#faf9f5] p-0.5 flex items-center gap-0.5">
+              <div className="w-2 h-2 rounded-full bg-gradient-to-br from-rose-300 to-orange-400" />
+              <div className="flex-1">
+                <div className="h-0.5 bg-[#1c1c1a]/80 w-3/4 mb-px" />
+                <div className="h-px bg-[#1c1c1a]/30 w-1/2" />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    ),
+  },
+  {
+    slug: "anthropic",
+    title: "anthropic.com, studied",
+    tag: "editorial product",
+    blurb: "Cream paper, serif italic accents, a Claude-coral mesh, three product cards, three principles, a research index, careers callout in deep ink.",
+    swatch: "from-[#d97757]/25 via-[#f4a261]/10 to-transparent",
+    preview: (
+      <div className="h-full bg-[#faf9f5] text-[#181818] rounded-md p-1.5 flex flex-col">
+        <div className="flex items-center gap-0.5">
+          <svg viewBox="0 0 24 24" className="w-1.5 h-1.5">
+            <path d="M7 4 L17 4 L21 20 L15 20 L13.5 14 L10.5 14 L9 20 L3 20 Z M11 9.5 L13 9.5 L12 6 Z" fill="#d97757" />
+          </svg>
+          <span className="text-[5px] font-medium">Anthropic</span>
+        </div>
+        <p className="text-[7px] font-medium mt-1 leading-tight tracking-tight">
+          Making AI systems
+          <br />you can <span className="font-serif italic text-[#a14d2f]">rely on.</span>
+        </p>
+        <div className="mt-1 flex-1 rounded-sm relative overflow-hidden bg-[#f3ede0]">
+          <div className="absolute top-1 left-1 w-6 h-6 rounded-full bg-[#d97757] opacity-50 blur-md" />
+          <div className="absolute bottom-1 right-1 w-5 h-5 rounded-full bg-[#f4a261] opacity-60 blur-md" />
+        </div>
+      </div>
+    ),
+  },
 ];
 
 export default function LabIndex() {
