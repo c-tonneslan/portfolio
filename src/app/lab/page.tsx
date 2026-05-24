@@ -171,6 +171,84 @@ const demos: Demo[] = [
       </div>
     ),
   },
+  {
+    slug: "archive",
+    title: "studio archive",
+    tag: "type-driven index",
+    blurb: "A small studio's complete catalogue of work, in reverse chronological order. No images, no marketing — only the record.",
+    swatch: "from-[#7a4a32]/20 via-[#7a4a32]/5 to-transparent",
+    preview: (
+      <div className="h-full bg-[#f3eee4] text-[#0c0c0c] p-2 flex flex-col font-mono text-[8px] leading-[1.5]">
+        <div className="flex justify-between mb-1 opacity-60">
+          <span>№</span><span>YEAR</span><span>WORK</span><span>CITY</span>
+        </div>
+        {["047 · 2026 · Catalogue Raisonné · RVK", "046 · 2026 · A Field of Salt · RVK", "045 · 2026 · Programme · RVK", "044 · 2025 · Brutus · TYO", "043 · 2025 · Lögberg · RVK"].map((row) => (
+          <div key={row} className="border-t border-[#0c0c0c]/20 py-px truncate">{row}</div>
+        ))}
+      </div>
+    ),
+  },
+  {
+    slug: "menu",
+    title: "saltey, a kitchen",
+    tag: "restaurant menu",
+    blurb: "Cream, oxblood, italic serif. A small restaurant's nightly menu set the way a printed card would set it.",
+    swatch: "from-[#5b1a1a]/25 via-[#f3e6d0]/20 to-transparent",
+    preview: (
+      <div className="h-full bg-[#f3e6d0] text-[#5b1a1a] p-2 flex flex-col items-center justify-center">
+        <p className="text-[7px] uppercase tracking-[0.3em] opacity-70">est. MMXIX</p>
+        <p className="font-serif italic text-2xl leading-none mt-1">Saltey</p>
+        <div className="w-full mt-2 space-y-0.5 text-[7px]">
+          {["Sourdough · cultured butter ……… 9", "Cod · brown crab · kelp ……………… 44", "Reindeer · sour cherry ……………… 58"].map((r) => (
+            <p key={r}>{r}</p>
+          ))}
+        </div>
+      </div>
+    ),
+  },
+  {
+    slug: "repertory",
+    title: "the repertory",
+    tag: "cinema programme",
+    blurb: "An independent cinema's week. Seven columns of showtimes, a centerpiece restoration, members' notes. Print logic, on a web page.",
+    swatch: "from-[#c41e1e]/20 via-[#efe6d2]/15 to-transparent",
+    preview: (
+      <div className="h-full bg-[#efe6d2] text-[#0c0c0c] p-2 flex flex-col">
+        <p className="font-serif italic text-base leading-none">The Repertory.</p>
+        <div className="grid grid-cols-7 gap-px mt-2 flex-1 text-[6px]">
+          {["Sat","Sun","Mon","Tue","Wed","Thu","Fri"].map((d) => (
+            <div key={d} className="bg-[#efe6d2] border-t border-[#0c0c0c]/40 pt-0.5">
+              <p className="uppercase tracking-wider opacity-60">{d}</p>
+              <p className="text-[#c41e1e] mt-0.5">1:00</p>
+              <p className="text-[#c41e1e]">6:15</p>
+              <p className="text-[#c41e1e]">9:00</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    ),
+  },
+  {
+    slug: "letter",
+    title: "a letter to shareholders",
+    tag: "annual report",
+    blurb: "A founder's letter, set like a printed document. Marginal year navigation, drop caps, footnotes, signature in script.",
+    swatch: "from-[#a23427]/15 via-[#faf6ed]/20 to-transparent",
+    preview: (
+      <div className="h-full bg-[#faf6ed] text-[#0d1e3a] p-2 flex flex-col">
+        <p className="text-[6px] uppercase tracking-[0.25em] opacity-70 flex justify-between">
+          <span>Nordmark & Co.</span><span>№ 09</span>
+        </p>
+        <p className="font-serif italic text-[10px] leading-tight mt-1">
+          A letter to<br />shareholders,<br />for the year 2026.
+        </p>
+        <div className="mt-auto flex items-end justify-between">
+          <p className="font-serif italic text-[#a23427] text-[10px] leading-none">Eyvind N.</p>
+          <p className="font-mono text-[5px] opacity-60">24·V·MMXXVI</p>
+        </div>
+      </div>
+    ),
+  },
 ];
 
 export default function LabIndex() {
