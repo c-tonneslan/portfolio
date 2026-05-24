@@ -1,97 +1,143 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
-const featured = [
+type Project = {
+  num: string;
+  year: string;
+  title: string;
+  kind: string;
+  description: string;
+  tech: string[];
+  github: string;
+  live?: string;
+  featured?: boolean;
+};
+
+const projects: Project[] = [
   {
-    title: "scour",
+    num: "01",
+    year: "2026",
+    title: "civic-philly",
+    kind: "Web · Civic data",
     description:
-      "A fast, parallel, gitignore-aware recursive grep written from scratch in Rust. A worker pool walks the directory tree across every core, and termination is handled by an atomic counter incremented before a subdirectory is queued and decremented after a directory is done, so whichever worker drops it to zero knows the walk is finished. .gitignore patterns compile to per-rule regexes, matched against paths relative to each .gitignore's own directory, with the deepest opinion winning so a nested negation rule can re-include. Matching runs on raw bytes so a non-UTF-8 file doesn't crash the search, smart-case mirrors ripgrep, and there's match-highlighted color output, stdin support, and grep-style exit codes. Six modules, around 900 lines, 29 tests.",
-    metrics: ["~900 LOC, 6 modules", "parallel worker-pool walk", "gitignore-aware, 29 tests"],
-    tech: ["Rust", "regex", "crossbeam-channel", "clap"],
-    github: "https://github.com/c-tonneslan/scour",
+      "A real-asset civic tool, not a data viz. 5,000+ housing developments, zoning permits, transit projects, and capital infrastructure investments in Philadelphia, joined against 408 ACS census tracts, 10 council district polygons, 239 RCOs, every council member's contact, 4,212 OPA property owners, and 6,400+ L&I displacement signals. Full-text search, public API, RSS, OG, equity overlay, mobile bottom-sheet for organizers at meetings. Built for council aides, organizers, and reporters.",
+    tech: ["TypeScript", "Next.js 16", "MapLibre GL", "PostGIS", "Census ACS", "next/og"],
+    github: "https://github.com/c-tonneslan/civic-philly",
+    live: "https://civic-philly.vercel.app",
+    featured: true,
   },
   {
-    title: "soda",
-    description:
-      "A Go CLI for Socrata-based open data portals. 49 government portals preconfigured (NYC, Chicago, Seattle, LA, the CDC, plus 44 others). Nine commands: search across every portal at once, list / info / pull / stats on one, watch a dataset for new rows on an interval, diff two snapshots row-by-row with field-level old/new for changed rows. Outputs JSON, NDJSON, CSV, or directly into a SQLite database — pull --all auto-paginates million-row datasets, upserts on :id, schema typed from SODA metadata. Single static binary, no Python required. SoQL filter support pass-through (--where / --order / --select). Full mkdocs site, Homebrew tap formula auto-generated on tag push. Pairs with convene for civic-tech work.",
-    metrics: ["49 portals · 9 commands", "JSON / NDJSON / CSV / SQLite sinks", "watch + diff for change detection"],
-    tech: ["Go 1.25+", "cobra", "modernc.org/sqlite"],
-    github: "https://github.com/c-tonneslan/soda",
-  },
-  {
-    title: "convene",
-    description:
-      "Two-platform municipal-data tool: hits Legistar's official REST API and HTML-scrapes Granicus's ViewPublisher pages, with 24 US cities preconfigured. Streams events, agenda items, roll-call votes, legislation, sponsors, and action history as OCD-shaped JSON, ndjson for jq, or directly into a normalized 9-table SQLite database. Incremental sync via --since-modified, on-disk cache for iterative work, joinable matter→event IDs so bill actions link back to the meeting that took them. Distinct from python-legistar-scraper (HTML scraping, brittle) and pupa (heavy Django/Mongo orchestrator). Full mkdocs site, reusable GitHub Action for daily snapshots, PyPI trusted-publishing release workflow. Aims to be the modern alternative civic-tech shops can drop into a Councilmatic-style ingest pipeline.",
-    metrics: ["24 cities · Legistar + Granicus", "Events / matters / votes / sponsors / history", "JSON / ndjson / SQLite output"],
-    tech: ["Python 3.11+", "Pydantic 2", "httpx", "BeautifulSoup", "SQLite"],
-    github: "https://github.com/c-tonneslan/convene",
-  },
-  {
-    title: "littledb",
-    description:
-      "Tiny embedded key/value store in Go. Single-file ACID with a copy-on-write B+tree, two-meta-page commits, and MVCC-style snapshot reads. Around 1,500 lines. Benchmarks within 5% of bbolt on writes (both bottleneck on fsync); ~6x slower on reads because there's deliberately no mmap.",
-    metrics: ["~1.5k LOC", "ACID + COW", "Tied with bbolt on writes"],
-    tech: ["Go", "B+tree", "Copy-on-Write", "CRC32C"],
-    github: "https://github.com/c-tonneslan/littledb",
-  },
-  {
+    num: "02",
+    year: "2026",
     title: "septa-live",
+    kind: "Web · Transit",
     description:
-      "Live map of every SEPTA mode that publishes realtime data: Regional Rail, BSL, MFL, NHSL, all five subway-surface trolleys (T1-T5), Girard (G/Route 15), and the suburban trolleys to Media and Sharon Hill (D1, D2). Color-coded with SEPTA Metro's brand palette, polylines drawn through every line's stations in order, ~140 stations pinned accurately along Market, Broad, Front, and Kensington. Hits five SEPTA endpoints (TrainView, TransitViewAll, Arrivals, Alerts, elevator) through Next.js API routes that proxy through Vercel's edge cache so upstream shape changes never reach the client. SEPTA's feeds are inconsistent (one line spelled three ways across one Arrivals response, TransitViewAll uses Metro letters while Alerts uses long names), so the line registry carries an apiNames array per line that canonicalizes every variant. Trains and trolley vehicles are reused across polls so they slide instead of flicker. Sidebar groups lines by mode with per-group hide/show, a most-delayed leaderboard across every feed, type-ahead station picker, and detail panels for trains, vehicles, and stations. Elevator outages roll into the alerts banner.",
-    metrics: ["5 SEPTA APIs · 25 lines · ~140 stations", "15s poll, edge-cached proxy", "RR + subway + trolley + NHSL"],
+      "Live map of every SEPTA mode that publishes realtime data: Regional Rail, BSL, MFL, NHSL, five subway-surface trolleys, Girard, and the suburban trolleys to Media and Sharon Hill. Color-coded with SEPTA Metro's brand palette, polylines drawn through every line's stations in order, ~140 stations pinned accurately. Hits five SEPTA endpoints through Next.js API routes that proxy through Vercel's edge cache. Trains and trolley vehicles reused across polls so they slide instead of flicker.",
     tech: ["TypeScript", "Next.js 16", "Leaflet", "SEPTA APIs"],
     github: "https://github.com/c-tonneslan/septa-live",
     live: "https://septa-live.vercel.app",
   },
   {
-    title: "civic-philly",
-    description:
-      "A real-asset civic tool, not a data viz. 5,000+ housing developments, zoning permits, transit projects, and capital infrastructure investments in Philadelphia, joined against 408 ACS census tracts, 10 council district polygons, 239 Registered Community Organizations, every city council member's contact info, 4,212 OPA property owners (the shell-LLC pattern catcher), and 6,400+ L&I displacement signals (demolition permits + housing-code violations). Postgres tsvector full-text search. Top-applicants and top-owners leaderboards. Per-district briefing pages with year-by-year activity charts. Status-history accountability tracker for stalled projects. Equity overlay choropleth on the map. Mobile bottom-sheet for organizers at meetings. /this-week content homepage with weekly aggregations. RSS feeds per district. Dynamic next/og preview cards for every project and district. Sitemap.xml so project pages are Google-indexable. /embed iframe for blogs and CDC sites. Public JSON API at /api/v1. Cited methodology page. Email alerts and weekly per-district digests via Resend. Built for council aides, organizers, and reporters.",
-    metrics: ["5,000+ projects · 4,200+ owners · 6,400+ signals", "Full-text search · public API · RSS · OG", "Equity + accountability + displacement layers"],
-    tech: ["TypeScript", "Next.js 16", "MapLibre GL", "PostGIS", "Census ACS", "next/og"],
-    github: "https://github.com/c-tonneslan/civic-philly",
-    live: "https://civic-philly.vercel.app",
-  },
-  {
+    num: "03",
+    year: "2026",
     title: "groundwork",
+    kind: "Web · Housing",
     description:
       "Interactive map of 6,500+ affordable-housing projects across six U.S. cities (NYC, SF, LA, DC, Chicago, Philly), unified into one Postgres + PostGIS schema. Adds a census-tract rent-burden choropleth, a supply-demand gap analysis (burdened households per nearby affordable unit, pure PostGIS spatial join), and a stakeholders panel that surfaces the elected representative for any clicked development.",
-    metrics: ["6 cities, 6,500+ projects", "PostGIS spatial joins", "85 elected reps scraped"],
     tech: ["TypeScript", "Next.js", "Postgres", "PostGIS", "Leaflet", "Census ACS"],
     github: "https://github.com/c-tonneslan/groundwork",
     live: "https://groundwork-tan.vercel.app",
   },
   {
-    title: "fourth-down-audit",
+    num: "04",
+    year: "2026",
+    title: "scour",
+    kind: "CLI · Rust",
     description:
-      "NFL 4th-down decision audit. Trained a new XGBoost win-probability model on 300k plays of nflverse pbp; held out 2024 and landed at log-loss 0.465, within 0.3% of nflfastR's bundled WP model on the same plays. Added a conversion logit, an FG-make logit, and an empirical punt-net lookup, then scored every 4th down in 2018-2024 with 1,500-iter bootstrap CIs per coach-season. The dashboard ranks coaches by WP lost with confidence-interval bars, filters by situation (red zone, two-minute, own territory, FG range) and decision type, and on click pops a play drawer with the three-option E[WP] breakdown and an animated WP curve over the surrounding plays.",
-    metrics: ["300k plays · 7 seasons", "Log-loss 0.465", "1,500-iter bootstrap CIs"],
+      "A fast, parallel, gitignore-aware recursive grep written from scratch in Rust. A worker pool walks the directory tree across every core. Termination is handled by an atomic counter incremented before a subdirectory is queued and decremented after a directory is done, so whichever worker drops it to zero knows the walk is finished. .gitignore patterns compile to per-rule regexes, matched against paths relative to each .gitignore's own directory, with the deepest opinion winning. Matching runs on raw bytes so a non-UTF-8 file doesn't crash the search. Six modules, around 900 lines, 29 tests.",
+    tech: ["Rust", "regex", "crossbeam-channel", "clap"],
+    github: "https://github.com/c-tonneslan/scour",
+  },
+  {
+    num: "05",
+    year: "2026",
+    title: "soda",
+    kind: "CLI · Go",
+    description:
+      "A Go CLI for Socrata-based open data portals. 49 government portals preconfigured (NYC, Chicago, Seattle, LA, the CDC, plus 44 others). Nine commands: search across every portal at once; list / info / pull / stats on one; watch a dataset for new rows on an interval; diff two snapshots row-by-row with field-level old/new for changed rows. Outputs JSON, NDJSON, CSV, or directly into SQLite — pull --all auto-paginates million-row datasets, upserts on :id, schema typed from SODA metadata. Single static binary, no Python.",
+    tech: ["Go 1.25+", "cobra", "modernc.org/sqlite"],
+    github: "https://github.com/c-tonneslan/soda",
+  },
+  {
+    num: "06",
+    year: "2026",
+    title: "convene",
+    kind: "Library · Python",
+    description:
+      "Two-platform municipal-data tool: hits Legistar's official REST API and HTML-scrapes Granicus's ViewPublisher pages, with 24 US cities preconfigured. Streams events, agenda items, roll-call votes, legislation, sponsors, and action history as OCD-shaped JSON, ndjson for jq, or directly into a normalized 9-table SQLite database. Incremental sync via --since-modified, on-disk cache for iterative work, joinable matter→event IDs so bill actions link back to the meeting that took them.",
+    tech: ["Python 3.11+", "Pydantic 2", "httpx", "BeautifulSoup", "SQLite"],
+    github: "https://github.com/c-tonneslan/convene",
+  },
+  {
+    num: "07",
+    year: "2026",
+    title: "littledb",
+    kind: "Library · Go",
+    description:
+      "Tiny embedded key/value store in Go. Single-file ACID with a copy-on-write B+tree, two-meta-page commits, and MVCC-style snapshot reads. Around 1,500 lines. Benchmarks within 5% of bbolt on writes (both bottleneck on fsync); ~6x slower on reads because there's deliberately no mmap.",
+    tech: ["Go", "B+tree", "Copy-on-Write", "CRC32C"],
+    github: "https://github.com/c-tonneslan/littledb",
+  },
+  {
+    num: "08",
+    year: "2026",
+    title: "vouch",
+    kind: "CLI · Go",
+    description:
+      "A Go CLI for catching AI-code failure modes — silent test deletions, mass test skips, accidental .gitignore additions, fabricated APIs, and other common shortcuts. Runs as a pre-commit hook or in CI. Twelve checks at v1, with a structured exit code so it composes with existing tooling.",
+    tech: ["Go", "AST", "git plumbing"],
+    github: "https://github.com/c-tonneslan/vouch",
+  },
+  {
+    num: "09",
+    year: "2025",
+    title: "fourth-down-audit",
+    kind: "Web · Sports ML",
+    description:
+      "NFL 4th-down decision audit. Trained a new XGBoost win-probability model on 300k plays of nflverse pbp; held out 2024 and landed at log-loss 0.465, within 0.3% of nflfastR's bundled WP model. Added a conversion logit, an FG-make logit, and an empirical punt-net lookup, then scored every 4th down in 2018–2024 with 1,500-iter bootstrap CIs per coach-season.",
     tech: ["Python", "XGBoost", "DuckDB", "Next.js"],
     github: "https://github.com/c-tonneslan/fourth-down-audit",
     live: "https://fourth-down-audit.vercel.app",
   },
   {
+    num: "10",
+    year: "2025",
     title: "flamectl",
+    kind: "CLI · Go",
     description:
       "Render a pprof profile as a single-file interactive SVG flamegraph. Takes input from a file, an HTTP URL, or stdin; emits one SVG you can open in any browser. About 600 lines of Go with hand-rolled tree aggregation and SVG layout.",
-    metrics: ["~600 LOC", "Single-file SVG", "Hover-to-inspect"],
     tech: ["Go", "pprof", "SVG"],
     github: "https://github.com/c-tonneslan/flamectl",
   },
   {
+    num: "11",
+    year: "2025",
     title: "agent-eval",
+    kind: "Eval · TypeScript",
     description:
       "Evaluation framework for agentic LLMs, built from scratch with the Anthropic SDK. 28 tasks across web, code, multistep, and reasoning, scored with a mix of deterministic checks and LLM-as-judge rubrics. Reports per-category pass rates with 95% confidence intervals because n=28 means real uncertainty.",
-    metrics: ["28-task suite", "ReAct loop", "95% CI on results"],
     tech: ["TypeScript", "Anthropic SDK", "LLM-as-Judge"],
     github: "https://github.com/c-tonneslan/agent-eval",
   },
   {
+    num: "12",
+    year: "2025",
     title: "airwaves",
+    kind: "Web · 3D",
     description:
       "Tune into about 5,000 live internet radio stations from a spinning 3D globe. Pick a country, click any glowing marker, hit play. Built on Next.js, Three.js (via globe.gl), and the volunteer-run Radio Browser API. The whole thing runs in the browser, no backend.",
-    metrics: ["3D globe", "5,000 stations", "Zero backend"],
     tech: ["TypeScript", "Next.js", "Three.js", "Tailwind"],
     github: "https://github.com/c-tonneslan/airwaves",
     live: "https://airwaves-steel.vercel.app",
@@ -99,59 +145,196 @@ const featured = [
 ];
 
 export default function Featured() {
-  return (
-    <section id="projects" className="py-24 px-6 border-t border-card-border">
-      <div className="max-w-4xl mx-auto">
-        <p className="text-xs font-mono text-muted uppercase tracking-widest mb-10">
-          § projects
-        </p>
+  const [open, setOpen] = useState<string | null>("01");
+  const featured = projects.find((p) => p.featured);
 
-        <div className="divide-y divide-card-border">
-          {featured.map((project, i) => (
-            <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 8 }}
+  return (
+    <section
+      id="work"
+      className="px-6 md:px-12 py-24 md:py-32 border-t border-[#1a1612]/30"
+    >
+      <div className="max-w-6xl mx-auto">
+        {/* Section heading */}
+        <div className="grid grid-cols-12 gap-6 mb-16">
+          <div className="col-span-12 md:col-span-4">
+            <p className="text-[11px] uppercase tracking-[0.3em] mb-3 text-[#a83232]">
+              § ii — The work
+            </p>
+            <motion.h2
+              initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.4, delay: Math.min(i * 0.04, 0.2) }}
-              className="py-10 first:pt-0 last:pb-0"
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="font-serif italic text-4xl md:text-5xl tracking-[-0.02em] leading-[1]"
             >
-              <div className="flex items-baseline justify-between mb-3 gap-4 flex-wrap">
-                <h3 className="text-xl font-mono">{project.title}</h3>
-                <div className="flex items-center gap-4 text-sm">
-                  {project.live && (
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-500/10 hover:bg-emerald-500/15 border border-emerald-500/40 hover:border-emerald-400/60 text-emerald-300 rounded-md transition-colors"
-                    >
-                      <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse-soft" />
-                      live demo →
-                    </a>
-                  )}
+              Twelve
+              <br />
+              things,
+              <br />
+              made carefully.
+            </motion.h2>
+          </div>
+          <p className="col-span-12 md:col-span-7 md:col-start-6 text-base md:text-lg leading-[1.85] self-end font-serif italic text-[#1a1612]/85">
+            What I&apos;ve built for myself and shipped, in reverse order. Most
+            of them are civic or transit work — a few are developer tooling
+            for my own use. Click any row to read it.
+          </p>
+        </div>
+
+        {/* Featured project, taller block */}
+        {featured && (
+          <motion.article
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="bg-[#ebe2d0] border border-[#1a1612]/20 p-7 md:p-10 mb-12"
+          >
+            <div className="flex items-start justify-between mb-5 flex-wrap gap-3">
+              <div className="flex items-baseline gap-4">
+                <span className="font-mono text-xs text-[#6b5e54]">
+                  № {featured.num} · {featured.year}
+                </span>
+                <span className="text-[10px] uppercase tracking-[0.3em] bg-[#a83232] text-[#f4ede0] px-2 py-1">
+                  ★ Featured
+                </span>
+              </div>
+              <div className="flex items-center gap-3 text-[11px] uppercase tracking-[0.25em]">
+                {featured.live && (
                   <a
-                    href={project.github}
+                    href={featured.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-muted hover:text-foreground transition-colors border-b border-muted/40 hover:border-foreground pb-0.5"
+                    className="flex items-center gap-2 text-[#a83232] hover:underline underline-offset-4"
                   >
-                    code →
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#a83232] animate-pulse-soft" />
+                    Live →
                   </a>
-                </div>
+                )}
+                <a
+                  href={featured.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#6b5e54] hover:text-[#1a1612] hover:underline underline-offset-4"
+                >
+                  Code ↗
+                </a>
               </div>
+            </div>
+            <h3 className="font-serif italic text-5xl md:text-7xl tracking-[-0.025em] leading-[0.95] mb-3">
+              {featured.title}.
+            </h3>
+            <p className="text-[11px] uppercase tracking-[0.25em] mb-6 text-[#6b5e54]">
+              {featured.kind}
+            </p>
+            <p className="text-base md:text-lg leading-[1.85] max-w-3xl">
+              {featured.description}
+            </p>
+            <div className="mt-6 flex flex-wrap gap-x-4 gap-y-1 text-xs font-mono text-[#6b5e54]">
+              {featured.tech.map((t) => (
+                <span key={t}>{t}</span>
+              ))}
+            </div>
+          </motion.article>
+        )}
 
-              <p className="text-muted leading-relaxed mb-4">
-                {project.description}
-              </p>
+        {/* Archive table — the rest */}
+        <div className="border-t border-[#1a1612]/25">
+          {/* Header row */}
+          <div className="hidden md:grid grid-cols-[60px_70px_1fr_180px_140px] gap-6 text-[10px] uppercase tracking-[0.25em] text-[#6b5e54] py-3 border-b border-[#1a1612]/25">
+            <span>№</span>
+            <span>Year</span>
+            <span>Project</span>
+            <span>Kind</span>
+            <span className="text-right">Links</span>
+          </div>
 
-              <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs font-mono text-muted/70">
-                {project.tech.map((t) => (
-                  <span key={t}>{t}</span>
-                ))}
-              </div>
-            </motion.div>
-          ))}
+          {projects
+            .filter((p) => !p.featured)
+            .map((p, i) => (
+              <motion.div
+                key={p.num}
+                initial={{ opacity: 0, y: 8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.4, delay: i * 0.03 }}
+                className="border-b border-[#1a1612]/15 group"
+              >
+                <button
+                  onClick={() => setOpen(open === p.num ? null : p.num)}
+                  className="w-full text-left grid grid-cols-12 md:grid-cols-[60px_70px_1fr_180px_140px] gap-x-4 md:gap-6 py-5 items-baseline hover:bg-[#ebe2d0]/60 transition-colors cursor-pointer"
+                >
+                  <span className="col-span-2 md:col-span-1 font-mono text-xs text-[#6b5e54] order-1">
+                    № {p.num}
+                  </span>
+                  <span className="col-span-2 md:col-span-1 font-mono text-xs text-[#6b5e54] order-2">
+                    {p.year}
+                  </span>
+                  <span className="col-span-8 md:col-span-1 text-xl md:text-2xl font-medium tracking-tight order-3 group-hover:italic group-hover:font-serif group-hover:font-normal group-hover:text-[#a83232] transition-all">
+                    {p.title}
+                  </span>
+                  <span className="col-span-12 md:col-span-1 text-[11px] uppercase tracking-[0.22em] text-[#6b5e54] order-5 md:order-4 self-center">
+                    {p.kind}
+                  </span>
+                  <span className="col-span-12 md:col-span-1 text-right text-[11px] uppercase tracking-[0.22em] order-6 md:order-5 self-center text-[#6b5e54]">
+                    {p.live ? (
+                      <span className="text-[#a83232]">live · code</span>
+                    ) : (
+                      <span>code</span>
+                    )}
+                  </span>
+                </button>
+
+                <AnimatePresence>
+                  {open === p.num && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.35 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="pb-7 px-0 md:pl-[136px] pr-0 grid md:grid-cols-12 gap-6">
+                        <p className="md:col-span-8 font-serif text-base md:text-lg leading-[1.85] text-[#1a1612]">
+                          {p.description}
+                        </p>
+                        <div className="md:col-span-4 space-y-3">
+                          <div>
+                            <p className="text-[10px] uppercase tracking-[0.25em] text-[#6b5e54] mb-1">
+                              Tech
+                            </p>
+                            <p className="text-sm font-mono text-[#1a1612]/85 leading-relaxed">
+                              {p.tech.join(" · ")}
+                            </p>
+                          </div>
+                          <div className="flex items-center gap-3 pt-2 text-[11px] uppercase tracking-[0.25em]">
+                            {p.live && (
+                              <a
+                                href={p.live}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-2 text-[#a83232] hover:underline underline-offset-4"
+                              >
+                                <span className="w-1.5 h-1.5 rounded-full bg-[#a83232] animate-pulse-soft" />
+                                Live →
+                              </a>
+                            )}
+                            <a
+                              href={p.github}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-[#6b5e54] hover:text-[#1a1612] hover:underline underline-offset-4"
+                            >
+                              Code ↗
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            ))}
         </div>
       </div>
     </section>

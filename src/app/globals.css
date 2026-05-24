@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-  --accent: #3b82f6;
-  --accent-hover: #2563eb;
-  --card-bg: #111111;
-  --card-border: #1e1e1e;
-  --muted: #888888;
+  --background: #f4ede0;
+  --foreground: #1a1612;
+  --accent: #a83232;
+  --accent-hover: #8b2727;
+  --card-bg: #ebe2d0;
+  --card-border: rgba(26, 22, 18, 0.18);
+  --muted: #6b5e54;
 }
 
 @theme inline {
@@ -34,7 +34,7 @@ html {
 
 ::selection {
   background: var(--accent);
-  color: white;
+  color: #f4ede0;
 }
 
 ::-webkit-scrollbar {
@@ -44,7 +44,7 @@ html {
   background: var(--background);
 }
 ::-webkit-scrollbar-thumb {
-  background: #333;
+  background: rgba(26, 22, 18, 0.25);
   border-radius: 3px;
 }
 
@@ -57,29 +57,36 @@ html {
   animation: pulse-soft 2.4s ease-in-out infinite;
 }
 
+/* Article prose — editorial, warm */
 .article-prose h2 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-top: 3rem;
+  font-family: ui-serif, Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 2rem;
+  margin-top: 3.5rem;
   margin-bottom: 1.25rem;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
 }
 
 .article-prose h3 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin-top: 2rem;
+  font-family: ui-serif, Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.4rem;
+  margin-top: 2.25rem;
   margin-bottom: 1rem;
+  letter-spacing: -0.01em;
 }
 
 .article-prose p {
-  margin: 1.25rem 0;
-  line-height: 1.75;
-  color: rgba(237, 237, 237, 0.85);
+  margin: 1.4rem 0;
+  line-height: 1.85;
+  color: var(--foreground);
 }
 
 .article-prose code {
-  background: #1a1a1a;
+  background: rgba(168, 50, 50, 0.08);
   color: var(--accent);
   padding: 0.125rem 0.375rem;
   border-radius: 0.25rem;
@@ -88,42 +95,47 @@ html {
 }
 
 .article-prose pre {
-  background: #060606;
-  border: 1px solid #1e1e1e;
+  background: #ebe2d0;
+  border: 1px solid rgba(26, 22, 18, 0.18);
   padding: 1rem 1.25rem;
   border-radius: 0.5rem;
   overflow-x: auto;
-  margin: 1.5rem 0;
+  margin: 1.75rem 0;
 }
 
 .article-prose pre code {
   background: transparent;
-  color: rgba(237, 237, 237, 0.9);
+  color: var(--foreground);
   padding: 0;
   font-size: 0.875rem;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 .article-prose blockquote {
-  border-left: 3px solid #333;
-  padding-left: 1rem;
-  margin: 1.5rem 0;
-  color: rgba(237, 237, 237, 0.7);
+  border-left: 2px solid var(--accent);
+  padding-left: 1.25rem;
+  margin: 1.75rem 0;
+  color: var(--muted);
+  font-family: ui-serif, Georgia, serif;
   font-style: italic;
+  font-size: 1.125rem;
 }
 
 .article-prose blockquote p {
   margin: 0.5rem 0;
+  line-height: 1.7;
 }
 
 .article-prose a {
   color: var(--accent);
   text-decoration: underline;
-  text-underline-offset: 2px;
+  text-decoration-color: rgba(168, 50, 50, 0.4);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s;
 }
 
 .article-prose a:hover {
-  color: var(--accent-hover);
+  text-decoration-color: var(--accent);
 }
 
 .article-prose ul,
@@ -141,13 +153,12 @@ html {
 }
 
 .article-prose li {
-  margin: 0.5rem 0;
-  line-height: 1.7;
-  color: rgba(237, 237, 237, 0.85);
+  margin: 0.6rem 0;
+  line-height: 1.75;
+  color: var(--foreground);
 }
 
 .article-prose strong {
-  color: var(--foreground);
   font-weight: 600;
+  color: var(--foreground);
 }
-
