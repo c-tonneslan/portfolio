@@ -405,6 +405,81 @@ const demos: Demo[] = [
       </div>
     ),
   },
+  {
+    slug: "buenos",
+    title: "revista bandoneón",
+    tag: "argentine literary",
+    blurb: "A Buenos Aires literary quarterly. Navy ink, cadmium yellow, italic serif, drop-cap editorial, sumario set as a table of contents, Spanish copy throughout.",
+    swatch: "from-[#19234a]/25 via-[#f5c344]/15 to-transparent",
+    preview: (
+      <div className="h-full bg-[#f2ecd8] text-[#19234a] rounded-sm relative overflow-hidden p-1.5">
+        <div className="absolute top-2 right-2 w-10 h-10 bg-[#f5c344]" />
+        <div className="absolute top-3 right-3 w-10 h-10 border border-[#19234a]" />
+        <p className="text-[5px] uppercase tracking-[0.25em] opacity-70">№ 14 · Otoño</p>
+        <p className="relative font-serif italic text-2xl leading-[0.85] mt-1">Bandoneón.</p>
+        <p className="absolute bottom-1 left-1.5 text-[4px] uppercase tracking-[0.25em] text-[#c1273a] font-bold">★ Buenos Aires</p>
+      </div>
+    ),
+  },
+  {
+    slug: "mumbai",
+    title: "maya, monsoon issue",
+    tag: "indian editorial",
+    blurb: "A Bombay design quarterly. Saffron, indigo, maroon. Devanagari accents, dingbats between rules, side-by-side English/Hindi poems, gradient-mosaic photo essay.",
+    swatch: "from-[#ef9c2b]/30 via-[#2c2467]/15 to-transparent",
+    preview: (
+      <div className="h-full bg-[#f3eedc] text-[#2c2467] rounded-sm p-1.5 flex flex-col">
+        <div className="flex items-center gap-1">
+          <span className="text-[#6b1f3a] text-[6px]">✦</span>
+          <div className="flex-1 h-px bg-[#2c2467]/40" />
+          <span className="text-[4px] uppercase tracking-[0.3em]">№ 22</span>
+          <div className="flex-1 h-px bg-[#2c2467]/40" />
+          <span className="text-[#6b1f3a] text-[6px]">✦</span>
+        </div>
+        <p className="font-serif text-2xl leading-[0.85] mt-2">Maya<span className="text-[#6b1f3a]">.</span></p>
+        <p className="font-serif italic text-[5px] text-[#6b1f3a] mt-0.5">On living slowly.</p>
+        <p style={{ fontFamily: "serif" }} className="text-[#ef9c2b] text-[14px] mt-auto self-end">२२</p>
+      </div>
+    ),
+  },
+  {
+    slug: "casasol",
+    title: "casa sol",
+    tag: "barragán architecture",
+    blurb: "A six-room hotel in Coyoacán. Pink walls, cobalt, terra cotta, ochre. Each room gets its own architectural color band. Reservations in Spanish, with cast shadows.",
+    swatch: "from-[#ed8b8b]/30 via-[#3551a8]/15 to-transparent",
+    preview: (
+      <div className="h-full rounded-sm overflow-hidden flex">
+        <div className="flex-[7] bg-[#ed8b8b] relative flex flex-col justify-between p-1">
+          <p className="text-[3px] uppercase tracking-[0.3em] text-[#1a1410]/70">Coyoacán</p>
+          <p className="font-serif italic text-base leading-[0.85] text-[#1a1410]">Casa<br/>Sol.</p>
+          <p className="text-[3px] uppercase tracking-[0.3em] text-[#1a1410]/70">6 habitaciones</p>
+        </div>
+        <div className="flex-[3] flex flex-col">
+          <div className="flex-1 bg-[#3551a8]" />
+          <div className="flex-1 bg-[#dba74e]" />
+        </div>
+        <div className="flex-[2] bg-[#b35147]" />
+      </div>
+    ),
+  },
+  {
+    slug: "kowloon",
+    title: "王氏百貨 · wong's",
+    tag: "hong kong catalogue",
+    blurb: "A Kowloon department store, est. 1985. Jade, ginger, cinnabar, sky. Mixed Chinese + English type, neon arc, marquee, nine product cards each with a giant carved kanji.",
+    swatch: "from-[#b81d23]/25 via-[#d97c39]/15 to-transparent",
+    preview: (
+      <div className="h-full bg-[#f5ecd8] text-[#1c1816] rounded-sm relative overflow-hidden p-1">
+        <p className="text-[4px] uppercase tracking-[0.3em] text-[#b81d23] font-bold">★ 自一九八五</p>
+        <p style={{ fontFamily: "serif" }} className="font-black text-lg leading-[0.78] mt-0.5">王氏百貨</p>
+        <p className="text-[6px] font-bold tracking-tight">Wong's <span className="italic font-serif font-normal">general goods.</span></p>
+        <div className="absolute bottom-0 left-0 right-0 bg-[#b81d23] text-[#f5ecd8] py-0.5 text-[4px] uppercase tracking-widest font-bold text-center">
+          ★ SPRING CATALOGUE
+        </div>
+      </div>
+    ),
+  },
 ];
 
 export default function LabIndex() {
