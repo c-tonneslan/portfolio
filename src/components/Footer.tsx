@@ -1,83 +1,74 @@
 export default function Footer() {
   return (
-    <footer className="bg-[#f4ede0] text-[#1a1612] border-t border-[#1a1612]/30 px-6 md:px-12 py-14">
-      <div className="max-w-6xl mx-auto grid grid-cols-12 gap-6 text-[12px] leading-[1.8]">
-        <div className="col-span-12 md:col-span-4">
-          <p className="font-serif italic text-3xl mb-2 leading-none">
+    <footer className="border-t border-white/6 px-6 lg:px-8 py-14">
+      <div className="max-w-6xl mx-auto grid md:grid-cols-6 gap-8 text-sm">
+        <div className="md:col-span-2">
+          <div className="flex items-center gap-2 font-medium mb-3">
+            <span className="w-5 h-5 rounded-[5px] bg-gradient-to-br from-[#6bd1ff] to-[#3b82f6]" />
             Charlie Tonneslan
-          </p>
-          <p className="opacity-70">Software engineer · Philadelphia</p>
-          <p className="opacity-70 mt-2 max-w-xs">
-            Civic, urban, & developer-tooling work, plus a continuing record
-            of small fixes in other people&apos;s repositories.
+          </div>
+          <p className="text-xs text-muted leading-relaxed max-w-xs">
+            Software engineer in Philadelphia, working on civic, urban, and
+            developer tooling.
           </p>
         </div>
-        <div className="col-span-6 md:col-span-2">
-          <p className="uppercase tracking-[0.25em] text-[10px] mb-3 font-bold text-[#a83232]">
-            ⸺ Reach
+        <div>
+          <p className="text-xs uppercase tracking-widest text-muted mb-3">
+            Site
           </p>
-          <a
-            href="mailto:cst0520@gmail.com"
-            className="block hover:text-[#a83232] transition-colors"
-          >
-            cst0520@gmail.com
-          </a>
-          <a
-            href="https://github.com/c-tonneslan"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block hover:text-[#a83232] transition-colors"
-          >
-            github.com/c-tonneslan
-          </a>
+          <ul className="space-y-2 text-foreground/85">
+            <li><a href="/#about" className="hover:text-accent transition-colors">About</a></li>
+            <li><a href="/#work" className="hover:text-accent transition-colors">Work</a></li>
+            <li><a href="/#open-source" className="hover:text-accent transition-colors">Open source</a></li>
+            <li><a href="/#contact" className="hover:text-accent transition-colors">Contact</a></li>
+          </ul>
         </div>
-        <div className="col-span-6 md:col-span-3">
-          <p className="uppercase tracking-[0.25em] text-[10px] mb-3 font-bold text-[#a83232]">
-            ⸺ Elsewhere
+        <div>
+          <p className="text-xs uppercase tracking-widest text-muted mb-3">
+            Elsewhere
           </p>
-          <a
-            href="/writing"
-            className="block hover:text-[#a83232] transition-colors"
-          >
-            Writing — bug narratives
-          </a>
-          <a
-            href="/notes"
-            className="block hover:text-[#a83232] transition-colors"
-          >
-            Notes — short technical
-          </a>
-          <a
-            href="/lab"
-            className="block hover:text-[#a83232] transition-colors"
-          >
-            Lab — UI experiments
-          </a>
+          <ul className="space-y-2 text-foreground/85">
+            <li><a href="/writing" className="hover:text-accent transition-colors">Writing</a></li>
+            <li><a href="/notes" className="hover:text-accent transition-colors">Notes</a></li>
+            <li><a href="/lab" className="hover:text-accent transition-colors">Lab</a></li>
+          </ul>
         </div>
-        <div className="col-span-12 md:col-span-3 md:text-right">
-          <p className="uppercase tracking-[0.25em] text-[10px] mb-3 font-bold text-[#a83232]">
-            ⸺ Colophon
+        <div>
+          <p className="text-xs uppercase tracking-widest text-muted mb-3">
+            Reach
           </p>
-          <p className="font-serif italic">Volume IV, № 41.</p>
-          <p className="opacity-70 mt-1">
-            Set in Geist Sans & Geist Mono.
-            <br />
-            Body italic in system serif.
+          <ul className="space-y-2 text-foreground/85">
+            <li>
+              <a href="mailto:cst0520@gmail.com" className="hover:text-accent transition-colors">
+                cst0520@gmail.com
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://github.com/c-tonneslan"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-accent transition-colors"
+              >
+                github.com/c-tonneslan
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div className="md:text-right">
+          <p className="text-xs uppercase tracking-widest text-muted mb-3">
+            Status
           </p>
-          <p className="opacity-70 mt-3">
-            Updated{" "}
-            {new Date().toLocaleDateString("en-US", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
+          <p className="inline-flex items-center gap-2 text-foreground/85">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse-soft" />
+            Open for work
           </p>
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto mt-12 pt-6 border-t border-[#1a1612]/15 flex flex-wrap items-center justify-between gap-3 text-[10px] uppercase tracking-[0.3em] text-[#6b5e54]">
-        <p>© MMXXVI · Charlie Tonneslan</p>
-        <p>charlietonneslan.dev · c-tonneslan-portfolio.vercel.app</p>
+      <div className="max-w-6xl mx-auto mt-12 pt-6 border-t border-white/6 flex flex-wrap items-center justify-between gap-3 text-xs text-muted">
+        <p>© {new Date().getFullYear()} Charlie Tonneslan</p>
+        <p>charlietonneslan.dev</p>
       </div>
     </footer>
   );

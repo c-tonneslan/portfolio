@@ -4,13 +4,12 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const links = [
-  { href: "/#note", label: "i. note", section: "i." },
-  { href: "/#work", label: "ii. work", section: "ii." },
-  { href: "/#contributions", label: "iii. contributions", section: "iii." },
-  { href: "/writing", label: "iv. writing", section: "iv." },
-  { href: "/notes", label: "v. notes", section: "v." },
-  { href: "/lab", label: "vi. lab", section: "vi." },
-  { href: "/#reach", label: "vii. reach", section: "vii." },
+  { href: "/#about", label: "About" },
+  { href: "/#work", label: "Work" },
+  { href: "/#open-source", label: "Open source" },
+  { href: "/writing", label: "Writing" },
+  { href: "/notes", label: "Notes" },
+  { href: "/lab", label: "Lab" },
 ];
 
 export default function Navbar() {
@@ -26,34 +25,43 @@ export default function Navbar() {
   return (
     <>
       <motion.nav
-        initial={{ y: -60, opacity: 0 }}
+        initial={{ y: -40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.5 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-[#f4ede0]/85 backdrop-blur-md border-b border-[#1a1612]/15"
+            ? "bg-[#08090a]/85 backdrop-blur-md border-b border-white/8"
             : ""
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 md:px-10 py-4 flex items-center justify-between text-[11px] uppercase tracking-[0.28em]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4 flex items-center justify-between">
           <a
             href="/"
-            className="flex items-baseline gap-2 hover:text-[#a83232] transition-colors"
+            className="flex items-center gap-2 text-sm font-medium hover:text-accent transition-colors"
           >
-            <span className="text-[#a83232]">✦</span>
+            <span className="w-5 h-5 rounded-[5px] bg-gradient-to-br from-[#6bd1ff] to-[#3b82f6]" />
             <span>Charlie Tonneslan</span>
           </a>
 
-          <div className="hidden md:flex items-center gap-7">
+          <div className="hidden md:flex items-center gap-7 text-sm">
             {links.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-[#6b5e54] hover:text-[#1a1612] transition-colors"
+                className="text-muted hover:text-foreground transition-colors"
               >
                 {link.label}
               </a>
             ))}
+          </div>
+
+          <div className="hidden md:flex items-center gap-3">
+            <a
+              href="mailto:cst0520@gmail.com"
+              className="px-3.5 py-1.5 rounded-lg bg-foreground text-background text-sm font-medium hover:bg-foreground/90 transition"
+            >
+              Get in touch →
+            </a>
           </div>
 
           <button
@@ -62,17 +70,17 @@ export default function Navbar() {
             aria-label="Toggle menu"
           >
             <span
-              className={`w-5 h-px bg-[#1a1612] transition-all ${
+              className={`w-5 h-0.5 bg-foreground transition-all ${
                 mobileOpen ? "rotate-45 translate-y-2" : ""
               }`}
             />
             <span
-              className={`w-5 h-px bg-[#1a1612] transition-all ${
+              className={`w-5 h-0.5 bg-foreground transition-all ${
                 mobileOpen ? "opacity-0" : ""
               }`}
             />
             <span
-              className={`w-5 h-px bg-[#1a1612] transition-all ${
+              className={`w-5 h-0.5 bg-foreground transition-all ${
                 mobileOpen ? "-rotate-45 -translate-y-2" : ""
               }`}
             />
@@ -86,27 +94,25 @@ export default function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-40 bg-[#f4ede0] md:hidden"
+            className="fixed inset-0 z-40 bg-background/97 backdrop-blur-md md:hidden"
           >
-            <div className="flex flex-col items-start justify-center h-full px-10 gap-6">
+            <div className="flex flex-col items-start justify-center h-full px-8 gap-5">
               {links.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="text-3xl tracking-[-0.015em] font-serif italic hover:text-[#a83232] transition-colors"
+                  className="text-3xl font-medium tracking-tight hover:text-accent transition-colors"
                 >
                   {link.label}
                 </a>
               ))}
               <a
-                href="https://github.com/c-tonneslan"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="mailto:cst0520@gmail.com"
                 onClick={() => setMobileOpen(false)}
-                className="text-base uppercase tracking-[0.28em] mt-8 text-[#6b5e54] hover:text-[#1a1612] transition-colors"
+                className="mt-6 px-5 py-3 rounded-lg bg-foreground text-background font-medium"
               >
-                github.com/c-tonneslan
+                Get in touch →
               </a>
             </div>
           </motion.div>

@@ -1,14 +1,13 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 type Project = {
-  num: string;
-  year: string;
   title: string;
   kind: string;
+  year: string;
   description: string;
+  metrics: string[];
   tech: string[];
   github: string;
   live?: string;
@@ -17,324 +16,274 @@ type Project = {
 
 const projects: Project[] = [
   {
-    num: "01",
-    year: "2026",
     title: "civic-philly",
-    kind: "Web · Civic data",
+    kind: "Civic data",
+    year: "2026",
     description:
-      "A real-asset civic tool, not a data viz. 5,000+ housing developments, zoning permits, transit projects, and capital infrastructure investments in Philadelphia, joined against 408 ACS census tracts, 10 council district polygons, 239 RCOs, every council member's contact, 4,212 OPA property owners, and 6,400+ L&I displacement signals. Full-text search, public API, RSS, OG, equity overlay, mobile bottom-sheet for organizers at meetings. Built for council aides, organizers, and reporters.",
-    tech: ["TypeScript", "Next.js 16", "MapLibre GL", "PostGIS", "Census ACS", "next/og"],
+      "A real-asset civic tool. 5,000+ housing developments, zoning permits, transit projects, and capital infrastructure investments in Philadelphia, joined against 408 ACS census tracts, 10 council district polygons, 239 RCOs, every council member's contact, 4,212 OPA owners, and 6,400+ L&I displacement signals. Full-text search, public API, RSS, OG, equity overlay, mobile bottom-sheet for organizers at meetings.",
+    metrics: ["5,000+ projects", "Public JSON API", "Per-district RSS"],
+    tech: ["TypeScript", "Next.js 16", "MapLibre GL", "PostGIS", "Census ACS"],
     github: "https://github.com/c-tonneslan/civic-philly",
     live: "https://civic-philly.vercel.app",
     featured: true,
   },
   {
-    num: "02",
-    year: "2026",
     title: "septa-live",
-    kind: "Web · Transit",
+    kind: "Transit · Realtime",
+    year: "2026",
     description:
-      "Live map of every SEPTA mode that publishes realtime data: Regional Rail, BSL, MFL, NHSL, five subway-surface trolleys, Girard, and the suburban trolleys to Media and Sharon Hill. Color-coded with SEPTA Metro's brand palette, polylines drawn through every line's stations in order, ~140 stations pinned accurately. Hits five SEPTA endpoints through Next.js API routes that proxy through Vercel's edge cache. Trains and trolley vehicles reused across polls so they slide instead of flicker.",
+      "Live map of every SEPTA mode that publishes realtime data: Regional Rail, BSL, MFL, NHSL, five subway-surface trolleys, Girard, and the suburban trolleys. Hits five SEPTA endpoints through Next.js routes that proxy through Vercel's edge cache. Trains and trolleys reused across polls so they slide instead of flicker.",
+    metrics: ["25 lines", "~140 stations", "15s poll, edge-cached"],
     tech: ["TypeScript", "Next.js 16", "Leaflet", "SEPTA APIs"],
     github: "https://github.com/c-tonneslan/septa-live",
     live: "https://septa-live.vercel.app",
   },
   {
-    num: "03",
-    year: "2026",
     title: "groundwork",
-    kind: "Web · Housing",
+    kind: "Housing · Six cities",
+    year: "2026",
     description:
-      "Interactive map of 6,500+ affordable-housing projects across six U.S. cities (NYC, SF, LA, DC, Chicago, Philly), unified into one Postgres + PostGIS schema. Adds a census-tract rent-burden choropleth, a supply-demand gap analysis (burdened households per nearby affordable unit, pure PostGIS spatial join), and a stakeholders panel that surfaces the elected representative for any clicked development.",
-    tech: ["TypeScript", "Next.js", "Postgres", "PostGIS", "Leaflet", "Census ACS"],
+      "Interactive map of 6,500+ affordable-housing projects across NYC, SF, LA, DC, Chicago, and Philly, unified into one Postgres + PostGIS schema. Census-tract rent-burden choropleth, supply-demand gap analysis (PostGIS spatial join), and a stakeholders panel that surfaces the elected representative for any clicked development.",
+    metrics: ["6 cities", "6,500+ projects", "PostGIS spatial joins"],
+    tech: ["TypeScript", "Next.js", "Postgres", "PostGIS", "Leaflet"],
     github: "https://github.com/c-tonneslan/groundwork",
     live: "https://groundwork-tan.vercel.app",
   },
   {
-    num: "04",
-    year: "2026",
     title: "scour",
-    kind: "CLI · Rust",
+    kind: "Rust · Parallel grep",
+    year: "2026",
     description:
-      "A fast, parallel, gitignore-aware recursive grep written from scratch in Rust. A worker pool walks the directory tree across every core. Termination is handled by an atomic counter incremented before a subdirectory is queued and decremented after a directory is done, so whichever worker drops it to zero knows the walk is finished. .gitignore patterns compile to per-rule regexes, matched against paths relative to each .gitignore's own directory, with the deepest opinion winning. Matching runs on raw bytes so a non-UTF-8 file doesn't crash the search. Six modules, around 900 lines, 29 tests.",
+      "A fast, parallel, gitignore-aware recursive grep written from scratch in Rust. A worker pool walks the directory tree across every core; termination uses an atomic counter so whichever worker drops it to zero knows the walk is finished. .gitignore patterns compile to per-rule regexes with deepest-wins resolution. Six modules, around 900 lines, 29 tests.",
+    metrics: ["~900 LOC", "Parallel walk", "29 tests"],
     tech: ["Rust", "regex", "crossbeam-channel", "clap"],
     github: "https://github.com/c-tonneslan/scour",
   },
   {
-    num: "05",
-    year: "2026",
     title: "soda",
-    kind: "CLI · Go",
+    kind: "Go · Open-data CLI",
+    year: "2026",
     description:
-      "A Go CLI for Socrata-based open data portals. 49 government portals preconfigured (NYC, Chicago, Seattle, LA, the CDC, plus 44 others). Nine commands: search across every portal at once; list / info / pull / stats on one; watch a dataset for new rows on an interval; diff two snapshots row-by-row with field-level old/new for changed rows. Outputs JSON, NDJSON, CSV, or directly into SQLite — pull --all auto-paginates million-row datasets, upserts on :id, schema typed from SODA metadata. Single static binary, no Python.",
+      "A Go CLI for Socrata-based open data portals. 49 government portals preconfigured. Nine commands including watch for new rows and diff between snapshots. Outputs JSON, NDJSON, CSV, or directly into SQLite — pull --all auto-paginates million-row datasets, upserts on :id.",
+    metrics: ["49 portals", "9 commands", "JSON / CSV / SQLite"],
     tech: ["Go 1.25+", "cobra", "modernc.org/sqlite"],
     github: "https://github.com/c-tonneslan/soda",
   },
   {
-    num: "06",
-    year: "2026",
     title: "convene",
-    kind: "Library · Python",
+    kind: "Python · Municipal data",
+    year: "2026",
     description:
-      "Two-platform municipal-data tool: hits Legistar's official REST API and HTML-scrapes Granicus's ViewPublisher pages, with 24 US cities preconfigured. Streams events, agenda items, roll-call votes, legislation, sponsors, and action history as OCD-shaped JSON, ndjson for jq, or directly into a normalized 9-table SQLite database. Incremental sync via --since-modified, on-disk cache for iterative work, joinable matter→event IDs so bill actions link back to the meeting that took them.",
-    tech: ["Python 3.11+", "Pydantic 2", "httpx", "BeautifulSoup", "SQLite"],
+      "Two-platform municipal-data tool: hits Legistar's REST API and HTML-scrapes Granicus's ViewPublisher pages, with 24 US cities preconfigured. Streams events, agenda items, votes, legislation, sponsors, and action history as OCD-shaped JSON, ndjson for jq, or into a 9-table SQLite database.",
+    metrics: ["24 cities", "Legistar + Granicus", "OCD-shaped JSON"],
+    tech: ["Python 3.11+", "Pydantic 2", "httpx", "SQLite"],
     github: "https://github.com/c-tonneslan/convene",
   },
   {
-    num: "07",
-    year: "2026",
     title: "littledb",
-    kind: "Library · Go",
+    kind: "Go · Embedded KV",
+    year: "2026",
     description:
-      "Tiny embedded key/value store in Go. Single-file ACID with a copy-on-write B+tree, two-meta-page commits, and MVCC-style snapshot reads. Around 1,500 lines. Benchmarks within 5% of bbolt on writes (both bottleneck on fsync); ~6x slower on reads because there's deliberately no mmap.",
-    tech: ["Go", "B+tree", "Copy-on-Write", "CRC32C"],
+      "Tiny embedded key/value store in Go. Single-file ACID with a copy-on-write B+tree, two-meta-page commits, and MVCC-style snapshot reads. Around 1,500 lines. Benchmarks within 5% of bbolt on writes.",
+    metrics: ["~1.5k LOC", "Tied with bbolt on writes", "ACID + COW"],
+    tech: ["Go", "B+tree", "COW", "CRC32C"],
     github: "https://github.com/c-tonneslan/littledb",
   },
   {
-    num: "08",
-    year: "2026",
     title: "vouch",
-    kind: "CLI · Go",
+    kind: "Go · Guardrails",
+    year: "2026",
     description:
-      "A Go CLI for catching AI-code failure modes — silent test deletions, mass test skips, accidental .gitignore additions, fabricated APIs, and other common shortcuts. Runs as a pre-commit hook or in CI. Twelve checks at v1, with a structured exit code so it composes with existing tooling.",
+      "A Go CLI for catching AI-code failure modes — silent test deletions, mass test skips, accidental .gitignore additions, fabricated APIs. Runs as a pre-commit hook or in CI. Twelve checks at v1, structured exit codes so it composes with existing tooling.",
+    metrics: ["12 checks", "Pre-commit + CI", "Structured exits"],
     tech: ["Go", "AST", "git plumbing"],
     github: "https://github.com/c-tonneslan/vouch",
   },
   {
-    num: "09",
-    year: "2025",
     title: "fourth-down-audit",
-    kind: "Web · Sports ML",
+    kind: "Sports · ML",
+    year: "2025",
     description:
-      "NFL 4th-down decision audit. Trained a new XGBoost win-probability model on 300k plays of nflverse pbp; held out 2024 and landed at log-loss 0.465, within 0.3% of nflfastR's bundled WP model. Added a conversion logit, an FG-make logit, and an empirical punt-net lookup, then scored every 4th down in 2018–2024 with 1,500-iter bootstrap CIs per coach-season.",
+      "NFL 4th-down decision audit. Trained an XGBoost win-probability model on 300k plays of nflverse pbp; held out 2024 and landed at log-loss 0.465, within 0.3% of nflfastR. Scored every 4th down 2018–2024 with 1,500-iter bootstrap CIs per coach-season.",
+    metrics: ["300k plays", "Log-loss 0.465", "1,500-iter bootstrap"],
     tech: ["Python", "XGBoost", "DuckDB", "Next.js"],
     github: "https://github.com/c-tonneslan/fourth-down-audit",
     live: "https://fourth-down-audit.vercel.app",
   },
   {
-    num: "10",
-    year: "2025",
     title: "flamectl",
-    kind: "CLI · Go",
+    kind: "Go · Profiling",
+    year: "2025",
     description:
       "Render a pprof profile as a single-file interactive SVG flamegraph. Takes input from a file, an HTTP URL, or stdin; emits one SVG you can open in any browser. About 600 lines of Go with hand-rolled tree aggregation and SVG layout.",
+    metrics: ["~600 LOC", "Single-file SVG", "Hover-to-inspect"],
     tech: ["Go", "pprof", "SVG"],
     github: "https://github.com/c-tonneslan/flamectl",
   },
   {
-    num: "11",
-    year: "2025",
     title: "agent-eval",
-    kind: "Eval · TypeScript",
+    kind: "Evals · TypeScript",
+    year: "2025",
     description:
-      "Evaluation framework for agentic LLMs, built from scratch with the Anthropic SDK. 28 tasks across web, code, multistep, and reasoning, scored with a mix of deterministic checks and LLM-as-judge rubrics. Reports per-category pass rates with 95% confidence intervals because n=28 means real uncertainty.",
-    tech: ["TypeScript", "Anthropic SDK", "LLM-as-Judge"],
+      "Evaluation framework for agentic LLMs, built from scratch with the Anthropic SDK. 28 tasks across web, code, multistep, and reasoning, scored with a mix of deterministic checks and LLM-as-judge rubrics.",
+    metrics: ["28 tasks", "ReAct loop", "95% CIs on results"],
+    tech: ["TypeScript", "Anthropic SDK"],
     github: "https://github.com/c-tonneslan/agent-eval",
   },
   {
-    num: "12",
-    year: "2025",
     title: "airwaves",
-    kind: "Web · 3D",
+    kind: "3D · Radio",
+    year: "2025",
     description:
-      "Tune into about 5,000 live internet radio stations from a spinning 3D globe. Pick a country, click any glowing marker, hit play. Built on Next.js, Three.js (via globe.gl), and the volunteer-run Radio Browser API. The whole thing runs in the browser, no backend.",
-    tech: ["TypeScript", "Next.js", "Three.js", "Tailwind"],
+      "Tune into ~5,000 live internet radio stations from a spinning 3D globe. Pick a country, click any marker, hit play. Next.js, Three.js, and the volunteer-run Radio Browser API. The whole thing runs in the browser, no backend.",
+    metrics: ["3D globe", "5,000 stations", "Zero backend"],
+    tech: ["TypeScript", "Next.js", "Three.js"],
     github: "https://github.com/c-tonneslan/airwaves",
     live: "https://airwaves-steel.vercel.app",
   },
 ];
 
+function CTAs({ p }: { p: Project }) {
+  return (
+    <div className="flex items-center gap-3 text-sm">
+      {p.live && (
+        <a
+          href={p.live}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 hover:bg-emerald-500/15 transition"
+        >
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse-soft" />
+          Live →
+        </a>
+      )}
+      <a
+        href={p.github}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-muted hover:text-foreground transition border-b border-muted/30 hover:border-foreground pb-0.5"
+      >
+        Code ↗
+      </a>
+    </div>
+  );
+}
+
 export default function Featured() {
-  const [open, setOpen] = useState<string | null>("01");
   const featured = projects.find((p) => p.featured);
+  const rest = projects.filter((p) => !p.featured);
 
   return (
-    <section
-      id="work"
-      className="px-6 md:px-12 py-24 md:py-32 border-t border-[#1a1612]/30"
-    >
+    <section id="work" className="px-6 lg:px-8 py-24 md:py-32 border-t border-white/6">
       <div className="max-w-6xl mx-auto">
-        {/* Section heading */}
-        <div className="grid grid-cols-12 gap-6 mb-16">
-          <div className="col-span-12 md:col-span-4">
-            <p className="text-[11px] uppercase tracking-[0.3em] mb-3 text-[#a83232]">
-              § ii — The work
+        {/* Section header */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="grid md:grid-cols-12 gap-6 mb-16"
+        >
+          <div className="md:col-span-7">
+            <p className="text-xs uppercase tracking-widest text-accent mb-4">
+              Work
             </p>
-            <motion.h2
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="font-serif italic text-4xl md:text-5xl tracking-[-0.02em] leading-[1]"
-            >
-              Twelve
+            <h2 className="text-4xl md:text-6xl font-semibold tracking-[-0.025em] leading-[1]">
+              Twelve things,
               <br />
-              things,
-              <br />
-              made carefully.
-            </motion.h2>
+              <span className="text-muted">made carefully.</span>
+            </h2>
           </div>
-          <p className="col-span-12 md:col-span-7 md:col-start-6 text-base md:text-lg leading-[1.85] self-end font-serif italic text-[#1a1612]/85">
-            What I&apos;ve built for myself and shipped, in reverse order. Most
-            of them are civic or transit work — a few are developer tooling
-            for my own use. Click any row to read it.
+          <p className="md:col-span-5 self-end text-base md:text-lg text-muted leading-relaxed">
+            Civic and urban tools, plus developer tooling for my own use.
+            Click anything for code; live demos are marked.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Featured project, taller block */}
+        {/* Featured project — big card */}
         {featured && (
           <motion.article
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="bg-[#ebe2d0] border border-[#1a1612]/20 p-7 md:p-10 mb-12"
+            className="relative rounded-2xl border border-white/8 bg-card-bg p-6 md:p-10 mb-8 overflow-hidden"
           >
-            <div className="flex items-start justify-between mb-5 flex-wrap gap-3">
-              <div className="flex items-baseline gap-4">
-                <span className="font-mono text-xs text-[#6b5e54]">
-                  № {featured.num} · {featured.year}
-                </span>
-                <span className="text-[10px] uppercase tracking-[0.3em] bg-[#a83232] text-[#f4ede0] px-2 py-1">
-                  ★ Featured
-                </span>
+            <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-[#6bd1ff] opacity-15 blur-[120px]" />
+            <div className="relative grid md:grid-cols-12 gap-8 md:gap-10 items-start">
+              <div className="md:col-span-7">
+                <div className="flex items-center gap-3 mb-4 flex-wrap text-xs">
+                  <span className="px-2 py-1 rounded-md bg-accent/15 border border-accent/30 text-accent uppercase tracking-widest font-medium">
+                    Featured
+                  </span>
+                  <span className="text-muted uppercase tracking-widest">
+                    {featured.kind}
+                  </span>
+                  <span className="text-muted font-mono">{featured.year}</span>
+                </div>
+                <h3 className="text-3xl md:text-5xl font-semibold tracking-[-0.025em] leading-tight mb-4">
+                  {featured.title}
+                </h3>
+                <p className="text-base md:text-lg text-foreground/85 leading-relaxed">
+                  {featured.description}
+                </p>
               </div>
-              <div className="flex items-center gap-3 text-[11px] uppercase tracking-[0.25em]">
-                {featured.live && (
-                  <a
-                    href={featured.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-[#a83232] hover:underline underline-offset-4"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#a83232] animate-pulse-soft" />
-                    Live →
-                  </a>
-                )}
-                <a
-                  href={featured.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#6b5e54] hover:text-[#1a1612] hover:underline underline-offset-4"
-                >
-                  Code ↗
-                </a>
+              <div className="md:col-span-5 space-y-5">
+                <div className="grid grid-cols-3 gap-px bg-white/8 rounded-lg overflow-hidden border border-white/8">
+                  {featured.metrics.map((m) => (
+                    <div key={m} className="bg-card-bg p-3">
+                      <p className="text-xs text-foreground/90 leading-tight">
+                        {m}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+                <div>
+                  <p className="text-xs text-muted uppercase tracking-widest mb-2">
+                    Stack
+                  </p>
+                  <p className="text-sm font-mono text-foreground/85">
+                    {featured.tech.join(" · ")}
+                  </p>
+                </div>
+                <CTAs p={featured} />
               </div>
-            </div>
-            <h3 className="font-serif italic text-5xl md:text-7xl tracking-[-0.025em] leading-[0.95] mb-3">
-              {featured.title}.
-            </h3>
-            <p className="text-[11px] uppercase tracking-[0.25em] mb-6 text-[#6b5e54]">
-              {featured.kind}
-            </p>
-            <p className="text-base md:text-lg leading-[1.85] max-w-3xl">
-              {featured.description}
-            </p>
-            <div className="mt-6 flex flex-wrap gap-x-4 gap-y-1 text-xs font-mono text-[#6b5e54]">
-              {featured.tech.map((t) => (
-                <span key={t}>{t}</span>
-              ))}
             </div>
           </motion.article>
         )}
 
-        {/* Archive table — the rest */}
-        <div className="border-t border-[#1a1612]/25">
-          {/* Header row */}
-          <div className="hidden md:grid grid-cols-[60px_70px_1fr_180px_140px] gap-6 text-[10px] uppercase tracking-[0.25em] text-[#6b5e54] py-3 border-b border-[#1a1612]/25">
-            <span>№</span>
-            <span>Year</span>
-            <span>Project</span>
-            <span>Kind</span>
-            <span className="text-right">Links</span>
-          </div>
-
-          {projects
-            .filter((p) => !p.featured)
-            .map((p, i) => (
-              <motion.div
-                key={p.num}
-                initial={{ opacity: 0, y: 8 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.4, delay: i * 0.03 }}
-                className="border-b border-[#1a1612]/15 group"
-              >
-                <button
-                  onClick={() => setOpen(open === p.num ? null : p.num)}
-                  className="w-full text-left grid grid-cols-12 md:grid-cols-[60px_70px_1fr_180px_140px] gap-x-4 md:gap-6 py-5 items-baseline hover:bg-[#ebe2d0]/60 transition-colors cursor-pointer"
-                >
-                  <span className="col-span-2 md:col-span-1 font-mono text-xs text-[#6b5e54] order-1">
-                    № {p.num}
-                  </span>
-                  <span className="col-span-2 md:col-span-1 font-mono text-xs text-[#6b5e54] order-2">
-                    {p.year}
-                  </span>
-                  <span className="col-span-8 md:col-span-1 text-xl md:text-2xl font-medium tracking-tight order-3 group-hover:italic group-hover:font-serif group-hover:font-normal group-hover:text-[#a83232] transition-all">
+        {/* Rest — two-column grid of compact project cards */}
+        <div className="grid md:grid-cols-2 gap-5">
+          {rest.map((p, i) => (
+            <motion.article
+              key={p.title}
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.45, delay: i * 0.04 }}
+              className="rounded-xl border border-white/8 bg-card-bg p-6 hover:border-white/15 hover:bg-[#13141a] transition group"
+            >
+              <div className="flex items-baseline justify-between mb-3 gap-3 flex-wrap">
+                <div>
+                  <h3 className="text-xl md:text-2xl font-semibold tracking-tight">
                     {p.title}
-                  </span>
-                  <span className="col-span-12 md:col-span-1 text-[11px] uppercase tracking-[0.22em] text-[#6b5e54] order-5 md:order-4 self-center">
-                    {p.kind}
-                  </span>
-                  <span className="col-span-12 md:col-span-1 text-right text-[11px] uppercase tracking-[0.22em] order-6 md:order-5 self-center text-[#6b5e54]">
-                    {p.live ? (
-                      <span className="text-[#a83232]">live · code</span>
-                    ) : (
-                      <span>code</span>
-                    )}
-                  </span>
-                </button>
-
-                <AnimatePresence>
-                  {open === p.num && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.35 }}
-                      className="overflow-hidden"
-                    >
-                      <div className="pb-7 px-0 md:pl-[136px] pr-0 grid md:grid-cols-12 gap-6">
-                        <p className="md:col-span-8 font-serif text-base md:text-lg leading-[1.85] text-[#1a1612]">
-                          {p.description}
-                        </p>
-                        <div className="md:col-span-4 space-y-3">
-                          <div>
-                            <p className="text-[10px] uppercase tracking-[0.25em] text-[#6b5e54] mb-1">
-                              Tech
-                            </p>
-                            <p className="text-sm font-mono text-[#1a1612]/85 leading-relaxed">
-                              {p.tech.join(" · ")}
-                            </p>
-                          </div>
-                          <div className="flex items-center gap-3 pt-2 text-[11px] uppercase tracking-[0.25em]">
-                            {p.live && (
-                              <a
-                                href={p.live}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex items-center gap-2 text-[#a83232] hover:underline underline-offset-4"
-                              >
-                                <span className="w-1.5 h-1.5 rounded-full bg-[#a83232] animate-pulse-soft" />
-                                Live →
-                              </a>
-                            )}
-                            <a
-                              href={p.github}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-[#6b5e54] hover:text-[#1a1612] hover:underline underline-offset-4"
-                            >
-                              Code ↗
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            ))}
+                  </h3>
+                  <p className="text-xs text-muted uppercase tracking-widest mt-1">
+                    {p.kind} · {p.year}
+                  </p>
+                </div>
+                <CTAs p={p} />
+              </div>
+              <p className="text-sm text-foreground/80 leading-relaxed mb-4">
+                {p.description}
+              </p>
+              <div className="flex flex-wrap gap-x-4 gap-y-1 text-[11px] font-mono text-muted/80 pt-3 border-t border-white/6">
+                {p.tech.map((t) => (
+                  <span key={t}>{t}</span>
+                ))}
+              </div>
+            </motion.article>
+          ))}
         </div>
       </div>
     </section>

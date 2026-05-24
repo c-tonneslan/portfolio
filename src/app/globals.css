@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f4ede0;
-  --foreground: #1a1612;
-  --accent: #a83232;
-  --accent-hover: #8b2727;
-  --card-bg: #ebe2d0;
-  --card-border: rgba(26, 22, 18, 0.18);
-  --muted: #6b5e54;
+  --background: #08090a;
+  --foreground: #f7f8f8;
+  --accent: #6bd1ff;
+  --accent-hover: #b6e6ff;
+  --card-bg: #101114;
+  --card-border: rgba(255, 255, 255, 0.08);
+  --muted: #8a8f98;
 }
 
 @theme inline {
@@ -34,7 +34,7 @@ html {
 
 ::selection {
   background: var(--accent);
-  color: #f4ede0;
+  color: var(--background);
 }
 
 ::-webkit-scrollbar {
@@ -44,7 +44,7 @@ html {
   background: var(--background);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(26, 22, 18, 0.25);
+  background: rgba(255, 255, 255, 0.15);
   border-radius: 3px;
 }
 
@@ -57,36 +57,32 @@ html {
   animation: pulse-soft 2.4s ease-in-out infinite;
 }
 
-/* Article prose — editorial, warm */
+/* Article prose — dark, clean */
 .article-prose h2 {
-  font-family: ui-serif, Georgia, "Times New Roman", serif;
-  font-style: italic;
-  font-weight: 500;
-  font-size: 2rem;
-  margin-top: 3.5rem;
+  font-size: 1.625rem;
+  font-weight: 600;
+  margin-top: 3rem;
   margin-bottom: 1.25rem;
   letter-spacing: -0.015em;
-  line-height: 1.15;
+  line-height: 1.2;
 }
 
 .article-prose h3 {
-  font-family: ui-serif, Georgia, "Times New Roman", serif;
-  font-style: italic;
-  font-weight: 500;
-  font-size: 1.4rem;
+  font-size: 1.25rem;
+  font-weight: 600;
   margin-top: 2.25rem;
   margin-bottom: 1rem;
   letter-spacing: -0.01em;
 }
 
 .article-prose p {
-  margin: 1.4rem 0;
-  line-height: 1.85;
-  color: var(--foreground);
+  margin: 1.25rem 0;
+  line-height: 1.78;
+  color: rgba(247, 248, 248, 0.85);
 }
 
 .article-prose code {
-  background: rgba(168, 50, 50, 0.08);
+  background: rgba(107, 209, 255, 0.1);
   color: var(--accent);
   padding: 0.125rem 0.375rem;
   border-radius: 0.25rem;
@@ -95,17 +91,17 @@ html {
 }
 
 .article-prose pre {
-  background: #ebe2d0;
-  border: 1px solid rgba(26, 22, 18, 0.18);
+  background: #0d0e10;
+  border: 1px solid var(--card-border);
   padding: 1rem 1.25rem;
   border-radius: 0.5rem;
   overflow-x: auto;
-  margin: 1.75rem 0;
+  margin: 1.5rem 0;
 }
 
 .article-prose pre code {
   background: transparent;
-  color: var(--foreground);
+  color: rgba(247, 248, 248, 0.9);
   padding: 0;
   font-size: 0.875rem;
   line-height: 1.65;
@@ -114,11 +110,9 @@ html {
 .article-prose blockquote {
   border-left: 2px solid var(--accent);
   padding-left: 1.25rem;
-  margin: 1.75rem 0;
+  margin: 1.5rem 0;
   color: var(--muted);
-  font-family: ui-serif, Georgia, serif;
-  font-style: italic;
-  font-size: 1.125rem;
+  font-size: 1.05rem;
 }
 
 .article-prose blockquote p {
@@ -129,7 +123,7 @@ html {
 .article-prose a {
   color: var(--accent);
   text-decoration: underline;
-  text-decoration-color: rgba(168, 50, 50, 0.4);
+  text-decoration-color: rgba(107, 209, 255, 0.35);
   text-underline-offset: 3px;
   transition: text-decoration-color 0.2s;
 }
@@ -153,9 +147,9 @@ html {
 }
 
 .article-prose li {
-  margin: 0.6rem 0;
+  margin: 0.5rem 0;
   line-height: 1.75;
-  color: var(--foreground);
+  color: rgba(247, 248, 248, 0.85);
 }
 
 .article-prose strong {

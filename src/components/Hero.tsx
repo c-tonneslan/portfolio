@@ -4,125 +4,108 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 px-6 md:px-12 overflow-hidden">
-      {/* Vertical edition strip, left */}
-      <div
-        aria-hidden
-        className="fixed left-3 top-0 bottom-0 hidden md:flex flex-col items-center justify-between text-[10px] uppercase tracking-[0.35em] py-6 opacity-50 z-10"
-      >
-        <span style={{ writingMode: "vertical-rl" }}>
-          Portfolio · Philadelphia · MMXXVI
-        </span>
-        <span style={{ writingMode: "vertical-rl" }}>
-          Volume IV
-        </span>
+    <section className="relative pt-32 pb-28 md:pt-44 md:pb-36 px-6 lg:px-8 overflow-hidden">
+      {/* Mesh gradient backdrop */}
+      <div aria-hidden className="absolute inset-x-0 top-0 h-[900px] pointer-events-none">
+        <div className="absolute -top-40 left-1/3 w-[700px] h-[700px] rounded-full bg-[#6bd1ff] opacity-25 blur-[150px]" />
+        <div className="absolute top-32 -right-32 w-[600px] h-[600px] rounded-full bg-[#3b82f6] opacity-25 blur-[150px]" />
+        <div className="absolute -top-20 -left-40 w-[500px] h-[500px] rounded-full bg-[#7c5fff] opacity-20 blur-[140px]" />
+        <div
+          className="absolute inset-0 opacity-[0.15]"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle, rgba(255,255,255,0.4) 1px, transparent 1px)",
+            backgroundSize: "24px 24px",
+          }}
+        />
+        <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-b from-transparent to-[#08090a]" />
       </div>
 
-      <div className="max-w-6xl mx-auto">
-        {/* Top meta strip */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          className="flex items-center justify-between text-[11px] uppercase tracking-[0.3em] mb-12 md:mb-20 border-b border-[#1a1612]/30 pb-3"
-        >
-          <span className="flex items-center gap-2">
-            <span className="text-[#a83232]">✦</span>
-            Volume IV · No. 41
-          </span>
-          <span className="hidden md:inline">
-            Filed Saturday, 24 May MMXXVI
-          </span>
-          <span className="flex items-center gap-2 text-[#a83232]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#a83232] animate-pulse-soft" />
-            Open for work
-          </span>
-        </motion.div>
-
-        {/* Masthead */}
-        <div className="grid grid-cols-12 gap-6 items-end mb-16 md:mb-24">
-          <div className="col-span-12 md:col-span-9">
-            <motion.h1
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, ease: "easeOut" }}
-              className="text-[15vw] md:text-[10vw] leading-[0.85] tracking-[-0.035em] font-medium"
-            >
-              Charlie
-              <br />
-              <span className="font-serif italic font-normal text-[#a83232]">
-                Tonneslan.
-              </span>
-            </motion.h1>
-          </div>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="col-span-12 md:col-span-3 space-y-1 text-[11px] uppercase tracking-[0.25em] mt-6 md:mt-0"
-          >
-            <p>Software engineer</p>
-            <p>Philadelphia, PA</p>
-            <p className="mt-3 text-[#a83232]">
-              ↗ <a href="https://github.com/c-tonneslan" className="hover:underline underline-offset-4">github</a>
-            </p>
-            <p className="text-[#a83232]">
-              ↗ <a href="mailto:cst0520@gmail.com" className="hover:underline underline-offset-4">email</a>
-            </p>
-          </motion.div>
-        </div>
-
-        {/* Subhead — a one-paragraph statement */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
+      <div className="relative max-w-6xl mx-auto">
+        {/* Pill announcement */}
+        <motion.a
+          href="/lab"
+          initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="grid grid-cols-12 gap-6 mb-8"
+          transition={{ duration: 0.5 }}
+          className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 backdrop-blur text-xs text-muted hover:bg-white/8 transition mb-10"
         >
-          <p className="col-span-12 md:col-span-2 text-[11px] uppercase tracking-[0.3em] opacity-70">
-            ⸺ At a glance
-          </p>
-          <p className="col-span-12 md:col-span-9 font-serif italic text-2xl md:text-4xl leading-[1.35] tracking-[-0.005em]">
-            I make software for cities — housing data, transit maps, civic
-            tooling — and ship small fixes into the open-source projects that
-            hold all of it up.{" "}
-            <span className="text-[#a83232] not-italic font-sans font-medium">
-              Mostly Go and TypeScript.
-            </span>
-          </p>
-        </motion.div>
+          <span className="text-accent font-medium">New</span>
+          29 UI experiments now live in the lab
+          <span className="text-muted">→</span>
+        </motion.a>
 
-        {/* Quick links */}
+        {/* Hero headline */}
+        <motion.h1
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-[-0.035em] leading-[1.02] max-w-5xl"
+        >
+          Software for cities,
+          <br />
+          <span className="bg-gradient-to-r from-[#b6e6ff] via-[#6bd1ff] to-[#7da9ff] bg-clip-text text-transparent">
+            transit, and the people
+          </span>
+          <br />
+          who keep them running.
+        </motion.h1>
+
+        {/* Subhead */}
+        <motion.p
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.25 }}
+          className="mt-8 text-lg md:text-xl text-muted max-w-2xl leading-relaxed"
+        >
+          I&apos;m Charlie, a software engineer in Philadelphia. I build civic
+          and urban tools — housing data, transit maps, council infrastructure
+          — and ship small fixes into the open-source projects that hold all
+          of it up.
+        </motion.p>
+
+        {/* CTAs */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.7 }}
-          className="grid grid-cols-12 gap-6 pt-10 border-t border-[#1a1612]/15 text-[11px] uppercase tracking-[0.25em]"
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-10 flex items-center gap-3 flex-wrap"
         >
           <a
             href="#work"
-            className="col-span-6 md:col-span-3 hover:text-[#a83232] transition-colors"
+            className="px-5 py-2.5 rounded-lg bg-foreground text-background font-medium text-sm hover:bg-foreground/90 transition"
           >
-            ↓ ii. The work
+            See the work →
           </a>
           <a
-            href="#contributions"
-            className="col-span-6 md:col-span-3 hover:text-[#a83232] transition-colors"
+            href="#open-source"
+            className="px-5 py-2.5 rounded-lg bg-white/8 border border-white/12 backdrop-blur text-sm hover:bg-white/12 transition"
           >
-            ↓ iii. Contributions
+            Open-source contributions
           </a>
           <a
-            href="/lab"
-            className="col-span-6 md:col-span-3 hover:text-[#a83232] transition-colors"
+            href="mailto:cst0520@gmail.com"
+            className="px-5 py-2.5 rounded-lg text-sm text-muted hover:text-foreground transition"
           >
-            ↗ vi. The lab
+            cst0520@gmail.com
           </a>
-          <a
-            href="#reach"
-            className="col-span-6 md:col-span-3 hover:text-[#a83232] transition-colors"
-          >
-            ↓ vii. Get in touch
-          </a>
+        </motion.div>
+
+        {/* Status row */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="mt-20 flex items-center gap-x-8 gap-y-3 text-sm text-muted flex-wrap"
+        >
+          <span className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse-soft" />
+            <span className="text-foreground/85">Open for work</span>
+          </span>
+          <span className="hidden md:inline text-white/15">·</span>
+          <span>Philadelphia, PA</span>
+          <span className="hidden md:inline text-white/15">·</span>
+          <span>Go · TypeScript · Rust · Python</span>
         </motion.div>
       </div>
     </section>

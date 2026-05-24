@@ -20,64 +20,53 @@ function mergedFirst(list: Contribution[]): Contribution[] {
     .sort((a, b) => mergedCount(b) - mergedCount(a));
 }
 
-function ContribBlock({ contrib, index }: { contrib: Contribution; index: number }) {
-  const mergedHere = contrib.prs.filter((p) => p.status === "merged").length;
+function ContribCard({ contrib, index }: { contrib: Contribution; index: number }) {
+  const mergedHere = mergedCount(contrib);
   return (
     <motion.div
       initial={{ opacity: 0, y: 8 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-30px" }}
       transition={{ duration: 0.35, delay: Math.min(index * 0.02, 0.2) }}
-      className="border-b border-[#1a1612]/15 py-6"
+      className="rounded-xl border border-white/8 bg-card-bg p-5 hover:border-white/15 hover:bg-[#13141a] transition"
     >
-      <div className="grid grid-cols-12 gap-3 mb-3 items-baseline">
-        <a
-          href={contrib.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="col-span-8 md:col-span-7 font-serif italic text-lg md:text-xl tracking-tight hover:text-[#a83232] transition-colors"
-        >
+      <a
+        href={contrib.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center justify-between mb-4 group"
+      >
+        <span className="text-sm font-medium text-foreground group-hover:text-accent transition-colors">
           {contrib.name}
-        </a>
-        <span className="col-span-4 md:col-span-3 text-[10px] uppercase tracking-[0.22em] text-[#6b5e54] font-mono">
-          {contrib.stars} stars
         </span>
-        <span className="col-span-12 md:col-span-2 text-[10px] uppercase tracking-[0.22em] text-[#a83232] md:text-right">
-          {mergedHere > 0 ? `${mergedHere} merged` : "—"}
+        <span className="text-xs text-muted font-mono">
+          {contrib.stars} · {mergedHere}m
         </span>
-      </div>
-      <ul className="space-y-1.5">
+      </a>
+      <div className="space-y-2">
         {contrib.prs.map((pr) => (
-          <li key={pr.number} className="grid grid-cols-12 gap-3 items-baseline">
-            <a
-              href={`${contrib.url}/pull/${pr.number}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="col-span-1 font-mono text-[11px] text-[#6b5e54] hover:text-[#1a1612]"
-            >
+          <a
+            key={pr.number}
+            href={`${contrib.url}/pull/${pr.number}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-start gap-2 group/pr"
+          >
+            <span className="text-muted text-xs font-mono mt-0.5 shrink-0 w-12">
               #{pr.number}
-            </a>
-            <a
-              href={`${contrib.url}/pull/${pr.number}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="col-span-9 md:col-span-9 text-sm leading-[1.65] text-[#1a1612] hover:text-[#a83232] transition-colors"
-            >
-              {pr.title}
-            </a>
-            <span
-              className={`col-span-2 md:col-span-2 text-right text-[10px] font-mono uppercase tracking-widest ${
-                pr.status === "merged"
-                  ? "text-[#a83232]"
-                  : "text-[#6b5e54]/70"
-              }`}
-            >
-              {pr.status === "merged" ? "● merged" : "○ open"}
             </span>
-          </li>
+            <span className="text-xs text-foreground/85 leading-relaxed group-hover/pr:text-foreground transition-colors flex-1">
+              {pr.title}
+            </span>
+            {pr.status === "merged" && (
+              <span className="text-[10px] font-mono uppercase tracking-wider text-emerald-400/90 mt-0.5 shrink-0">
+                merged
+              </span>
+            )}
+          </a>
         ))}
-      </ul>
-      <p className="text-[10px] font-mono text-[#6b5e54]/70 mt-3 uppercase tracking-[0.18em]">
+      </div>
+      <p className="text-[10px] font-mono text-muted/60 mt-4 truncate">
         {contrib.repo}
       </p>
     </motion.div>
@@ -85,81 +74,82 @@ function ContribBlock({ contrib, index }: { contrib: Contribution; index: number
 }
 
 export default function OpenSource() {
-  const all = mergedFirst(notable);
-  const allOther = mergedFirst(other);
-  const totalMerged = [...all, ...allOther].reduce((s, c) => s + mergedCount(c), 0);
-  const totalRepos = all.length + allOther.length;
+  const notableSorted = mergedFirst(notable);
+  const otherSorted = mergedFirst(other);
+  const totalMerged = [...notableSorted, ...otherSorted].reduce(
+    (s, c) => s + mergedCount(c),
+    0,
+  );
+  const totalRepos = notableSorted.length + otherSorted.length;
+  const totalPRs = [...notableSorted, ...otherSorted].reduce(
+    (s, c) => s + c.prs.length,
+    0,
+  );
 
   return (
     <section
-      id="contributions"
-      className="px-6 md:px-12 py-24 md:py-32 border-t border-[#1a1612]/30 bg-[#ebe2d0]/40"
+      id="open-source"
+      className="px-6 lg:px-8 py-24 md:py-32 border-t border-white/6"
     >
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-12 gap-6 mb-16">
-          <div className="col-span-12 md:col-span-4">
-            <p className="text-[11px] uppercase tracking-[0.3em] mb-3 text-[#a83232]">
-              § iii — Contributions
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="grid md:grid-cols-12 gap-6 mb-12"
+        >
+          <div className="md:col-span-7">
+            <p className="text-xs uppercase tracking-widest text-accent mb-4">
+              Open source
             </p>
-            <motion.h2
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="font-serif italic text-4xl md:text-5xl tracking-[-0.02em] leading-[1]"
-            >
-              Small
+            <h2 className="text-4xl md:text-6xl font-semibold tracking-[-0.025em] leading-[1]">
+              Small fixes,
               <br />
-              fixes,
-              <br />
-              big repos.
-            </motion.h2>
+              <span className="text-muted">big repos.</span>
+            </h2>
           </div>
-          <p className="col-span-12 md:col-span-7 md:col-start-6 text-base md:text-lg leading-[1.85] self-end font-serif italic text-[#1a1612]/85">
+          <p className="md:col-span-5 self-end text-base md:text-lg text-muted leading-relaxed">
             Bug fixes, race conditions, and edge cases I&apos;ve run into in
-            the wild. Mostly Go and Rust, occasionally Python and Java. Each
-            row links to the PR.
+            the wild. Mostly Go and Rust, plus the occasional Python and
+            Java. Every row links to the PR.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Stat block */}
-        <div className="grid grid-cols-3 gap-px bg-[#1a1612]/25 mb-16 border border-[#1a1612]/25">
+        {/* Stat strip */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/8 rounded-xl overflow-hidden border border-white/8 mb-14">
           {[
-            ["Repositories", totalRepos.toString()],
-            ["Merged PRs", totalMerged.toString()],
-            ["Languages", "Go · Rust · Python · TS · Java"],
-          ].map(([k, v], i) => (
-            <div
-              key={k}
-              className="bg-[#f4ede0] p-5 md:p-6"
-            >
-              <p className="text-[10px] uppercase tracking-[0.25em] text-[#6b5e54] mb-2">
+            ["Repos", totalRepos.toString()],
+            ["PRs", totalPRs.toString()],
+            ["Merged", totalMerged.toString()],
+            ["Languages", "5"],
+          ].map(([k, v]) => (
+            <div key={k} className="bg-card-bg p-5">
+              <p className="text-xs text-muted uppercase tracking-widest mb-2">
                 {k}
               </p>
-              <p
-                className={`font-serif italic ${i === 2 ? "text-base md:text-lg" : "text-3xl md:text-4xl"} text-[#1a1612] leading-tight tracking-tight`}
-              >
+              <p className="text-3xl md:text-4xl font-semibold tracking-tight">
                 {v}
               </p>
             </div>
           ))}
         </div>
 
-        <p className="text-[11px] uppercase tracking-[0.3em] text-[#a83232] mb-4">
-          ⸺ Notable
+        <p className="text-xs uppercase tracking-widest text-muted mb-4">
+          Notable
         </p>
-        <div className="border-t border-[#1a1612]/25">
-          {all.map((c, i) => (
-            <ContribBlock key={c.repo} contrib={c} index={i} />
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-14">
+          {notableSorted.map((c, i) => (
+            <ContribCard key={c.repo} contrib={c} index={i} />
           ))}
         </div>
 
-        <p className="text-[11px] uppercase tracking-[0.3em] text-[#a83232] mt-16 mb-4">
-          ⸺ Other
+        <p className="text-xs uppercase tracking-widest text-muted mb-4">
+          Other
         </p>
-        <div className="border-t border-[#1a1612]/25">
-          {allOther.map((c, i) => (
-            <ContribBlock key={c.repo} contrib={c} index={i} />
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {otherSorted.map((c, i) => (
+            <ContribCard key={c.repo} contrib={c} index={i} />
           ))}
         </div>
       </div>
