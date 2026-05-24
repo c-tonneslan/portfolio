@@ -330,6 +330,81 @@ const demos: Demo[] = [
       </div>
     ),
   },
+  {
+    slug: "zurich",
+    title: "volt instruments",
+    tag: "swiss precision",
+    blurb: "A Zürich modular-synth maker. Strict grid, signal red, vertical type, live filter response, hand-bound catalogue 1968 — present.",
+    swatch: "from-[#E30613]/25 via-white/10 to-transparent",
+    preview: (
+      <div className="h-full bg-white text-black rounded-sm p-1 flex flex-col font-bold">
+        <div className="flex justify-between text-[4px] uppercase tracking-wider">
+          <span className="flex items-center gap-0.5"><span className="w-0.5 h-0.5 bg-[#E30613]" />VOLT</span>
+          <span>04 · MMXXVI</span>
+        </div>
+        <p className="text-[18px] leading-[0.78] tracking-[-0.05em] mt-1">VOLT</p>
+        <div className="mt-auto grid grid-cols-3 gap-px text-[3px] uppercase">
+          <span className="bg-black text-white text-center">M-21</span>
+          <span className="bg-black text-white text-center">540.—</span>
+          <span className="bg-[#E30613] text-white text-center">●</span>
+        </div>
+      </div>
+    ),
+  },
+  {
+    slug: "bossa",
+    title: "18ª bienal de design",
+    tag: "tropical modernism",
+    blurb: "São Paulo design biennial. Sunset palette, Niemeyer curves, animated marquee, eight program days as colored circles, hibiscus and ocean.",
+    swatch: "from-[#E8763A]/30 via-[#D34A4A]/15 to-transparent",
+    preview: (
+      <div className="h-full bg-[#fff4e3] text-[#1b1410] rounded-sm relative overflow-hidden p-1">
+        <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-[#E8763A]" />
+        <div className="absolute -bottom-2 -left-2 w-7 h-7 rounded-full bg-[#3B5BA5] opacity-80" />
+        <p className="relative text-[14px] font-black leading-[0.78] tracking-[-0.04em]">
+          18<sup className="text-[8px]">a</sup>
+          <br/><span className="italic font-serif font-normal text-[#D34A4A]">Bienal</span>
+        </p>
+        <p className="absolute bottom-1 right-1 text-[4px] uppercase tracking-widest font-bold">SP · MMXXVI</p>
+      </div>
+    ),
+  },
+  {
+    slug: "kyoto",
+    title: "蓬莱堂 · hōrai-dō",
+    tag: "ma, negative space",
+    blurb: "A Kyoto paper shop, est. 1841. Sumi black on bone, vertical kana, 75% whitespace, a single object on a vast page, seasonal closures in four kanji.",
+    swatch: "from-[#c8412f]/15 via-[#f5f1e6]/30 to-transparent",
+    preview: (
+      <div className="h-full bg-[#f5f1e6] text-[#1a1612] rounded-sm p-1.5 flex">
+        <div className="flex-1">
+          <p style={{ fontFamily: "serif" }} className="text-[14px] leading-none">蓬莱堂</p>
+          <p className="font-serif italic text-[7px] mt-0.5">Hōrai-dō</p>
+          <p className="text-[4px] uppercase tracking-[0.3em] mt-1 opacity-70">1841 —</p>
+        </div>
+        <div style={{ writingMode: "vertical-rl" }} className="text-[4px] tracking-[0.4em] opacity-50">
+          京 都
+        </div>
+      </div>
+    ),
+  },
+  {
+    slug: "seoul",
+    title: "pulse / 26",
+    tag: "kinetic chrome",
+    blurb: "A 3-night Seoul electronic festival. Holographic conic gradients, chrome-text hero that tracks the cursor, live now-playing waveform, day cards in three weathers.",
+    swatch: "from-fuchsia-500/25 via-cyan-500/15 to-transparent",
+    preview: (
+      <div className="h-full bg-black rounded-sm relative overflow-hidden p-1.5">
+        <div className="absolute -top-2 -left-2 w-12 h-12 rounded-full opacity-60 blur-lg" style={{ background: "conic-gradient(from 90deg, #ff6bd6, #6bd1ff, #b8ff6b, #ff6bd6)" }} />
+        <div className="absolute -bottom-2 -right-2 w-10 h-10 rounded-full opacity-50 blur-lg" style={{ background: "conic-gradient(from 270deg, #b8ff6b, #ff6bd6, #6bd1ff)" }} />
+        <p className="relative text-[18px] font-black leading-none tracking-[-0.06em]" style={{ background: "linear-gradient(135deg, #ffb6f0, #b6d6ff, #f0ffb6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>PULSE</p>
+        <p className="absolute bottom-1 left-1 right-1 text-[4px] text-white/80 uppercase tracking-[0.25em] flex justify-between">
+          <span>SEOUL</span><span>14·15·16</span>
+        </p>
+      </div>
+    ),
+  },
 ];
 
 export default function LabIndex() {
