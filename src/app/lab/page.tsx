@@ -480,6 +480,83 @@ const demos: Demo[] = [
       </div>
     ),
   },
+  {
+    slug: "stockholm",
+    title: "ärla upplagor",
+    tag: "scandinavian quiet",
+    blurb: "A Stockholm editions house. One designer a year, one chair this year. Warm bone paper, oat, sage, caramel accent. Furniture as careful catalogue.",
+    swatch: "from-[#c08350]/20 via-[#8aa185]/10 to-transparent",
+    preview: (
+      <div className="h-full bg-[#f4ede0] text-[#1a1a1a] rounded-sm p-1.5 flex flex-col">
+        <p className="text-[4px] uppercase tracking-[0.3em] opacity-70">№ 07 · 2026</p>
+        <p className="text-base leading-[0.85] mt-1 font-medium">Ärla<br/><span className="font-serif italic font-normal text-[#c08350]">upplagor.</span></p>
+        <div className="mt-auto flex items-end gap-1">
+          <div className="w-2 h-3 bg-[#c08350]" />
+          <div className="w-3 h-4 bg-[#8aa185]" />
+          <div className="w-2 h-2 bg-[#9b6438]" />
+        </div>
+      </div>
+    ),
+  },
+  {
+    slug: "beirut",
+    title: "bait · بيت",
+    tag: "levantine quarterly",
+    blurb: "A Beirut arts quarterly, set in Arabic and English. Indigo and terracotta, Mediterranean blue, zellij geometry. Bilingual TOC, bidirectional layout.",
+    swatch: "from-[#1f3a68]/25 via-[#b6612d]/15 to-transparent",
+    preview: (
+      <div className="h-full bg-[#f3e8d4] text-[#0d1e3a] rounded-sm p-1.5 flex flex-col relative overflow-hidden">
+        <div className="absolute top-1 right-1 w-6 h-6 opacity-50">
+          <svg viewBox="0 0 20 20"><polygon points="10,2 18,10 10,18 2,10" fill="none" stroke="#2b6d8e" strokeWidth="1" /><circle cx="10" cy="10" r="2" fill="#b6612d" /></svg>
+        </div>
+        <p className="text-[12px] leading-none font-medium">BAIT<span className="text-[#b6612d]">.</span></p>
+        <p dir="rtl" className="text-[10px] mt-0.5 text-[#2b6d8e]" style={{ fontFamily: "serif" }}>بيت</p>
+        <p className="text-[5px] mt-auto uppercase tracking-[0.25em] opacity-70">Issue 09 · Spring</p>
+      </div>
+    ),
+  },
+  {
+    slug: "lagos",
+    title: "ayò festival",
+    tag: "yorùbá kinetic",
+    blurb: "A Lagos festival of music & joy. Yinka Ilori palette (hot pink, ochre, cyan, lime, deep purple), zigzag separators, ÌBẸ̀RẸ̀ day cards, bilingual marquee.",
+    swatch: "from-[#ed4e8d]/30 via-[#e9a93a]/20 to-transparent",
+    preview: (
+      <div className="h-full bg-[#f4ecd8] text-[#1a1410] rounded-sm relative overflow-hidden p-1.5">
+        <div className="absolute top-1 right-1 w-5 h-5 rounded-full bg-[#e9a93a]" />
+        <div className="absolute bottom-3 right-3 w-3 h-3 bg-[#2eb4c1]" />
+        <p className="text-[4px] uppercase tracking-[0.3em] font-black">⸺ Third edition</p>
+        <p className="text-[20px] font-black leading-[0.78] tracking-[-0.05em] mt-0.5">AYÒ.</p>
+        <p className="font-serif italic text-[6px] mt-0.5 text-[#5b2d8b]">joy, in three days.</p>
+      </div>
+    ),
+  },
+  {
+    slug: "marrakech",
+    title: "riad aïn · رياض عين",
+    tag: "moroccan zellij",
+    blurb: "A four-room riad in Marrakech medina. Majorelle blue, saffron, earth red, bone. SVG zellij tile motifs, trilingual (FR/AR/EN), four chambres each a coloured band.",
+    swatch: "from-[#c25831]/25 via-[#2c4d9b]/15 to-transparent",
+    preview: (
+      <div className="h-full bg-[#f1e8d4] text-[#1f1410] rounded-sm overflow-hidden flex">
+        <div className="flex-[5] p-1.5">
+          <p className="text-[4px] uppercase tracking-[0.3em] text-[#c25831] font-bold">⸺ Quatre chambres</p>
+          <p className="font-serif italic text-base leading-[0.85] mt-1">Riad<br/>Aïn.</p>
+        </div>
+        <div className="flex-[2] overflow-hidden relative">
+          <svg viewBox="0 0 40 60" className="w-full h-full" preserveAspectRatio="none">
+            <defs>
+              <pattern id="zp" patternUnits="userSpaceOnUse" width="10" height="10">
+                <polygon points="5,1 9,5 5,9 1,5" fill="#2c4d9b" opacity="0.8" />
+                <polygon points="5,3 7,5 5,7 3,5" fill="#f1e8d4" />
+              </pattern>
+            </defs>
+            <rect width="40" height="60" fill="url(#zp)" />
+          </svg>
+        </div>
+      </div>
+    ),
+  },
 ];
 
 export default function LabIndex() {
