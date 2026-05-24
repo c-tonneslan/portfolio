@@ -26,13 +26,15 @@ export default function Contact() {
               Get in touch
             </p>
             <h2 className="text-4xl md:text-6xl font-semibold tracking-[-0.03em] leading-[1] max-w-3xl mx-auto">
-              Hiring in civic tech,
+              Looking for a role.
               <br />
-              <span className="text-muted">transit, or developer tools?</span>
+              <span className="text-muted">Open to whatever you&apos;re building.</span>
             </h2>
             <p className="mt-7 text-base md:text-lg text-muted max-w-xl mx-auto leading-relaxed">
-              I can move fast on the right kind of work, and I&apos;d rather
-              work on fewer projects, more deeply. Send a note.
+              Civic, transit, and developer tooling are where I&apos;ve been
+              spending time, but I&apos;d love to hear about anything you&apos;re
+              working on. Eager to learn, and to find a team where I can ship
+              the kind of work I&apos;d be proud of.
             </p>
 
             <div className="mt-10 flex items-center justify-center gap-3 flex-wrap">
