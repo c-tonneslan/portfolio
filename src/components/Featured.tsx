@@ -189,13 +189,13 @@ export default function Featured() {
               Work
             </p>
             <h2 className="text-4xl md:text-6xl font-semibold tracking-[-0.025em] leading-[1]">
-              Twelve things,
+              Twelve
               <br />
-              <span className="text-muted">made carefully.</span>
+              <span className="text-muted">projects.</span>
             </h2>
           </div>
           <p className="md:col-span-5 self-end text-base md:text-lg text-muted leading-relaxed">
-            Civic and urban tools, plus developer tooling for my own use.
+            Civic and urban tools, plus developer tooling I built for myself.
             Click anything for code; live demos are marked.
           </p>
         </motion.div>

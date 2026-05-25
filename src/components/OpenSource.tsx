@@ -104,15 +104,15 @@ export default function OpenSource() {
               Open source
             </p>
             <h2 className="text-4xl md:text-6xl font-semibold tracking-[-0.025em] leading-[1]">
-              Small fixes,
+              Open-source
               <br />
-              <span className="text-muted">big repos.</span>
+              <span className="text-muted">contributions.</span>
             </h2>
           </div>
           <p className="md:col-span-5 self-end text-base md:text-lg text-muted leading-relaxed">
-            Bug fixes, race conditions, and edge cases I&apos;ve run into in
-            the wild. Mostly Go and Rust, plus the occasional Python and
-            Java. Every row links to the PR.
+            Bug fixes, race conditions, and edge cases from other people&apos;s
+            projects. Mostly Go and Rust, plus some Python and Java. Every row
+            links to the PR.
           </p>
         </motion.div>
 

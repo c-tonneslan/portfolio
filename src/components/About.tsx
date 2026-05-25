@@ -35,14 +35,13 @@ export default function About() {
             <p>
               Most of what I&apos;ve learned has come from reading large
               codebases and trying to fix something small in them. The pull
-              requests in the open-source section below are how I got my
-              hands on Go and Rust beyond the toy-project level. It&apos;s
-              also where I picked up most of what I know about race
-              conditions, retries, and the shape of error handling people
-              actually live with in production.
+              requests in the open-source section below are how I got past
+              toy projects in Go and Rust. They&apos;re also where I picked
+              up most of what I know about race conditions, retries, and how
+              error handling actually works in production.
             </p>
             <p>
-              The projects I build for myself tend to land near cities and
+              The projects I build for myself are mostly around cities and
               transit.{" "}
               <span className="text-accent">civic-philly</span> joins 5,000+
               Philadelphia housing and zoning records against ACS census

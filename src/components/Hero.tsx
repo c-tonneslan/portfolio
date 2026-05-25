@@ -45,10 +45,8 @@ export default function Hero() {
           Software for cities,
           <br />
           <span className="bg-gradient-to-r from-[#b6e6ff] via-[#6bd1ff] to-[#7da9ff] bg-clip-text text-transparent">
-            transit, and the people
+            transit, and developer tools.
           </span>
-          <br />
-          who keep them running.
         </motion.h1>
 
         {/* Subhead */}
@@ -60,8 +58,7 @@ export default function Hero() {
         >
           I&apos;m Charlie, a software engineer in Philadelphia. I build civic
           and urban tools — housing data, transit maps, council infrastructure
-          — and ship small fixes into the open-source projects that hold all
-          of it up.
+          — and contribute to the open-source projects they&apos;re built on.
         </motion.p>
 
         {/* CTAs */}
