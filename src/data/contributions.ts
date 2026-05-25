@@ -1973,6 +1973,15 @@ export const other: Contribution[] = [
     ],
     url: "https://github.com/shopspring/decimal",
   },
+  {
+    repo: "a-h/templ",
+    name: "templ",
+    stars: "11K+",
+    prs: [
+      { title: "examples/suspense: buffer the slot channel so producers can't leak", number: 1401 },
+    ],
+    url: "https://github.com/a-h/templ",
+  },
 ];
 
 export const allContributions: Contribution[] = [...notable, ...other];
