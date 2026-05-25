@@ -13,6 +13,18 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "contestlab",
+    title: "contestlab",
+    description:
+      "LeetCode-style coding contests in the browser. Each contest pulls four problems (easy through hard) from Codeforces and from Claude (for novel AI-generated problems), runs them in a Monaco editor with a 90-minute timer, and judges in-browser via Pyodide (Python compiled to WebAssembly). Scoring decays with elapsed time and adds 5-minute penalties per wrong submission, mirroring LeetCode's weekly contest formula. Built to drill technical interview pacing without rate limits or backend judges.",
+    longDescription:
+      "I wanted a tool to drill technical interview pacing on the kind of problem mix that shows up in real onsite loops, so I built one. A contest is four problems pulled by difficulty tier (easy, easy-medium, medium, hard). The default mix is three Codeforces problems plus one Claude-generated problem in the hardest slot, so every round has at least one problem you can't have seen before. The Codeforces side uses their public problemset API (no auth, ~9000 rated problems with tags) and biases by pattern if you pick one. The generated side prompts Claude to write a novel problem with a markdown statement, examples, hidden test cases, and a reference Python solution; the reference solution is what the test cases get validated against before they're committed. Code execution runs entirely in the browser via Pyodide — Python compiled to WebAssembly. I started with Piston (free public judge) and Judge0 (free tier with API key) but Piston went whitelist-only in February 2026 and Judge0 rate-limits hard, so the browser-side approach is both simpler and has no caps. The tradeoff is a 10MB one-time Pyodide download, cached after first load. Scoring approximates LeetCode's weekly contest formula: full credit if solved within 10 minutes, linear decay to 30% credit at contest end, 5-minute penalty added to the effective solve time for every wrong submission before the AC. The Monaco editor is Microsoft's VS Code editor as a React component, configured for Python. Contests persist to localStorage so reloading mid-round doesn't lose progress. Stack: Next.js 16, TypeScript, Tailwind, Anthropic SDK for problem generation, Pyodide for execution.",
+    tech: ["Next.js", "TypeScript", "Tailwind", "Pyodide", "Anthropic Claude", "Monaco"],
+    github: "https://github.com/c-tonneslan/contestlab",
+    status: "live",
+    category: "devtool",
+  },
+  {
     id: "scour",
     title: "scour",
     description:
