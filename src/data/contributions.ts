@@ -1901,6 +1901,42 @@ export const other: Contribution[] = [
     prs: [{ title: "Return an empty string from natural_list for an empty list", number: 318, status: "merged" }],
     url: "https://github.com/python-humanize/humanize",
   },
+  {
+    repo: "segmentio/encoding",
+    name: "segmentio/encoding",
+    stars: "1.1K+",
+    prs: [
+      { title: "json: return writer errors from Encoder.Encode", number: 163 },
+    ],
+    url: "https://github.com/segmentio/encoding",
+  },
+  {
+    repo: "vektah/gqlparser",
+    name: "gqlparser",
+    stars: "1.5K+",
+    prs: [
+      { title: "lexer: render invalid-character codepoint as hex, not decimal", number: 431 },
+    ],
+    url: "https://github.com/vektah/gqlparser",
+  },
+  {
+    repo: "eko/gocache",
+    name: "gocache",
+    stars: "2.5K+",
+    prs: [
+      { title: "cache(chain): return an error from Get when no caches are configured", number: 309 },
+    ],
+    url: "https://github.com/eko/gocache",
+  },
+  {
+    repo: "buger/jsonparser",
+    name: "jsonparser",
+    stars: "5.5K+",
+    prs: [
+      { title: "fix: don't panic on empty key when path enters an array", number: 284 },
+    ],
+    url: "https://github.com/buger/jsonparser",
+  },
 ];
 
 export const allContributions: Contribution[] = [...notable, ...other];
