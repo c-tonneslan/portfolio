@@ -21,7 +21,6 @@ function mergedFirst(list: Contribution[]): Contribution[] {
 }
 
 function ContribCard({ contrib, index }: { contrib: Contribution; index: number }) {
-  const mergedHere = mergedCount(contrib);
   return (
     <motion.div
       initial={{ opacity: 0, y: 8 }}
@@ -39,9 +38,7 @@ function ContribCard({ contrib, index }: { contrib: Contribution; index: number 
         <span className="text-sm font-medium text-foreground group-hover:text-accent transition-colors">
           {contrib.name}
         </span>
-        <span className="text-xs text-muted font-mono">
-          {contrib.stars} · {mergedHere}m
-        </span>
+        <span className="text-xs text-muted font-mono">{contrib.stars}</span>
       </a>
       <div className="space-y-2">
         {contrib.prs.map((pr) => (
@@ -76,15 +73,6 @@ function ContribCard({ contrib, index }: { contrib: Contribution; index: number 
 export default function OpenSource() {
   const notableSorted = mergedFirst(notable);
   const otherSorted = mergedFirst(other);
-  const totalMerged = [...notableSorted, ...otherSorted].reduce(
-    (s, c) => s + mergedCount(c),
-    0,
-  );
-  const totalRepos = notableSorted.length + otherSorted.length;
-  const totalPRs = [...notableSorted, ...otherSorted].reduce(
-    (s, c) => s + c.prs.length,
-    0,
-  );
 
   return (
     <section
@@ -116,26 +104,7 @@ export default function OpenSource() {
           </p>
         </motion.div>
 
-        {/* Stat strip */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/8 rounded-xl overflow-hidden border border-white/8 mb-14">
-          {[
-            ["Repos", totalRepos.toString()],
-            ["PRs", totalPRs.toString()],
-            ["Merged", totalMerged.toString()],
-            ["Languages", "5"],
-          ].map(([k, v]) => (
-            <div key={k} className="bg-card-bg p-5">
-              <p className="text-xs text-muted uppercase tracking-widest mb-2">
-                {k}
-              </p>
-              <p className="text-3xl md:text-4xl font-semibold tracking-tight">
-                {v}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        <p className="text-xs uppercase tracking-widest text-muted mb-4">
+        <p className="text-xs uppercase tracking-widest text-muted mb-4 mt-14">
           Notable
         </p>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-14">
