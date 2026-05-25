@@ -1937,6 +1937,33 @@ export const other: Contribution[] = [
     ],
     url: "https://github.com/buger/jsonparser",
   },
+  {
+    repo: "rivo/tview",
+    name: "tview",
+    stars: "11K+",
+    prs: [
+      { title: "table: stop InputHandler hanging when every cell is non-selectable", number: 1155 },
+    ],
+    url: "https://github.com/rivo/tview",
+  },
+  {
+    repo: "spf13/pflag",
+    name: "pflag",
+    stars: "2.5K+",
+    prs: [
+      { title: "ip: stop GetIP erroring when the IP flag has a nil default", number: 478 },
+    ],
+    url: "https://github.com/spf13/pflag",
+  },
+  {
+    repo: "cucumber/godog",
+    name: "godog",
+    stars: "2.1K+",
+    prs: [
+      { title: "suite: recover from panics in after-step and after-scenario hooks", number: 745 },
+    ],
+    url: "https://github.com/cucumber/godog",
+  },
 ];
 
 export const allContributions: Contribution[] = [...notable, ...other];
