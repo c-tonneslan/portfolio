@@ -58,6 +58,7 @@ const projects: Project[] = [
     metrics: ["4-problem contests", "In-browser judge (Pyodide)", "AI-generated novel problems"],
     tech: ["TypeScript", "Next.js 16", "Pyodide", "Anthropic Claude", "Monaco"],
     github: "https://github.com/c-tonneslan/contestlab",
+    live: "https://contestlab.vercel.app",
   },
   {
     title: "scour",
