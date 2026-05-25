@@ -1964,6 +1964,15 @@ export const other: Contribution[] = [
     ],
     url: "https://github.com/cucumber/godog",
   },
+  {
+    repo: "shopspring/decimal",
+    name: "decimal",
+    stars: "7K+",
+    prs: [
+      { title: "fix: NumDigits underreports for some exact powers of ten", number: 425 },
+    ],
+    url: "https://github.com/shopspring/decimal",
+  },
 ];
 
 export const allContributions: Contribution[] = [...notable, ...other];
