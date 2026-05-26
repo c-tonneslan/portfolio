@@ -88,6 +88,18 @@ export const projects: Project[] = [
     category: "fullstack",
   },
   {
+    id: "propeller-grabdata",
+    title: "NOAA CORS RINEX Downloader (Propeller hardware challenge)",
+    description:
+      "Completion of Propeller Aero's public Go take-home: a CLI that pulls hourly RINEX GNSS observation files from NOAA's CORS network across an arbitrary ISO 8601 time range and merges them into one .obs file. Standard library only. Verified end-to-end against the real NOAA server.",
+    longDescription:
+      "Propeller's drone-surveying platform uses GNSS observation data from NOAA's CORS reference stations to post-process AeroPoint positions to centimetre accuracy. Their challenge: write a CLI that takes a base-station ID + ISO 8601 start/end times, downloads every hourly RINEX block whose hour intersects the range, and merges them into one observation file. Go 1.22, stdlib only. Three small packages: timewindow enumerates the blocks (hour-letter mapping 0-23 to a-x, day-of-year + year rollovers, end-exclusive semantics, the brief's exact example call pinned down by a test), fetcher does the HTTP GET + gzip decompression (404 surfaces as ErrNotFound so the CLI can warn-and-continue when older logs have been rotated off, 5xx stays as a regular error), merger takes a chronological list of RINEX 2.x bodies and concatenates them keeping the first file's header plus a 'merged N hourly RINEX blocks' COMMENT inside the header. Downloads run in parallel into ordered slots so the merge sees blocks in chronological order regardless of which one finishes first. Verified end-to-end against the real NOAA server: a 3-hour pull on station nybp produces a ~44 MB merged file with exactly one header and three epoch streams in order, matching the shape of the reference example.obs in the upstream repo. The README walks the design trade-offs, especially why the merge is pragmatic rather than a TEQC reimplementation.",
+    tech: ["Go", "net/http", "compress/gzip", "bufio"],
+    github: "https://github.com/c-tonneslan/hardware-backend-challenge",
+    status: "live",
+    category: "backend",
+  },
+  {
     id: "gigs-notifications",
     title: "Notifications-to-Svix Bridge (Gigs challenge)",
     description:
