@@ -88,6 +88,18 @@ export const projects: Project[] = [
     category: "fullstack",
   },
   {
+    id: "stone-authorizer",
+    title: "Card Transaction Authorizer (Stone Payments challenge)",
+    description:
+      "Completion of Stone Payments's three-phase Go take-home: build a card transaction authorizer, layer fraud detection rules, then scale it behind a worker pool with bounded queue and metrics. Standard library + uuid/testify (already in the starter), Go 1.23.",
+    longDescription:
+      "Stone's challenge is staged across three phases that map cleanly onto a real payments stack. Phase 1 is the authorizer: parse a card transaction payload, validate the RFC 3339 timestamp (reject parseable-but-future and unparseable separately with the documented error strings), persist to a repo, return a status + UUID. Phase 2 adds fraud detection: amount over $10,000 flags 'high amount', more than 5 transactions per card in the last minute flags 'not standard'. Flagged transactions still approve but emit approved_with_warning with the reason. Phase 3 is the scale layer: AuthorizerRepository becomes a fixed-capacity circular buffer (default 10k entries, oldest overwritten), the synchronous use case gets wrapped in a worker pool with a bounded job queue (WORKER_COUNT and QUEUE_SIZE from env), queue-full submits return 'Too many requests' / HTTP 429, and a GET /metrics endpoint reports processed/rejected/queue_usage/active_workers. The rate-rule's window uses wall-clock receivedAt rather than payload timestamp so a backdated payload can't dodge it. The pool implements the same interface the controller depends on, so the controller treats sync UC and pool identically. Standard library only for the HTTP layer (Go 1.22 pattern-aware ServeMux). 10 tests: 7 from the starter (which I had to update to use a 2099 future date because the original 2026 date had passed) plus 3 new pool tests for the round-trip, queue-full rejection, and metrics snapshot.",
+    tech: ["Go", "net/http", "google/uuid", "stretchr/testify"],
+    github: "https://github.com/c-tonneslan/card-interview",
+    status: "live",
+    category: "backend",
+  },
+  {
     id: "congestion-tax",
     title: "Congestion Tax Calculator (Volvo Cars challenge)",
     description:
