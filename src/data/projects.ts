@@ -88,6 +88,18 @@ export const projects: Project[] = [
     category: "fullstack",
   },
   {
+    id: "origin-uam",
+    title: "User Access Management Service (Origin Financial challenge)",
+    description:
+      "Completion of Origin Financial's public backend take-home: a Go service that mediates signup and a streaming eligibility-CSV processor for employer rosters. Standard library only — net/http for routing, encoding/csv for streaming. Honors the brief's 50MB-file-in-256MB-RAM constraint by reading one record at a time and keeping only the per-employer seen-emails set in memory.",
+    longDescription:
+      "Origin's take-home asks you to build the user access management service for a fintech where users arrive two ways: self-signup (DTC) or pre-loaded by an employer via a roster CSV. I built it in Go using only the standard library: net/http for two endpoints, encoding/csv for streaming, log/slog for structured logs. The trickiest bit is shape: both account paths need to live in the same User Service record, distinguished by access_type + activated. Eligibility uploads create employer-typed users with activated=false; signup looks them up and either activates the preloaded record (PATCH password + flip activated) or creates a new DTC user. Existing activated emails get a clean 409. The streaming path reads CSV one record at a time and keeps a single per-employer set of seen emails (used only for the off-boarding diff at the end of the upload), so a 50MB file with ~50k rows stays well inside the 256MB cap. Re-uploads are idempotent, returning users get un-terminated automatically, and the per-row report file (CSV with line + email + status + reason) flushes after every row so partial runs leave usable artifacts. The User Service and Employer Service are Go interfaces with in-memory fakes for the demo and tests; a real deployment swaps in HTTP clients. About 30 tests across password rules, signup flow, CSV processing, and HTTP handlers.",
+    tech: ["Go", "net/http", "encoding/csv", "log/slog"],
+    github: "https://github.com/c-tonneslan/origin-backend-take-home-assignment",
+    status: "live",
+    category: "backend",
+  },
+  {
     id: "datamade-challenge",
     title: "Chicago Restaurant Permits Map (DataMade challenge)",
     description:
