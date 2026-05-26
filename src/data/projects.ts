@@ -88,6 +88,18 @@ export const projects: Project[] = [
     category: "fullstack",
   },
   {
+    id: "gigs-notifications",
+    title: "Notifications-to-Svix Bridge (Gigs challenge)",
+    description:
+      "Completion of Gigs's public Go take-home: a small service that ingests CloudEvents-shaped Pub/Sub notifications and forwards each one to Svix as a webhook message, with end-to-end idempotency and retry/backoff against Svix rate limits. Standard library only.",
+    longDescription:
+      "Gigs's challenge wants a small bridge between their Pub/Sub event firehose and Svix (their webhooks-as-a-service vendor): accept POST /notifications, validate, dedup, forward. Three layers, each a tight interface. internal/dedup is an in-memory store with a 24h TTL and opportunistic GC, ready to swap for Redis when a real deployment needs cross-replica state. internal/svix wraps the upstream HTTP API with capped exponential backoff + jitter on 429/5xx, honoring Retry-After, with a Fake client for tests and demo. internal/server is the HTTP handler. The subtle correctness call is dedup ordering: mark before send, roll back on Svix failure, so a parallel duplicate POST loses fairly but a Pub/Sub retry of a failed delivery still flows through. On Svix rate limit, propagate 429 upstream so Pub/Sub backs off rather than holding the HTTP connection open through the entire retry budget. Demo mode boots with the FakeClient when SVIX_BASE_URL/SVIX_APP_ID aren't set, so the brief's test/run.sh works locally — all 50 sample events accept cleanly, a replay returns 'duplicate'. NOTES.md walks the production list: Redis dedup, OIDC token verification on the Pub/Sub push, OpenTelemetry tracing, dead-letter queue, a customer-facing replay UI + endpoint health dashboard. Standard library only.",
+    tech: ["Go", "net/http", "encoding/json", "log/slog"],
+    github: "https://github.com/c-tonneslan/backend-challenge",
+    status: "live",
+    category: "backend",
+  },
+  {
     id: "stone-authorizer",
     title: "Card Transaction Authorizer (Stone Payments challenge)",
     description:
