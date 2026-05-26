@@ -88,6 +88,18 @@ export const projects: Project[] = [
     category: "fullstack",
   },
   {
+    id: "congestion-tax",
+    title: "Congestion Tax Calculator (Volvo Cars challenge)",
+    description:
+      "Completion of Volvo Cars's public Go take-home: rewrite the half-finished calculator, fix the bugs, add an HTTP entry point, and move city tax rules to JSON config so multiple cities can be served from one binary. Go stdlib only.",
+    longDescription:
+      "Volvo's starter shipped with a calculator package that had real bugs and no entry point. The single-charge accumulator only added a fee in the 'gap > 60 min' branch so two passes inside the same hour returned 0 SEK. intervalStart was set once at dates[0] and never moved. The midday 8 SEK band only fired at minute 30-59 within hours 8-14, so 9:00-9:29 incorrectly returned 0. The Motorbike struct's getVehicleType returned 'Motorbike' but the exempt check matched 'Motorcycle', so motorbikes were never tax-exempt despite the spec. GetTax panicked on an empty slice. I rewrote calculator/ as a pure function with sort + per-day bucketing, moved every parameter into JSON config (toll-free dates, exempt vehicles, fee brackets, single-charge window, daily cap), and wrote a cmd/server that mounts each city at POST /tax/{city}. The new pattern-aware net/http.ServeMux from Go 1.22 handles routing without chi or gorilla. Ships with a gothenburg.json and a stockholm.json so the bonus 'works in other cities' scenario is real, not theoretical. About 18 tests across the calculator math, the JSON loader, and bracket boundary cases, plus a full reproduction of the assignment's post-it scenario. questions.md flags the ambiguities I'd confirm with the team.",
+    tech: ["Go", "net/http", "encoding/json", "log/slog"],
+    github: "https://github.com/c-tonneslan/congestion-tax-calculator",
+    status: "live",
+    category: "backend",
+  },
+  {
     id: "origin-uam",
     title: "User Access Management Service (Origin Financial challenge)",
     description:
