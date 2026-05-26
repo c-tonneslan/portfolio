@@ -88,6 +88,18 @@ export const projects: Project[] = [
     category: "fullstack",
   },
   {
+    id: "pulse-drillholes",
+    title: "3D Drillhole Viewer (Pulse Intelligence challenge)",
+    description:
+      "Completion of Pulse Intelligence's Product Engineer take-home: an interactive Next.js + Three.js scene rendering 31 drillholes + 14 mineralised intercepts from an ASX gold drilling announcement. Click any collar or intercept to inspect the hole and deep-link into the source PDF page.",
+    longDescription:
+      "Pulse Intelligence's brief asks for a proof-of-concept that turns the data in an ASX drilling announcement (a 1.4 MB PDF + two CSVs covering 31 holes and 14 mineralised intercepts) into something a mining-investor client could walk through. The hard part is the geometry: each hole has a collar (lat/lon/rl), a dip angle below horizontal, and an azimuth clockwise from north, and the intercept rows are downhole-depth ranges along that path. I work in MGA51 projected metres (the CSV ships east/north/rl in that frame) and recentre the scene at the mean collar position so the camera deals with hundreds-of-metres offsets instead of MGA-zone-scale absolutes. Each hole renders as a thin grey collar-to-TD trace plus a colored cylinder per mineralised interval, with grade mapped to a yellow→orange→red ramp clamped at 20 g/t Au. Click any collar or intercept and the sidebar pops out: prospect, hole type, total depth, dip/azimuth, lat/lon + MGA51 coords, the full intercept list, plus a deep-link to the source PDF page that called out the intercept (`/data/source.pdf#page=N`). OrbitControls drives orbit/zoom/pan; clicking empty canvas deselects. Z is up so vertical reads vertical despite Three.js's Y-up default. NOTES.md walks the actual time spent (~2h), the geometry math, the trade-offs, and the stretch deploy I'd add with more time. Stack: Next.js 16, react-three-fiber, drei, Tailwind v4.",
+    tech: ["Next.js", "TypeScript", "react-three-fiber", "Three.js", "Tailwind"],
+    github: "https://github.com/c-tonneslan/pulse-drillholes",
+    status: "live",
+    category: "fullstack",
+  },
+  {
     id: "propeller-grabdata",
     title: "NOAA CORS RINEX Downloader (Propeller hardware challenge)",
     description:
