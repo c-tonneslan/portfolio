@@ -1982,6 +1982,15 @@ export const other: Contribution[] = [
     ],
     url: "https://github.com/a-h/templ",
   },
+  {
+    repo: "go-resty/resty",
+    name: "resty",
+    stars: "11K+",
+    prs: [
+      { title: "fix: separate URL from -F/-d in buildCurlCmd output", number: 1165 },
+    ],
+    url: "https://github.com/go-resty/resty",
+  },
 ];
 
 export const allContributions: Contribution[] = [...notable, ...other];
