@@ -1861,7 +1861,11 @@ export const other: Contribution[] = [
     repo: "influxdata/influxdb-client-go",
     name: "influxdb-client-go",
     stars: "800+",
-    prs: [{ title: "write/service: handle a nil URL from url.Parse without panicking", number: 427 }],
+    prs: [
+      { title: "write/service: handle a nil URL from url.Parse without panicking", number: 427 },
+      { title: "write/point: run convertField when AddField re-sets an existing key", number: 428 },
+      { title: "api/write: poll writeBuffer length, not the unbuffered info channel", number: 429 },
+    ],
     url: "https://github.com/influxdata/influxdb-client-go",
   },
   {
