@@ -1162,6 +1162,61 @@ export const notable: Contribution[] = [
     ],
     url: "https://github.com/labstack/echo",
   },
+  {
+    repo: "charmbracelet/bubbletea",
+    name: "Bubble Tea",
+    stars: "33K+",
+    prs: [
+      { title: "docs: fix Init signature and Cmd usage in godoc examples", number: 1703 },
+    ],
+    url: "https://github.com/charmbracelet/bubbletea",
+  },
+  {
+    repo: "nats-io/nats.go",
+    name: "nats.go",
+    stars: "5K+",
+    prs: [
+      { title: "kv: reject keys with consecutive dots in keyValid and searchKeyValid", number: 2076, status: "merged" },
+      { title: "iter: don't yield a phantom (nil, nil) after MsgsTimeout's ErrTimeout", number: 2093 },
+    ],
+    url: "https://github.com/nats-io/nats.go",
+  },
+  {
+    repo: "avast/retry-go",
+    name: "retry-go",
+    stars: "1.7K+",
+    prs: [
+      { title: "options: fix newRetrierCore typo (was newRetrieerCore)", number: 156 },
+    ],
+    url: "https://github.com/avast/retry-go",
+  },
+  {
+    repo: "goccy/go-json",
+    name: "go-json",
+    stars: "3.6K+",
+    prs: [
+      { title: "path: fix godoc prefix on UsedDoubleQuotePathSelector", number: 580 },
+    ],
+    url: "https://github.com/goccy/go-json",
+  },
+  {
+    repo: "charmbracelet/wish",
+    name: "wish",
+    stars: "2K+",
+    prs: [
+      { title: "options: fix WithBanner / WithBannerHandler godoc to say 'returns'", number: 553 },
+    ],
+    url: "https://github.com/charmbracelet/wish",
+  },
+  {
+    repo: "deckarep/golang-set",
+    name: "golang-set",
+    stars: "4K+",
+    prs: [
+      { title: "set: complete two truncated doc comments", number: 185 },
+    ],
+    url: "https://github.com/deckarep/golang-set",
+  },
 ];
 
 export const other: Contribution[] = [
