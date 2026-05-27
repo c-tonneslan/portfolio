@@ -741,6 +741,7 @@ export const notable: Contribution[] = [
       { title: "pgconn: use fresh context for fallback connection in connectPreferred", number: 2554, status: "merged" },
       { title: "pgconn: preserve full error chain in normalizeTimeoutError", number: 2556, status: "merged" },
       { title: "pgconn: add ErrConnClosed sentinel and unwrap it from connLockError", number: 2559, status: "merged" },
+      { title: "pgproto3: hex-decode CopyData.Data in UnmarshalJSON", number: 2569 },
     ],
     url: "https://github.com/jackc/pgx",
   },
@@ -1142,6 +1143,24 @@ export const notable: Contribution[] = [
       { title: "parseYaml: drop the stray null when the stream starts with comments", number: 875 },
     ],
     url: "https://github.com/google/go-jsonnet",
+  },
+  {
+    repo: "knadh/koanf",
+    name: "koanf",
+    stars: "3K+",
+    prs: [
+      { title: "Bools: return the matched []bool, not the nil intermediate", number: 416 },
+    ],
+    url: "https://github.com/knadh/koanf",
+  },
+  {
+    repo: "labstack/echo",
+    name: "Echo",
+    stars: "31K+",
+    prs: [
+      { title: "fix(binder): MustUnixTime docs say time.Time, not time.Duration", number: 2988 },
+    ],
+    url: "https://github.com/labstack/echo",
   },
 ];
 
