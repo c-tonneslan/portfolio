@@ -13,6 +13,19 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "marquee",
+    title: "marquee",
+    description:
+      "A small kinetic typography playground. Type a phrase, pick a treatment (slide, blur, weight, jitter, split), watch each glyph animate independently. Built on Framer Motion variants plus a variable-weight Inter, so the weight preset walks the font axis instead of swapping static cuts. Hard limit of 40 characters because past that the animations stop reading.",
+    longDescription:
+      "Second of two frontend-motion pieces, complementing splitflap. The interesting bit is letting the variable-weight Inter axis animate continuously between 200 and 900 on the weight preset, which behaves nothing like swapping between static cut sizes. Stage component splits the input string into per-glyph motion.span elements, each receiving its own variant + delay from the preset registry in lib/presets.ts. Adding a preset is one entry in that registry, so it's easy to grow. Background is a warm cream (#f7f5f0) with a hot Persimmon accent so it doesn't look like every other framer demo on Vercel. Editorial layout, single column. Pure client-side. React 19, Next.js 16, Tailwind v4, Framer Motion.",
+    tech: ["React 19", "Next.js 16", "Tailwind v4", "Framer Motion", "TypeScript"],
+    github: "https://github.com/c-tonneslan/marquee",
+    live: "https://marquee-pi-bay.vercel.app",
+    status: "live",
+    category: "fullstack",
+  },
+  {
     id: "splitflap",
     title: "splitflap",
     description:

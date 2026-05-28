@@ -50,6 +50,17 @@ const projects: Project[] = [
     live: "https://groundwork-tan.vercel.app",
   },
   {
+    title: "marquee",
+    kind: "Frontend · Type",
+    year: "2026",
+    description:
+      "A tiny kinetic typography playground. Type a phrase, pick a treatment, watch each glyph animate independently. Five presets: slide, blur, weight (continuous walk of the variable-font weight axis from 200 to 900), jitter, split. The weight preset is the one to look at, you can't fake an axis walk with static cuts.",
+    metrics: ["5 presets", "Variable-weight Inter", "40 char limit"],
+    tech: ["React 19", "Next.js 16", "Tailwind v4", "Framer Motion"],
+    github: "https://github.com/c-tonneslan/marquee",
+    live: "https://marquee-pi-bay.vercel.app",
+  },
+  {
     title: "splitflap",
     kind: "Frontend · Motion",
     year: "2026",
