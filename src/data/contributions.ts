@@ -649,6 +649,16 @@ export const notable: Contribution[] = [
     url: "https://github.com/CodeForPhilly/philly-ward-leaders",
   },
   {
+    repo: "CodeForPhilly/balancer-main",
+    name: "Balancer (Code for Philly)",
+    stars: "19+",
+    prs: [
+      { title: "Rename 'Click To Enter New Patient' button to 'Enter New Patient'", number: 511 },
+      { title: "Fix mobile nav 'Medication Suggester' link target and label", number: 512 },
+    ],
+    url: "https://github.com/CodeForPhilly/balancer-main",
+  },
+  {
     repo: "datamade/census",
     name: "census (DataMade)",
     stars: "681",
