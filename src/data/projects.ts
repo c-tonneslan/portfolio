@@ -113,6 +113,18 @@ export const projects: Project[] = [
     category: "backend",
   },
   {
+    id: "forwardpath-xlsx",
+    title: "XLSX Column-Type Inference (ForwardPath AI challenge)",
+    description:
+      "Completion of ForwardPath AI's public take-home: fill in discoverColumnSchema in their Next.js + AI SDK + SQLite chat starter. Classifies each spreadsheet column as string, integer, float, boolean, date, datetime, or currency from sampled rows; coerces values at parse time; surfaces types through the queryData tool so the model can reason about them. 28 bun tests.",
+    longDescription:
+      "ForwardPath AI's take-home ships a Next.js chat app with file upload, streaming responses, tool-calling, and SQLite persistence already wired up, then leaves one stub function for the candidate: discoverColumnSchema in src/lib/parse-xlsx.ts. The original just normalises headers to snake_case and labels every column 'unknown'. I built a real sampling classifier that maps each column to the narrowest fitting type from string/integer/float/boolean/date/datetime/currency. Classification is per-cell first (booleans like true/false/yes/no, currency only when there's a leading symbol or trailing ISO code so 100/200/300 stays integer, ISO dates vs datetimes based on whether a time portion is present, locale-formatted numbers with comma thousands separators), then reduced across the sample with a widening rule: integers and floats widen to float, dates and datetimes widen to datetime, anything else mixed falls back to string. 0/1 deliberately don't classify as boolean since they're far more often integers in real data. Values get coerced at parse time so downstream queryData filters get real numbers/booleans/dates instead of strings; failed coercion keeps the raw value rather than silently dropping rows. Hit the local-time vs UTC trap with XLSX's cellDates:true: bare 'YYYY-MM-DD' becomes a local-midnight Date which getUTCHours() reads as non-zero in non-UTC zones, so hasTimeComponent uses local-time getters. queryData now returns a columns block with the projected types so the model sees them inline with the rows. Optional one-call-per-upload LLM descriptions live behind INFER_COLUMN_DESCRIPTIONS so the default flow stays free; the call uses generateObject with a Zod schema for structured output. 28 bun tests cover classification, widening, mixed-type fallback, edge cases, and value coercion. NOTES.md walks the design picks and what I'd grade the candidate on.",
+    tech: ["TypeScript", "Next.js 16", "Vercel AI SDK", "Drizzle", "SQLite", "Zod", "bun"],
+    github: "https://github.com/c-tonneslan/interview-xlsx",
+    status: "live",
+    category: "ai",
+  },
+  {
     id: "propeller-bng",
     title: "BNG Enrichment + London Report (Propeller data challenge)",
     description:
