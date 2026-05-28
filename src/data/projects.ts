@@ -113,6 +113,18 @@ export const projects: Project[] = [
     category: "backend",
   },
   {
+    id: "propeller-bng",
+    title: "BNG Enrichment + London Report (Propeller data challenge)",
+    description:
+      "Completion of Propeller Aero's public data engineer take-home. Enriches a SQLite of AeroPoint captures with WGS84 lat/lng converted from British National Grid eastings/northings, then a single SQL pass produces the report of AeroPoint groups used at least once inside the London bounding box. Python stdlib + pyproj; 22 pytest cases, all offline.",
+    longDescription:
+      "Propeller's brief: take the bundled challenge.db, convert each capture's BNG easting/northing to WGS84 lat/lng using the suggested getthedata.com/bng2latlong API, then emit a CSV of groups with at least one capture in the London bounding box plus per-group point and capture totals (totals across all locations, not box-restricted). I built it as two thin CLIs (enrich_data.py, generate_report.py) over a data_engineer_challenge package with a Converter Protocol behind which two implementations live: a pyproj transformer for EPSG:27700 to EPSG:4326 (the default, deterministic, no rate limit) and an HTTP client for the API the brief suggests. The HTTP client is kept around because the brief calls it out, but the host now serves Cloudflare's bot challenge to every non-browser client, so pyproj is the working path. Enrichment is idempotent: schema migration adds nullable latitude/longitude columns to aeropoint_capture guarded by PRAGMA table_info, the SELECT DISTINCT pulls coordinate pairs that still need conversion (so the converter runs once per unique coord even when multiple captures share it), batched commits every 50 pairs leave real progress on disk if the run dies mid-way. Report SQL uses three CTEs (london_groups, group_points, group_captures) so the filter-by-London condition and the count-across-all-locations totals can't accidentally double-restrict each other; an inner join on the qualifier set filters which groups appear, left joins fold in the unrestricted totals. BoundingBox dataclass rejects inverted bounds at construction so a typo on lat/lon order fails loud. Verified end-to-end against the real challenge.db (4 of 10 groups qualify; counts match a direct SQL ground-truth query). 22 pytest cases, no network, building a tiny SQLite from scratch in conftest covering London + non-London + repeated coords + a group with zero captures. NOTES.md walks the design decisions including the pyproj-vs-API call, the schema layout choice (extending vs separate cache table), and a heads-up that the brief's table names are plural while the actual schema is singular.",
+    tech: ["Python", "pyproj", "SQLite", "EPSG:27700"],
+    github: "https://github.com/c-tonneslan/data-engineer-challenge",
+    status: "live",
+    category: "data",
+  },
+  {
     id: "gigs-notifications",
     title: "Notifications-to-Svix Bridge (Gigs challenge)",
     description:
