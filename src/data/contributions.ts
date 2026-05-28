@@ -222,7 +222,7 @@ export const notable: Contribution[] = [
     name: "MAPLE (Code for Boston)",
     stars: "60+",
     prs: [
-      { title: "Remove showLLMFeatures feature flag", number: 2142 },
+      { title: "Remove showLLMFeatures feature flag", number: 2142, status: "merged" },
       { title: "Send logged-out users to login when clicking Follow", number: 2143 },
     ],
     url: "https://github.com/codeforboston/maple",
@@ -314,7 +314,7 @@ export const notable: Contribution[] = [
     stars: "15+",
     prs: [
       { title: "parsers: pass html.parser to BeautifulSoup explicitly", number: 35, status: "merged" },
-      { title: "primary_parser: narrow bare excepts to IndexError", number: 36 },
+      { title: "primary_parser: narrow bare excepts to IndexError", number: 36, status: "merged" },
     ],
     url: "https://github.com/openelections/openelections-data-ma",
   },
@@ -324,7 +324,7 @@ export const notable: Contribution[] = [
     stars: "20+",
     prs: [
       { title: "county_parser: pass lxml to BeautifulSoup to match the rest of the repo", number: 299, status: "merged" },
-      { title: "clarity_parser: narrow bare except to Exception", number: 300 },
+      { title: "clarity_parser: narrow bare except to Exception", number: 300, status: "merged" },
     ],
     url: "https://github.com/openelections/openelections-data-ga",
   },
@@ -644,7 +644,7 @@ export const notable: Contribution[] = [
     name: "philly-ward-leaders (Code for Philly)",
     stars: "20+",
     prs: [
-      { title: "Shrink font further on long ward-leader names", number: 357 },
+      { title: "Shrink font further on long ward-leader names", number: 357, status: "merged" },
     ],
     url: "https://github.com/CodeForPhilly/philly-ward-leaders",
   },
@@ -1122,7 +1122,7 @@ export const notable: Contribution[] = [
     name: "cosmos-sdk",
     stars: "6K+",
     prs: [
-      { title: "types/query: saturate Paginate end when offset+limit overflows", number: 26430 },
+      { title: "types/query: saturate Paginate end when offset+limit overflows", number: 26430, status: "merged" },
     ],
     url: "https://github.com/cosmos/cosmos-sdk",
   },
@@ -1216,6 +1216,51 @@ export const notable: Contribution[] = [
       { title: "set: complete two truncated doc comments", number: 185 },
     ],
     url: "https://github.com/deckarep/golang-set",
+  },
+  {
+    repo: "scipy/scipy",
+    name: "SciPy",
+    stars: "13K+",
+    prs: [
+      { title: "DOC: fix 'paramater' typo in resample docstring", number: 25205, status: "merged" },
+    ],
+    url: "https://github.com/scipy/scipy",
+  },
+  {
+    repo: "scikit-learn/scikit-learn",
+    name: "scikit-learn",
+    stars: "62K+",
+    prs: [
+      { title: "Drop duplicate 'the the' in plot_stack_predictors example comment", number: 34104, status: "merged" },
+    ],
+    url: "https://github.com/scikit-learn/scikit-learn",
+  },
+  {
+    repo: "matplotlib/matplotlib",
+    name: "matplotlib",
+    stars: "20K+",
+    prs: [
+      { title: "Drop duplicate 'the the' in two doc comments", number: 31741, status: "merged" },
+    ],
+    url: "https://github.com/matplotlib/matplotlib",
+  },
+  {
+    repo: "networkx/networkx",
+    name: "NetworkX",
+    stars: "15K+",
+    prs: [
+      { title: "leiden: fix 'wen' + duplicate 'the the' in q_add comment", number: 8662, status: "merged" },
+    ],
+    url: "https://github.com/networkx/networkx",
+  },
+  {
+    repo: "python-trio/trio",
+    name: "Trio (Python async)",
+    stars: "6K+",
+    prs: [
+      { title: "_highlevel_open_tcp_stream: drop duplicate 'the' from pick-port comment", number: 3443, status: "merged" },
+    ],
+    url: "https://github.com/python-trio/trio",
   },
 ];
 
@@ -1496,7 +1541,7 @@ export const other: Contribution[] = [
     stars: "22K+",
     prs: [
       { title: "test: regression for empty positional arg after a flag", number: 2328, status: "merged" },
-      { title: "inherit Reader/Writer/ErrWriter from parent on subcommand setup", number: 2329 },
+      { title: "inherit Reader/Writer/ErrWriter from parent on subcommand setup", number: 2329, status: "merged" },
       { title: "v3: yield the version flag's -v alias to a user-defined flag", number: 2330 },
     ],
     url: "https://github.com/urfave/cli",
@@ -1679,7 +1724,7 @@ export const other: Contribution[] = [
     repo: "golang-jwt/jwt",
     name: "golang-jwt/jwt",
     stars: "8K+",
-    prs: [{ title: "mapclaims: stop treating exp=0 as a missing claim", number: 509 }],
+    prs: [{ title: "mapclaims: stop treating exp=0 as a missing claim", number: 509, status: "merged" }],
     url: "https://github.com/golang-jwt/jwt",
   },
   {
