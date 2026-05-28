@@ -1276,6 +1276,15 @@ export const notable: Contribution[] = [
 
 export const other: Contribution[] = [
   {
+    repo: "react-hook-form/react-hook-form",
+    name: "react-hook-form",
+    stars: "42K+",
+    prs: [
+      { title: "fix: deepEqual short-circuits on host objects with no own keys", number: 13484 },
+    ],
+    url: "https://github.com/react-hook-form/react-hook-form",
+  },
+  {
     repo: "charmbracelet/lipgloss",
     name: "lipgloss",
     stars: "9K+",

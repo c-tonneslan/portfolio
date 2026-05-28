@@ -13,6 +13,19 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "splitflap",
+    title: "splitflap",
+    description:
+      "A satisfying Solari-style split-flap departure board for the web. Each cell is a small character drum that ticks one letter at a time until it lands on the target. Rows roll forward every few seconds and statuses bump at random. No backend, no audio plugin, just CSS transforms and a charset that steps in order. React 19, Next.js 16, Tailwind v4, Framer Motion.",
+    longDescription:
+      "Built to fill a frontend gap on the portfolio with something motion-heavy. The piece I wanted to get right is the satisfying mechanical feel of an old airport board, where every cell ticks through the alphabet a letter at a time on its way to the destination, not jumping straight to the target. Each flap cell is a window onto a fast-scrolling drum of characters, and the drum advances at ~55ms per tick by picking the next character in the alphabet relative to whatever's currently shown. Two visual choices sell the analog feel: a single-pixel black hinge line drawn across the middle of every cell (the suggestion of a split flap even though the animation itself is a vertical drum), and a small per-cell delay across each row so longer destinations show that mechanical wave of cells settling at slightly different beats. Rows roll forward every 6.5s and one row's status bumps at random every 1.7s. Color is warm cream on near-black, with a single amber accent for the kicker text. No backend, no audio plugin, no images. Pure CSS transforms plus Framer Motion's AnimatePresence for the drum scroll inside each cell.",
+    tech: ["React 19", "Next.js 16", "Tailwind v4", "Framer Motion", "TypeScript"],
+    github: "https://github.com/c-tonneslan/splitflap",
+    live: "https://splitflap-chi.vercel.app",
+    status: "live",
+    category: "fullstack",
+  },
+  {
     id: "contestlab",
     title: "contestlab",
     description:

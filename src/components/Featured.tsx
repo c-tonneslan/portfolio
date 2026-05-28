@@ -50,6 +50,17 @@ const projects: Project[] = [
     live: "https://groundwork-tan.vercel.app",
   },
   {
+    title: "splitflap",
+    kind: "Frontend · Motion",
+    year: "2026",
+    description:
+      "A satisfying Solari-style split-flap departure board for the web. Each cell is a small character drum that ticks one letter at a time until it lands on the target, with a single-pixel hinge across the middle and a small per-cell delay so longer destinations show that mechanical wave. Rows roll forward every few seconds and statuses bump at random. No backend, no audio plugin, just CSS transforms and a charset that steps in order.",
+    metrics: ["~55ms per tick", "Pure CSS transforms", "Zero backend"],
+    tech: ["React 19", "Next.js 16", "Tailwind v4", "Framer Motion"],
+    github: "https://github.com/c-tonneslan/splitflap",
+    live: "https://splitflap-chi.vercel.app",
+  },
+  {
     title: "contestlab",
     kind: "Interview prep · Browser judge",
     year: "2026",
