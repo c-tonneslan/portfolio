@@ -13,6 +13,18 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "civic-rag",
+    title: "civic-rag",
+    description:
+      "Ask plain-English questions about city council legislation. Hybrid retrieval (BM25 + dense embeddings, fused with Reciprocal Rank Fusion) over Legistar matters and events, cited answers from Claude. Whole index sits in a single SQLite file via sqlite-vec and FTS5, no vector DB to run. Smoke-tested on Q1 2024 Philly: 154 bills, retrieval picks out the right vending and parking ordinances by name.",
+    longDescription:
+      "civic-rag is a small but honest RAG pipeline over real municipal data, built to test whether retrieval and citation handling hold up on something messier than synthetic PDFs. The input is convene's NDJSON output (bill numbers, titles, status, sponsor lists, full action trails with dates and tallies, plus meeting agendas with per-item votes). Each matter or event is flattened into a single text body, chunked with paragraph-aware overlap, and stored three places at once: a regular chunks table, an FTS5 virtual table for BM25, and a vec0 virtual table for dense embeddings, all sharing one rowid so a chunk lookup hits both rankers. Retrieval runs BM25 and dense kNN in parallel, then fuses with RRF (k=60), which is the cheap honest move when you don't have training data to calibrate score scales between rankers. Default embeddings are local sentence-transformers (all-MiniLM-L6-v2, 384 dim, CPU, no API key) so the project runs offline; setting VOYAGE_API_KEY swaps in voyage-3 at 1024 dim with no code change. Answer generation passes the top-k chunks to Claude as a numbered source list and parses the [n] citation markers back out so the CLI prints source URLs alongside. The system prompt uses Anthropic's prompt caching so repeat runs share the prefix. Stack: Python 3.13, Pydantic 2, Typer, anthropic, sqlite-vec, sentence-transformers. 17 unit tests covering ingest, chunking, RRF math, store roundtrips, and the answer prompt assembly.",
+    tech: ["Python", "Anthropic Claude", "sqlite-vec", "sentence-transformers", "RAG", "BM25"],
+    github: "https://github.com/c-tonneslan/civic-rag",
+    status: "live",
+    category: "ai",
+  },
+  {
     id: "marquee",
     title: "marquee",
     description:

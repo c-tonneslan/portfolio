@@ -16,6 +16,17 @@ type Project = {
 
 const projects: Project[] = [
   {
+    title: "civic-rag",
+    kind: "RAG · Legistar",
+    year: "2026",
+    description:
+      "Ask plain-English questions about city council legislation, get cited answers. Hybrid retrieval (BM25 + dense embeddings, fused with RRF) over Legistar matters and events, indexed in a single SQLite file via sqlite-vec and FTS5 with no vector DB to run. Local sentence-transformers by default, Voyage AI behind a flag. Claude generates the answer and the CLI parses the citation markers back out and prints the source URLs alongside.",
+    metrics: ["Hybrid retrieval", "Single SQLite file", "Cited answers"],
+    tech: ["Python", "Anthropic Claude", "sqlite-vec", "sentence-transformers"],
+    github: "https://github.com/c-tonneslan/civic-rag",
+    featured: true,
+  },
+  {
     title: "civic-philly",
     kind: "Civic data",
     year: "2026",
