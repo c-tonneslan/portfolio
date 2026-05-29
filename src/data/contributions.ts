@@ -2133,6 +2133,33 @@ export const other: Contribution[] = [
     ],
     url: "https://github.com/go-resty/resty",
   },
+  {
+    repo: "charmbracelet/keygen",
+    name: "charmbracelet/keygen",
+    stars: "170+",
+    prs: [
+      { title: "docs: fix two godoc typos in keygen.go", number: 56 },
+    ],
+    url: "https://github.com/charmbracelet/keygen",
+  },
+  {
+    repo: "samber/mo",
+    name: "samber/mo",
+    stars: "3.3K+",
+    prs: [
+      { title: "docs: fix two typos in option.go", number: 106 },
+    ],
+    url: "https://github.com/samber/mo",
+  },
+  {
+    repo: "charmbracelet/harmonica",
+    name: "harmonica",
+    stars: "1.5K+",
+    prs: [
+      { title: "docs: fix two godoc typos", number: 26 },
+    ],
+    url: "https://github.com/charmbracelet/harmonica",
+  },
 ];
 
 export const allContributions: Contribution[] = [...notable, ...other];
