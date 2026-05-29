@@ -1159,7 +1159,7 @@ export const notable: Contribution[] = [
     name: "koanf",
     stars: "3K+",
     prs: [
-      { title: "Bools: return the matched []bool, not the nil intermediate", number: 416 },
+      { title: "Bools: return the matched []bool, not the nil intermediate", number: 416, status: "merged" },
     ],
     url: "https://github.com/knadh/koanf",
   },
@@ -1168,7 +1168,7 @@ export const notable: Contribution[] = [
     name: "Echo",
     stars: "31K+",
     prs: [
-      { title: "fix(binder): MustUnixTime docs say time.Time, not time.Duration", number: 2988 },
+      { title: "fix(binder): MustUnixTime docs say time.Time, not time.Duration", number: 2988, status: "merged" },
     ],
     url: "https://github.com/labstack/echo",
   },
@@ -2129,7 +2129,7 @@ export const other: Contribution[] = [
     name: "resty",
     stars: "11K+",
     prs: [
-      { title: "fix: separate URL from -F/-d in buildCurlCmd output", number: 1165 },
+      { title: "fix: separate URL from -F/-d in buildCurlCmd output", number: 1165, status: "merged" },
     ],
     url: "https://github.com/go-resty/resty",
   },
@@ -2147,7 +2147,7 @@ export const other: Contribution[] = [
     name: "samber/mo",
     stars: "3.3K+",
     prs: [
-      { title: "docs: fix two typos in option.go", number: 106 },
+      { title: "docs: fix two typos in option.go", number: 106, status: "merged" },
     ],
     url: "https://github.com/samber/mo",
   },
