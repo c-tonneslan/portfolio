@@ -2160,6 +2160,42 @@ export const other: Contribution[] = [
     ],
     url: "https://github.com/charmbracelet/harmonica",
   },
+  {
+    repo: "spf13/viper",
+    name: "viper",
+    stars: "30K+",
+    prs: [
+      { title: "util: parseSizeInBytes returns 0 for single-byte strings like 1B", number: 2132 },
+    ],
+    url: "https://github.com/spf13/viper",
+  },
+  {
+    repo: "getsentry/sentry-go",
+    name: "sentry-go",
+    stars: "1K+",
+    prs: [
+      { title: "fix(log): don't run Emit messages through fmt.Sprintf", number: 1309 },
+    ],
+    url: "https://github.com/getsentry/sentry-go",
+  },
+  {
+    repo: "labstack/gommon",
+    name: "gommon",
+    stars: "580+",
+    prs: [
+      { title: "random: return empty string instead of spinning when length is 0", number: 63 },
+    ],
+    url: "https://github.com/labstack/gommon",
+  },
+  {
+    repo: "99designs/gqlgen",
+    name: "gqlgen",
+    stars: "10K+",
+    prs: [
+      { title: "fix: CoerceList drops elements from typed slices past the first", number: 4194 },
+    ],
+    url: "https://github.com/99designs/gqlgen",
+  },
 ];
 
 export const allContributions: Contribution[] = [...notable, ...other];
