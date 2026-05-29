@@ -2196,6 +2196,24 @@ export const other: Contribution[] = [
     ],
     url: "https://github.com/99designs/gqlgen",
   },
+  {
+    repo: "DATA-DOG/go-sqlmock",
+    name: "go-sqlmock",
+    stars: "6K+",
+    prs: [
+      { title: "fix: ExpectBegin TxOptions check uses && instead of ||", number: 351 },
+    ],
+    url: "https://github.com/DATA-DOG/go-sqlmock",
+  },
+  {
+    repo: "wneessen/go-mail",
+    name: "go-mail",
+    stars: "1.7K+",
+    prs: [
+      { title: "fix(random): drop the unreachable '-' character from cr", number: 560 },
+    ],
+    url: "https://github.com/wneessen/go-mail",
+  },
 ];
 
 export const allContributions: Contribution[] = [...notable, ...other];
