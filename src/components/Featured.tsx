@@ -20,9 +20,9 @@ const projects: Project[] = [
     kind: "Philly · Jazz tonight",
     year: "2026",
     description:
-      "What's on tonight in Philly jazz, stitched into one weekly view from twelve hand-curated venues. Recurring residencies (Heritage Wednesday, La Rose Sunday, Time Monday) plus one-off ticketed shows, with confidence tiers on every card and a verify-on-source link back to the venue. Tonight, this week, jam-sessions filter, per-venue pages, all in America/New_York so the calendar doesn't drift at midnight UTC.",
-    metrics: ["12 venues", "Sit-in policy on every jam", "Confidence-tiered"],
-    tech: ["TypeScript", "Next.js 16", "Tailwind v4", "React 19"],
+      "Philadelphia jazz, tonight. Twenty-one rooms across the city: live clubs, jam sessions, listening rooms, vinyl bars, DJ nights, and the bistros that play real jazz on the system. Per-venue scrapers pull Chris' Jazz Cafe and South Jazz Kitchen nightly, the rest hand-curated with confidence tags. Repertory-style editorial layout, Source Serif italic mastheads, paper-grain texture. City map at /map with tag-colored markers and filter chips.",
+    metrics: ["21 rooms", "City map by tag", "Two nightly scrapers"],
+    tech: ["TypeScript", "Next.js 16", "Tailwind v4", "MapLibre GL", "cheerio"],
     github: "https://github.com/c-tonneslan/bandstand",
     live: "https://bandstand-bay.vercel.app",
     featured: true,
