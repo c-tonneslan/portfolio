@@ -1827,6 +1827,7 @@ export const other: Contribution[] = [
       { title: "remove: don't fail when manifest.toml is missing", number: 5721, status: "merged" },
       { title: "Simplify the failed Hex API key decryption error message", number: 5741 },
       { title: "Show a readable error when reverting a release that's too old", number: 5742 },
+      { title: "publish: check README existence directly instead of matching OS error", number: 5771 },
     ],
     url: "https://github.com/gleam-lang/gleam",
   },
@@ -2193,6 +2194,7 @@ export const other: Contribution[] = [
     stars: "10K+",
     prs: [
       { title: "fix: CoerceList drops elements from typed slices past the first", number: 4194 },
+      { title: "chore: drop dead vSlice predecl in codegen template", number: 4197 },
     ],
     url: "https://github.com/99designs/gqlgen",
   },
