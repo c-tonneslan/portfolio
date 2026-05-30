@@ -16,6 +16,18 @@ type Project = {
 
 const projects: Project[] = [
   {
+    title: "bandstand",
+    kind: "Philly · Jazz tonight",
+    year: "2026",
+    description:
+      "What's on tonight in Philly jazz, stitched into one weekly view from twelve hand-curated venues. Recurring residencies (Heritage Wednesday, La Rose Sunday, Time Monday) plus one-off ticketed shows, with confidence tiers on every card and a verify-on-source link back to the venue. Tonight, this week, jam-sessions filter, per-venue pages, all in America/New_York so the calendar doesn't drift at midnight UTC.",
+    metrics: ["12 venues", "Sit-in policy on every jam", "Confidence-tiered"],
+    tech: ["TypeScript", "Next.js 16", "Tailwind v4", "React 19"],
+    github: "https://github.com/c-tonneslan/bandstand",
+    live: "https://bandstand-bay.vercel.app",
+    featured: true,
+  },
+  {
     title: "civic-rag",
     kind: "RAG · Legistar",
     year: "2026",

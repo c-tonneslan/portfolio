@@ -13,6 +13,19 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "bandstand",
+    title: "bandstand",
+    description:
+      "What's on tonight in Philly jazz. Twelve hand-curated venues across Center City, North Broad, NoLibs, Olney, and University City, plus the weekly residencies and jam sessions that actually meet (Heritage Wednesday, La Rose Sunday, Time Monday, South Tuesday). Tonight + this week + jam-sessions-only views, per-venue pages, every entry tagged with a confidence level and a verify-on-source link.",
+    longDescription:
+      "Built because the Philly jazz calendar lives in twelve places at once: Chris' Jazz Cafe has the cleanest listings, Heritage updates on Instagram, La Rose is word-of-mouth, Solar Myth is on the Ars Nova page, and Time has a poster taped to the door. bandstand stitches them into one weekly view. v0 is hand-curated data with three confidence tiers (verified, likely, unverified), shown as badges on every card and always paired with a deep link back to the venue's own site so you can verify before you go. Data model is three plain TS files (venues, recurring series with day-of-week + start time + sit-in policy, one-off events) plus an Override list for cancellations. A single resolver walks any date range, expands series into Occurrence rows by weekday in America/New_York (so 'tonight in Philly' doesn't drift at midnight UTC), applies overrides, drops in events, and sorts. Pages call resolveOccurrences() and render. /tonight + /week + /sessions (jam filter, two weeks ahead) + /venues + /venues/[slug] (next 30 days). v0.1 will add per-venue scrapers and the confidence tag becomes a 'verified at HH:mm today' stamp. Visually: night-room palette (deep cool black, warm cream, brass), Source Serif for headings, JetBrains Mono for timestamps and labels, no images so it's fast and never shows a stale band photo.",
+    tech: ["TypeScript", "Next.js 16", "Tailwind v4", "React 19"],
+    github: "https://github.com/c-tonneslan/bandstand",
+    live: "https://bandstand-bay.vercel.app",
+    status: "live",
+    category: "fullstack",
+  },
+  {
     id: "civic-rag",
     title: "civic-rag",
     description:
