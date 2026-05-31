@@ -954,11 +954,21 @@ export const notable: Contribution[] = [
   {
     repo: "gocolly/colly",
     name: "colly",
-    stars: "24K+",
+    stars: "25K+",
     prs: [
       { title: "drop deprecated rand.Seed call in httpBackend.Init", number: 873, status: "merged" },
+      { title: "queue: don't block AddRequest after Run has returned", number: 876 },
     ],
     url: "https://github.com/gocolly/colly",
+  },
+  {
+    repo: "allegro/bigcache",
+    name: "bigcache",
+    stars: "8K+",
+    prs: [
+      { title: "shard: skip hashmapStats allocation when stats are disabled", number: 423 },
+    ],
+    url: "https://github.com/allegro/bigcache",
   },
   {
     repo: "kataras/iris",
