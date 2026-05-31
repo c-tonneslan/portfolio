@@ -26,6 +26,18 @@ export const projects: Project[] = [
     category: "fullstack",
   },
   {
+    id: "rageval",
+    title: "rageval",
+    description:
+      "A practical RAG evaluation harness. Hand it a pipeline that exposes answer(query) and a JSONL gold set, get a scorecard: retrieval hit@k, MRR, faithfulness, citation precision, answer correctness, latency, and cost. Console table, JSON, or HTML. Built because every RAG demo I've read claims it works, and none of them say how they measured it.",
+    longDescription:
+      "rageval is the missing measurement step for retrieval-augmented generation. The interface is intentionally tiny: a user pipeline exports either answer(query) or a Pipeline class with an answer method, and returns a dict with answer, sources (list of {id, text}), and optional cited_ids. An eval set is JSONL with id, query, and optional gold_answer, gold_doc_ids, and key_facts. The CLI loads them and prints a scorecard. The metrics in metrics.py are pure deterministic (hit@k, MRR, citation_precision, percentile, no LLM calls). judge.py wraps Claude calls for faithfulness (per-claim binary verdict against the retrieved sources) and correctness (pairwise 0/1 against the gold_answer). The parsers in judge.py are tested against fenced JSON, loose regex, and wandering text so the model can drift without crashing the run. Output is a rich console table by default, a standalone HTML report on --html, and a JSON dump on --json. The bundled example in examples/algorithms/ is a 15-document corpus on classic algorithms (binary search, quicksort, Dijkstra, B-trees, Union-Find, KMP, etc), a BM25+Claude pipeline, and a 10-question gold set with key_facts; BM25 baseline lands hit@1 at 90% and MRR at 0.95. Project decisions explained in the README: hit@k over nDCG on small gold sets, supported-claims faithfulness over single-bit, binary correctness over continuous, no BLEU/ROUGE. 27 unit tests; metrics and scorer are coverage-complete without an API key. Sister piece to agent-eval (which measures agentic tool-use) and civic-rag's bundled eval harness (which measures one specific RAG); rageval is the generalisation.",
+    tech: ["Python 3.13", "Anthropic Claude", "Pydantic", "Typer", "Rich"],
+    github: "https://github.com/c-tonneslan/rageval",
+    status: "live",
+    category: "ai",
+  },
+  {
     id: "asknfl",
     title: "asknfl",
     description:

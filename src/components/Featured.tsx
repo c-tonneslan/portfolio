@@ -28,6 +28,17 @@ const projects: Project[] = [
     featured: true,
   },
   {
+    title: "rageval",
+    kind: "RAG eval harness",
+    year: "2026",
+    description:
+      "A practical RAG eval harness. Bring a pipeline that exposes answer(query) and a JSONL gold set, get a scorecard: retrieval hit@k, MRR, faithfulness, citation precision, correctness, latency, and judge cost. Robust judge parsers (fenced JSON, loose regex, wandering text), per-question HTML report. Built because every RAG demo claims it works and none of them say how they measured it.",
+    metrics: ["Pure-Python metrics", "Claude LLM-as-judge", "27 unit tests"],
+    tech: ["Python 3.13", "Anthropic Claude", "Pydantic", "Typer"],
+    github: "https://github.com/c-tonneslan/rageval",
+    featured: true,
+  },
+  {
     title: "asknfl",
     kind: "Text-to-SQL · NFL",
     year: "2026",
