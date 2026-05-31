@@ -2181,6 +2181,24 @@ export const other: Contribution[] = [
     url: "https://github.com/spf13/viper",
   },
   {
+    repo: "spf13/cast",
+    name: "cast",
+    stars: "4K+",
+    prs: [
+      { title: "number: derive ParseInt/ParseUint bitSize from the target type", number: 348 },
+    ],
+    url: "https://github.com/spf13/cast",
+  },
+  {
+    repo: "go-git/go-git",
+    name: "go-git",
+    stars: "7K+",
+    prs: [
+      { title: "config: read repositoryformatversion in unmarshalCore", number: 2167 },
+    ],
+    url: "https://github.com/go-git/go-git",
+  },
+  {
     repo: "getsentry/sentry-go",
     name: "sentry-go",
     stars: "1K+",
