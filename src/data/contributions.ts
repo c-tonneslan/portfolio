@@ -1270,6 +1270,7 @@ export const notable: Contribution[] = [
     stars: "15K+",
     prs: [
       { title: "leiden: fix 'wen' + duplicate 'the the' in q_add comment", number: 8662, status: "merged" },
+      { title: "DOC: note directed-graph behaviour in degree_centrality", number: 8668 },
     ],
     url: "https://github.com/networkx/networkx",
   },
@@ -1442,7 +1443,10 @@ export const other: Contribution[] = [
     repo: "mholt/archives",
     name: "archives",
     stars: "1K+",
-    prs: [{ title: "fs: make ArchiveFS.Sub return a new FS rooted at the joined prefix", number: 70 }],
+    prs: [
+      { title: "fs: make ArchiveFS.Sub return a new FS rooted at the joined prefix", number: 70 },
+      { title: "test: add regression for ArchiveFS.ReadDir on implicit ZIP dirs", number: 73 },
+    ],
     url: "https://github.com/mholt/archives",
   },
   {
@@ -1468,6 +1472,7 @@ export const other: Contribution[] = [
     prs: [
       { title: "Support the env tag on positional arguments", number: 601, status: "merged" },
       { title: "fire AfterApply for env-only flags", number: 600, status: "merged" },
+      { title: "treat single-character aliases as short flags", number: 605 },
     ],
     url: "https://github.com/alecthomas/kong",
   },
@@ -1770,7 +1775,10 @@ export const other: Contribution[] = [
     repo: "cli/cli",
     name: "GitHub CLI",
     stars: "53K+",
-    prs: [{ title: "docs: drop --repo gh-cli from dnf install lines", number: 13444, status: "merged" }],
+    prs: [
+      { title: "docs: drop --repo gh-cli from dnf install lines", number: 13444, status: "merged" },
+      { title: "text: use EscapedPath in DisplayURL so percent-encoded chars survive", number: 13556 },
+    ],
     url: "https://github.com/cli/cli",
   },
   {
@@ -1791,8 +1799,20 @@ export const other: Contribution[] = [
     repo: "hetznercloud/hcloud-go",
     name: "hcloud-go (Hetzner Cloud)",
     stars: "500+",
-    prs: [{ title: "metadata: add context-aware Client methods", number: 852, status: "merged" }],
+    prs: [
+      { title: "metadata: add context-aware Client methods", number: 852, status: "merged" },
+      { title: "feat(action): add missing ActionResourceType constants", number: 862 },
+    ],
     url: "https://github.com/hetznercloud/hcloud-go",
+  },
+  {
+    repo: "alecthomas/chroma",
+    name: "chroma",
+    stars: "5K+",
+    prs: [
+      { title: "formatters/html: drop -moz-tab-size and -o-tab-size prefixes", number: 1279 },
+    ],
+    url: "https://github.com/alecthomas/chroma",
   },
   {
     repo: "rs/cors",
@@ -1995,8 +2015,11 @@ export const other: Contribution[] = [
   {
     repo: "ollama/ollama",
     name: "ollama",
-    stars: "140K+",
-    prs: [{ title: "llm: raise the completion scanner buffer to 8MB", number: 16244 }],
+    stars: "170K+",
+    prs: [
+      { title: "llm: raise the completion scanner buffer to 8MB", number: 16244 },
+      { title: "docs: fix web-search JS examples and unsupported Anthropic stream events", number: 16374 },
+    ],
     url: "https://github.com/ollama/ollama",
   },
   {
@@ -2197,6 +2220,15 @@ export const other: Contribution[] = [
       { title: "config: read repositoryformatversion in unmarshalCore", number: 2167 },
     ],
     url: "https://github.com/go-git/go-git",
+  },
+  {
+    repo: "sosedoff/pgweb",
+    name: "pgweb",
+    stars: "9K+",
+    prs: [
+      { title: "client: block pg_cancel_backend and pg_terminate_backend in read-only mode", number: 859 },
+    ],
+    url: "https://github.com/sosedoff/pgweb",
   },
   {
     repo: "getsentry/sentry-go",
