@@ -751,7 +751,7 @@ export const notable: Contribution[] = [
       { title: "pgconn: use fresh context for fallback connection in connectPreferred", number: 2554, status: "merged" },
       { title: "pgconn: preserve full error chain in normalizeTimeoutError", number: 2556, status: "merged" },
       { title: "pgconn: add ErrConnClosed sentinel and unwrap it from connLockError", number: 2559, status: "merged" },
-      { title: "pgproto3: hex-decode CopyData.Data in UnmarshalJSON", number: 2569 },
+      { title: "pgproto3: hex-decode CopyData.Data in UnmarshalJSON", number: 2569, status: "merged" },
     ],
     url: "https://github.com/jackc/pgx",
   },
@@ -2203,7 +2203,7 @@ export const other: Contribution[] = [
     name: "gqlgen",
     stars: "10K+",
     prs: [
-      { title: "fix: CoerceList drops elements from typed slices past the first", number: 4194 },
+      { title: "fix: CoerceList drops elements from typed slices past the first", number: 4194, status: "merged" },
       { title: "chore: drop dead vSlice predecl in codegen template", number: 4197 },
     ],
     url: "https://github.com/99designs/gqlgen",
@@ -2222,7 +2222,7 @@ export const other: Contribution[] = [
     name: "go-mail",
     stars: "1.7K+",
     prs: [
-      { title: "fix(random): drop the unreachable '-' character from cr", number: 560 },
+      { title: "fix(random): drop the unreachable '-' character from cr", number: 560, status: "merged" },
     ],
     url: "https://github.com/wneessen/go-mail",
   },
