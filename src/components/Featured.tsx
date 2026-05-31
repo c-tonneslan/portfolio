@@ -28,6 +28,18 @@ const projects: Project[] = [
     featured: true,
   },
   {
+    title: "asknfl",
+    kind: "Text-to-SQL · NFL",
+    year: "2026",
+    description:
+      "Ask in English about the 2023 NFL season. Claude Haiku writes the DuckDB SQL, DuckDB-WASM runs it locally in your browser against a 3 MB parquet of ~50,000 nflfastR plays. The generated SQL is shown next to the results so every number is auditable. System prompt encodes football conventions (red zone, long 3rd, garbage time) so vague questions resolve to precise aggregates.",
+    metrics: ["~50k plays", "Browser DuckDB", "Auditable SQL"],
+    tech: ["Next.js 16", "TypeScript", "DuckDB-WASM", "Anthropic Claude"],
+    github: "https://github.com/c-tonneslan/asknfl",
+    live: "https://asknfl.vercel.app",
+    featured: true,
+  },
+  {
     title: "civic-rag",
     kind: "RAG · Legistar",
     year: "2026",

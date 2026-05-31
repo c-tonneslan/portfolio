@@ -26,6 +26,19 @@ export const projects: Project[] = [
     category: "fullstack",
   },
   {
+    id: "asknfl",
+    title: "asknfl",
+    description:
+      "Ask a question in English about the 2023 NFL season. Claude Haiku writes the DuckDB SQL, DuckDB-WASM runs it in your browser against a 3 MB parquet of ~50,000 nflfastR plays. No backend database, no warehouse. The generated SQL is shown next to the results so every number is auditable.",
+    longDescription:
+      "A small text-to-SQL toy that takes the question seriously. The full nflfastR play-by-play has 372 columns; I trimmed it to 57 that cover the kinds of questions people actually ask (down/distance, posteam/defteam, EPA/CPOE/WPA, player names, play type, penalty, score state). The trimmed parquet ships as a static asset at ~3.2 MB ZSTD. An Edge route at /api/sql hands the question plus the schema and three few-shot examples to Claude Haiku 4.5; the schema and few-shots are wrapped in cache_control so a warm region pays one round of tokens at cold start and then cents per query. Claude returns one SELECT statement, the route strips fences and trailing semicolons, the browser hands it to DuckDB-WASM, and DuckDB executes it locally against the parquet. Aggregations over 50k rows finish in a few hundred ms. The system prompt encodes the football conventions that turn vague questions into precise SQL (red zone is yardline_100 <= 20, long third down is down = 3 AND ydstogo >= 7, garbage time is abs(score_differential) >= 17 in qtr 4, a scoring play is a touchdown OR field_goal_result = 'made' OR ...). Without that prompt scaffolding every other question turns into a 20-line conditional; with it, Claude reaches for the obvious aggregate. The generated SQL is shown in a dark code block above the results so the answer is inspectable; you can copy it out and run it yourself. Ten example questions on the landing page cover red zone TDs, EPA on 3rd-and-long, CPOE leaders, deep ball receivers, holding penalties by team, kicker accuracy, two-minute drill EPA, and garbage-time receiving yards. Stack: Next.js 16, TypeScript, Tailwind v4, @duckdb/duckdb-wasm, @anthropic-ai/sdk on the edge. No backend database, no server-side query path.",
+    tech: ["Next.js 16", "TypeScript", "DuckDB-WASM", "Anthropic Claude", "text-to-SQL", "nflfastR"],
+    github: "https://github.com/c-tonneslan/asknfl",
+    live: "https://asknfl.vercel.app",
+    status: "live",
+    category: "ai",
+  },
+  {
     id: "civic-rag",
     title: "civic-rag",
     description:
