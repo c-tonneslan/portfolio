@@ -2047,6 +2047,25 @@ export const other: Contribution[] = [
     url: "https://github.com/simonw/llm",
   },
   {
+    repo: "simonw/llm-anthropic",
+    name: "llm-anthropic",
+    stars: "200+",
+    prs: [
+      { title: "Accept None for temperature, and stop the top_p guard firing on the default", number: 70 },
+      { title: "Send top_p when it's 0.0 instead of treating it as unset", number: 74 },
+    ],
+    url: "https://github.com/simonw/llm-anthropic",
+  },
+  {
+    repo: "simonw/llm-gemini",
+    name: "llm-gemini",
+    stars: "300+",
+    prs: [
+      { title: "Move the gemini files API key out of the URL and guard against an unset key", number: 134 },
+    ],
+    url: "https://github.com/simonw/llm-gemini",
+  },
+  {
     repo: "tobymao/sqlglot",
     name: "sqlglot",
     stars: "9K+",
