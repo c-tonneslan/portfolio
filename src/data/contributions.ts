@@ -2062,6 +2062,7 @@ export const other: Contribution[] = [
     stars: "300+",
     prs: [
       { title: "Move the gemini files API key out of the URL and guard against an unset key", number: 134 },
+      { title: "AsyncGeminiPro.execute: record the resolved model too", number: 137 },
     ],
     url: "https://github.com/simonw/llm-gemini",
   },
