@@ -19,7 +19,6 @@ export default function Footer() {
           <ul className="space-y-2 text-foreground/85">
             <li><a href="/#about" className="hover:text-accent transition-colors">About</a></li>
             <li><a href="/#work" className="hover:text-accent transition-colors">Work</a></li>
-            <li><a href="/#open-source" className="hover:text-accent transition-colors">Open source</a></li>
             <li><a href="/#contact" className="hover:text-accent transition-colors">Contact</a></li>
           </ul>
         </div>
@@ -45,12 +44,12 @@ export default function Footer() {
             </li>
             <li>
               <a
-                href="https://github.com/c-tonneslan"
+                href="https://github.com/charlestonneslan"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-accent transition-colors"
               >
-                github.com/c-tonneslan
+                github.com/charlestonneslan
               </a>
             </li>
           </ul>

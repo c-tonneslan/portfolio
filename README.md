@@ -1,6 +1,6 @@
 # Portfolio
 
-Personal developer portfolio. Lives at **[c-tonneslan-portfolio.vercel.app](https://c-tonneslan-portfolio.vercel.app)**.
+Personal developer portfolio. Lives at **[charlestonneslan-portfolio.vercel.app](https://charlestonneslan-portfolio.vercel.app)**.
 
 ## Stack
 
@@ -16,15 +16,15 @@ Personal developer portfolio. Lives at **[c-tonneslan-portfolio.vercel.app](http
 
 | Project | Stack | What it is |
 |---|---|---|
-| [fretwise](https://github.com/c-tonneslan/fretwise) | TypeScript, Web Audio | Interactive fretboard with Karplus-Strong audio synthesis |
-| [littledb](https://github.com/c-tonneslan/littledb) | Go | Embedded KV store with a copy-on-write B+tree |
-| [pr-pulse](https://github.com/c-tonneslan/pr-pulse) | Python, DuckDB | Data analysis on 4,750 OSS pull requests |
-| [agent-eval](https://github.com/c-tonneslan/agent-eval) | TypeScript, Anthropic SDK | From-scratch LLM eval harness |
+| [civic-philly](https://github.com/charlestonneslan/civic-philly) | TypeScript, PostGIS, MapLibre | 5,000+ Philadelphia civic records joined against census tracts and council districts |
+| [septa-live](https://github.com/charlestonneslan/septa-live) | TypeScript, Leaflet, SEPTA APIs | Live map of every SEPTA mode that publishes realtime data |
+| [groundwork](https://github.com/charlestonneslan/groundwork) | TypeScript, Postgres, PostGIS | 6,500+ affordable-housing projects across six cities with rent-burden overlays |
+| [convene](https://github.com/charlestonneslan/convene) | Python, Legistar | Municipal meeting data from 24 cities into normalized JSON/SQLite |
 
 ## Run locally
 
 ```bash
-git clone https://github.com/c-tonneslan/portfolio.git
+git clone https://github.com/charlestonneslan/portfolio.git
 cd portfolio
 npm install
 npm run dev

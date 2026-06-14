@@ -60,7 +60,7 @@ export default function GitHubActivity() {
               </p>
             </div>
             <a
-              href="https://github.com/c-tonneslan"
+              href="https://github.com/charlestonneslan"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-accent hover:underline"

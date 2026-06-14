@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { notes } from "@/data/notes";
 import { getAllArticles } from "@/lib/writing";
 
-const BASE = "https://c-tonneslan-portfolio.vercel.app";
+const BASE = "https://charlestonneslan-portfolio.vercel.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();

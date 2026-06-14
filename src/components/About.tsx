@@ -33,16 +33,12 @@ export default function About() {
 
           <div className="md:col-span-7 md:col-start-6 space-y-6 text-base md:text-lg leading-relaxed text-foreground/90">
             <p>
-              Most of what I&apos;ve learned has come from reading large
-              codebases and trying to fix something small in them. The pull
-              requests in the open-source section below are how I got past
-              toy projects in Go and Rust. They&apos;re also where I picked
-              up most of what I know about race conditions, retries, and how
-              error handling actually works in production.
+              I build tools around cities, transit, and public data. Most of
+              what I know about real systems came from working with messy
+              government feeds: inconsistent APIs, undocumented edge cases, and
+              data that has to be right because someone is going to act on it.
             </p>
             <p>
-              The projects I build for myself are mostly around cities and
-              transit.{" "}
               <span className="text-accent">civic-philly</span> joins 5,000+
               Philadelphia housing and zoning records against ACS census
               tracts and council districts.{" "}
@@ -50,9 +46,10 @@ export default function About() {
               SEPTA line that publishes realtime data.{" "}
               <span className="text-accent">groundwork</span> stitches 6,500+
               affordable-housing projects across six cities into one schema
-              with rent-burden overlays. Developer tooling like{" "}
-              <span className="text-accent">vouch</span> and{" "}
-              <span className="text-accent">littledb</span> sits next to it.
+              with rent-burden overlays. Underneath sit{" "}
+              <span className="text-accent">convene</span> and{" "}
+              <span className="text-accent">soda</span>, the libraries that pull
+              municipal meeting and open-data feeds the rest of it runs on.
             </p>
           </div>
         </motion.div>

@@ -16,60 +16,14 @@ type Project = {
 
 const projects: Project[] = [
   {
-    title: "bandstand",
-    kind: "Philly · Jazz tonight",
-    year: "2026",
-    description:
-      "Philadelphia jazz, tonight. Twenty-one rooms across the city: live clubs, jam sessions, listening rooms, vinyl bars, DJ nights, and the bistros that play real jazz on the system. Per-venue scrapers pull Chris' Jazz Cafe and South Jazz Kitchen nightly, the rest hand-curated with confidence tags. Repertory-style editorial layout, Source Serif italic mastheads, paper-grain texture. City map at /map with tag-colored markers and filter chips.",
-    metrics: ["21 rooms", "City map by tag", "Two nightly scrapers"],
-    tech: ["TypeScript", "Next.js 16", "Tailwind v4", "MapLibre GL", "cheerio"],
-    github: "https://github.com/c-tonneslan/bandstand",
-    live: "https://bandstand-bay.vercel.app",
-    featured: true,
-  },
-  {
-    title: "rageval",
-    kind: "RAG eval harness",
-    year: "2026",
-    description:
-      "A practical RAG eval harness. Bring a pipeline that exposes answer(query) and a JSONL gold set, get a scorecard: retrieval hit@k, MRR, faithfulness, citation precision, correctness, latency, and judge cost. Robust judge parsers (fenced JSON, loose regex, wandering text), per-question HTML report. Built because every RAG demo claims it works and none of them say how they measured it.",
-    metrics: ["Pure-Python metrics", "Claude LLM-as-judge", "27 unit tests"],
-    tech: ["Python 3.13", "Anthropic Claude", "Pydantic", "Typer"],
-    github: "https://github.com/c-tonneslan/rageval",
-    featured: true,
-  },
-  {
-    title: "asknfl",
-    kind: "Text-to-SQL · NFL",
-    year: "2026",
-    description:
-      "Ask in English about the 2023 NFL season. Claude Haiku writes the DuckDB SQL, DuckDB-WASM runs it locally in your browser against a 3 MB parquet of ~50,000 nflfastR plays. The generated SQL is shown next to the results so every number is auditable. System prompt encodes football conventions (red zone, long 3rd, garbage time) so vague questions resolve to precise aggregates.",
-    metrics: ["~50k plays", "Browser DuckDB", "Auditable SQL"],
-    tech: ["Next.js 16", "TypeScript", "DuckDB-WASM", "Anthropic Claude"],
-    github: "https://github.com/c-tonneslan/asknfl",
-    live: "https://asknfl.vercel.app",
-    featured: true,
-  },
-  {
-    title: "civic-rag",
-    kind: "RAG · Legistar",
-    year: "2026",
-    description:
-      "Ask plain-English questions about city council legislation, get cited answers. Hybrid retrieval (BM25 + dense embeddings, fused with RRF) over Legistar matters and events, indexed in a single SQLite file via sqlite-vec and FTS5 with no vector DB to run. Local sentence-transformers by default, Voyage AI behind a flag. Claude generates the answer and the CLI parses the citation markers back out and prints the source URLs alongside.",
-    metrics: ["Hybrid retrieval", "Single SQLite file", "Cited answers"],
-    tech: ["Python", "Anthropic Claude", "sqlite-vec", "sentence-transformers"],
-    github: "https://github.com/c-tonneslan/civic-rag",
-    featured: true,
-  },
-  {
     title: "civic-philly",
-    kind: "Civic data",
+    kind: "Civic data · Philadelphia",
     year: "2026",
     description:
       "A real-asset civic tool. 5,000+ housing developments, zoning permits, transit projects, and capital infrastructure investments in Philadelphia, joined against 408 ACS census tracts, 10 council district polygons, 239 RCOs, every council member's contact, 4,212 OPA owners, and 6,400+ L&I displacement signals. Full-text search, public API, RSS, OG, equity overlay, mobile bottom-sheet for organizers at meetings.",
     metrics: ["5,000+ projects", "Public JSON API", "Per-district RSS"],
     tech: ["TypeScript", "Next.js 16", "MapLibre GL", "PostGIS", "Census ACS"],
-    github: "https://github.com/c-tonneslan/civic-philly",
+    github: "https://github.com/charlestonneslan/civic-philly",
     live: "https://civic-philly.vercel.app",
     featured: true,
   },
@@ -81,7 +35,7 @@ const projects: Project[] = [
       "Live map of every SEPTA mode that publishes realtime data: Regional Rail, BSL, MFL, NHSL, five subway-surface trolleys, Girard, and the suburban trolleys. Hits five SEPTA endpoints through Next.js routes that proxy through Vercel's edge cache. Trains and trolleys reused across polls so they slide instead of flicker.",
     metrics: ["25 lines", "~140 stations", "15s poll, edge-cached"],
     tech: ["TypeScript", "Next.js 16", "Leaflet", "SEPTA APIs"],
-    github: "https://github.com/c-tonneslan/septa-live",
+    github: "https://github.com/charlestonneslan/septa-live",
     live: "https://septa-live.vercel.app",
   },
   {
@@ -92,61 +46,18 @@ const projects: Project[] = [
       "Interactive map of 6,500+ affordable-housing projects across NYC, SF, LA, DC, Chicago, and Philly, unified into one Postgres + PostGIS schema. Census-tract rent-burden choropleth, supply-demand gap analysis (PostGIS spatial join), and a stakeholders panel that surfaces the elected representative for any clicked development.",
     metrics: ["6 cities", "6,500+ projects", "PostGIS spatial joins"],
     tech: ["TypeScript", "Next.js", "Postgres", "PostGIS", "Leaflet"],
-    github: "https://github.com/c-tonneslan/groundwork",
+    github: "https://github.com/charlestonneslan/groundwork",
     live: "https://groundwork-tan.vercel.app",
   },
   {
-    title: "marquee",
-    kind: "Frontend · Type",
+    title: "civic-rag",
+    kind: "RAG · Legistar",
     year: "2026",
     description:
-      "A tiny kinetic typography playground. Type a phrase, pick a treatment, watch each glyph animate independently. Five presets: slide, blur, weight (continuous walk of the variable-font weight axis from 200 to 900), jitter, split. The weight preset is the one to look at, you can't fake an axis walk with static cuts.",
-    metrics: ["5 presets", "Variable-weight Inter", "40 char limit"],
-    tech: ["React 19", "Next.js 16", "Tailwind v4", "Framer Motion"],
-    github: "https://github.com/c-tonneslan/marquee",
-    live: "https://marquee-pi-bay.vercel.app",
-  },
-  {
-    title: "splitflap",
-    kind: "Frontend · Motion",
-    year: "2026",
-    description:
-      "A satisfying Solari-style split-flap departure board for the web. Each cell is a small character drum that ticks one letter at a time until it lands on the target, with a single-pixel hinge across the middle and a small per-cell delay so longer destinations show that mechanical wave. Rows roll forward every few seconds and statuses bump at random. No backend, no audio plugin, just CSS transforms and a charset that steps in order.",
-    metrics: ["~55ms per tick", "Pure CSS transforms", "Zero backend"],
-    tech: ["React 19", "Next.js 16", "Tailwind v4", "Framer Motion"],
-    github: "https://github.com/c-tonneslan/splitflap",
-    live: "https://splitflap-chi.vercel.app",
-  },
-  {
-    title: "contestlab",
-    kind: "Interview prep · Browser judge",
-    year: "2026",
-    description:
-      "LeetCode-style coding contests in the browser. Four problems per round (easy through hard), 90-minute timer, scoring that decays with elapsed time plus 5-minute wrong-submission penalties. Problems pulled from the Codeforces public API (~9000 rated problems) and generated by Claude for novel slots. Code runs in-browser via Pyodide (Python compiled to WebAssembly), so no rate limits and no backend judge. Built after the public Piston API went whitelist-only.",
-    metrics: ["4-problem contests", "In-browser judge (Pyodide)", "AI-generated novel problems"],
-    tech: ["TypeScript", "Next.js 16", "Pyodide", "Anthropic Claude", "Monaco"],
-    github: "https://github.com/c-tonneslan/contestlab",
-    live: "https://contestlab.vercel.app",
-  },
-  {
-    title: "scour",
-    kind: "Rust · Parallel grep",
-    year: "2026",
-    description:
-      "A fast, parallel, gitignore-aware recursive grep written from scratch in Rust. A worker pool walks the directory tree across every core; termination uses an atomic counter so whichever worker drops it to zero knows the walk is finished. .gitignore patterns compile to per-rule regexes with deepest-wins resolution. Six modules, around 900 lines, 29 tests.",
-    metrics: ["~900 LOC", "Parallel walk", "29 tests"],
-    tech: ["Rust", "regex", "crossbeam-channel", "clap"],
-    github: "https://github.com/c-tonneslan/scour",
-  },
-  {
-    title: "soda",
-    kind: "Go · Open-data CLI",
-    year: "2026",
-    description:
-      "A Go CLI for Socrata-based open data portals. 49 government portals preconfigured. Nine commands including watch for new rows and diff between snapshots. Outputs JSON, NDJSON, CSV, or directly into SQLite — pull --all auto-paginates million-row datasets, upserts on :id.",
-    metrics: ["49 portals", "9 commands", "JSON / CSV / SQLite"],
-    tech: ["Go 1.25+", "cobra", "modernc.org/sqlite"],
-    github: "https://github.com/c-tonneslan/soda",
+      "Ask plain-English questions about city council legislation, get cited answers. Hybrid retrieval (BM25 + dense embeddings, fused with RRF) over Legistar matters and events, indexed in a single SQLite file via sqlite-vec and FTS5 with no vector DB to run. Local sentence-transformers by default, Voyage AI behind a flag. Claude generates the answer and the CLI parses the citation markers back out and prints the source URLs alongside.",
+    metrics: ["Hybrid retrieval", "Single SQLite file", "Cited answers"],
+    tech: ["Python", "Anthropic Claude", "sqlite-vec", "sentence-transformers"],
+    github: "https://github.com/charlestonneslan/civic-rag",
   },
   {
     title: "convene",
@@ -156,69 +67,38 @@ const projects: Project[] = [
       "Two-platform municipal-data tool: hits Legistar's REST API and HTML-scrapes Granicus's ViewPublisher pages, with 24 US cities preconfigured. Streams events, agenda items, votes, legislation, sponsors, and action history as OCD-shaped JSON, ndjson for jq, or into a 9-table SQLite database.",
     metrics: ["24 cities", "Legistar + Granicus", "OCD-shaped JSON"],
     tech: ["Python 3.11+", "Pydantic 2", "httpx", "SQLite"],
-    github: "https://github.com/c-tonneslan/convene",
+    github: "https://github.com/charlestonneslan/convene",
   },
   {
-    title: "littledb",
-    kind: "Go · Embedded KV",
+    title: "soda",
+    kind: "Go · Open-data CLI",
     year: "2026",
     description:
-      "Tiny embedded key/value store in Go. Single-file ACID with a copy-on-write B+tree, two-meta-page commits, and MVCC-style snapshot reads. Around 1,500 lines. Benchmarks within 5% of bbolt on writes.",
-    metrics: ["~1.5k LOC", "Tied with bbolt on writes", "ACID + COW"],
-    tech: ["Go", "B+tree", "COW", "CRC32C"],
-    github: "https://github.com/c-tonneslan/littledb",
+      "A Go CLI for Socrata-based open data portals. 49 government portals preconfigured. Nine commands including watch for new rows and diff between snapshots. Outputs JSON, NDJSON, CSV, or directly into SQLite — pull --all auto-paginates million-row datasets, upserts on :id.",
+    metrics: ["49 portals", "9 commands", "JSON / CSV / SQLite"],
+    tech: ["Go 1.25+", "cobra", "modernc.org/sqlite"],
+    github: "https://github.com/charlestonneslan/soda",
   },
   {
-    title: "vouch",
-    kind: "Go · Guardrails",
+    title: "datamade-challenge",
+    kind: "Civic · DataMade work sample",
     year: "2026",
     description:
-      "A Go CLI for catching AI-code failure modes — silent test deletions, mass test skips, accidental .gitignore additions, fabricated APIs. Runs as a pre-commit hook or in CI. Twelve checks at v1, structured exit codes so it composes with existing tooling.",
-    metrics: ["12 checks", "Pre-commit + CI", "Structured exits"],
-    tech: ["Go", "AST", "git plumbing"],
-    github: "https://github.com/c-tonneslan/vouch",
+      "Django + React-Leaflet choropleth of Chicago restaurant-permit issuance by community area and year, a completion of DataMade's public code challenge. A single aggregate GROUP BY in the view feeds the serializer, AbortController-cancelled fetches keep year changes from racing, the color legend is keyed to each year's max, hover popups show raw counts, and a top-5 sidebar gives the page a takeaway beyond the map.",
+    metrics: ["77 community areas", "Single aggregate query", "PostGIS + Docker"],
+    tech: ["Django", "DRF", "react-leaflet", "PostGIS", "Docker"],
+    github: "https://github.com/charlestonneslan/code-challenge-v2",
   },
   {
-    title: "fourth-down-audit",
-    kind: "Sports · ML",
-    year: "2025",
+    title: "bandstand",
+    kind: "Philly · Jazz tonight",
+    year: "2026",
     description:
-      "NFL 4th-down decision audit. Trained an XGBoost win-probability model on 300k plays of nflverse pbp; held out 2024 and landed at log-loss 0.465, within 0.3% of nflfastR. Scored every 4th down 2018–2024 with 1,500-iter bootstrap CIs per coach-season.",
-    metrics: ["300k plays", "Log-loss 0.465", "1,500-iter bootstrap"],
-    tech: ["Python", "XGBoost", "DuckDB", "Next.js"],
-    github: "https://github.com/c-tonneslan/fourth-down-audit",
-    live: "https://fourth-down-audit.vercel.app",
-  },
-  {
-    title: "flamectl",
-    kind: "Go · Profiling",
-    year: "2025",
-    description:
-      "Render a pprof profile as a single-file interactive SVG flamegraph. Takes input from a file, an HTTP URL, or stdin; emits one SVG you can open in any browser. About 600 lines of Go with hand-rolled tree aggregation and SVG layout.",
-    metrics: ["~600 LOC", "Single-file SVG", "Hover-to-inspect"],
-    tech: ["Go", "pprof", "SVG"],
-    github: "https://github.com/c-tonneslan/flamectl",
-  },
-  {
-    title: "agent-eval",
-    kind: "Evals · TypeScript",
-    year: "2025",
-    description:
-      "Evaluation framework for agentic LLMs, built from scratch with the Anthropic SDK. 28 tasks across web, code, multistep, and reasoning, scored with a mix of deterministic checks and LLM-as-judge rubrics.",
-    metrics: ["28 tasks", "ReAct loop", "95% CIs on results"],
-    tech: ["TypeScript", "Anthropic SDK"],
-    github: "https://github.com/c-tonneslan/agent-eval",
-  },
-  {
-    title: "airwaves",
-    kind: "3D · Radio",
-    year: "2025",
-    description:
-      "Tune into ~5,000 live internet radio stations from a spinning 3D globe. Pick a country, click any marker, hit play. Next.js, Three.js, and the volunteer-run Radio Browser API. The whole thing runs in the browser, no backend.",
-    metrics: ["3D globe", "5,000 stations", "Zero backend"],
-    tech: ["TypeScript", "Next.js", "Three.js"],
-    github: "https://github.com/c-tonneslan/airwaves",
-    live: "https://airwaves-steel.vercel.app",
+      "Philadelphia jazz, tonight. Twenty-one rooms across the city: live clubs, jam sessions, listening rooms, vinyl bars, DJ nights, and the bistros that play real jazz on the system. Per-venue scrapers pull Chris' Jazz Cafe and South Jazz Kitchen nightly, the rest hand-curated with confidence tags. Repertory-style editorial layout, Source Serif italic mastheads, paper-grain texture. City map at /map with tag-colored markers and filter chips.",
+    metrics: ["21 rooms", "City map by tag", "Two nightly scrapers"],
+    tech: ["TypeScript", "Next.js 16", "Tailwind v4", "MapLibre GL", "cheerio"],
+    github: "https://github.com/charlestonneslan/bandstand",
+    live: "https://bandstand-bay.vercel.app",
   },
 ];
 
@@ -268,14 +148,14 @@ export default function Featured() {
               Work
             </p>
             <h2 className="text-4xl md:text-6xl font-semibold tracking-[-0.025em] leading-[1]">
-              Twelve
+              Civic
               <br />
-              <span className="text-muted">projects.</span>
+              <span className="text-muted">tools.</span>
             </h2>
           </div>
           <p className="md:col-span-5 self-end text-base md:text-lg text-muted leading-relaxed">
-            Civic and urban tools, plus developer tooling I built for myself.
-            Click anything for code; live demos are marked.
+            Maps, data pipelines, and APIs for cities, transit, and public
+            records. Click anything for code; live demos are marked.
           </p>
         </motion.div>
 

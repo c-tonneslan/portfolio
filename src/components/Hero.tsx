@@ -57,8 +57,8 @@ export default function Hero() {
           className="mt-8 text-lg md:text-xl text-muted max-w-2xl leading-relaxed"
         >
           I&apos;m Charlie, a software engineer in Philadelphia. I build civic
-          and urban tools — housing data, transit maps, council infrastructure
-          — and contribute to the open-source projects they&apos;re built on.
+          and urban tools: housing maps, transit data, and the open-data
+          infrastructure cities run on.
         </motion.p>
 
         {/* CTAs */}
@@ -73,12 +73,6 @@ export default function Hero() {
             className="px-5 py-2.5 rounded-lg bg-foreground text-background font-medium text-sm hover:bg-foreground/90 transition"
           >
             See the work →
-          </a>
-          <a
-            href="#open-source"
-            className="px-5 py-2.5 rounded-lg bg-white/8 border border-white/12 backdrop-blur text-sm hover:bg-white/12 transition"
-          >
-            Open-source contributions
           </a>
           <a
             href="mailto:cst0520@gmail.com"

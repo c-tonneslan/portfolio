@@ -4,19 +4,15 @@ import { motion } from "framer-motion";
 import type { Project } from "@/data/projects";
 
 const categoryColors = {
-  ai: "text-purple-400 bg-purple-400/10 border-purple-400/20",
-  fullstack: "text-blue-400 bg-blue-400/10 border-blue-400/20",
-  backend: "text-green-400 bg-green-400/10 border-green-400/20",
+  civic: "text-blue-400 bg-blue-400/10 border-blue-400/20",
+  transit: "text-green-400 bg-green-400/10 border-green-400/20",
   data: "text-rose-400 bg-rose-400/10 border-rose-400/20",
-  devtool: "text-orange-400 bg-orange-400/10 border-orange-400/20",
 };
 
 const categoryLabels = {
-  ai: "AI / ML",
-  fullstack: "Full Stack",
-  backend: "Backend",
-  data: "Data",
-  devtool: "Dev Tool",
+  civic: "Civic",
+  transit: "Transit",
+  data: "Open Data",
 };
 
 const statusBadge = {
