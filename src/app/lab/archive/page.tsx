@@ -36,7 +36,7 @@ export default function ArchiveDemo() {
   const [hover, setHover] = useState<string | null>(null);
 
   return (
-    <main className="min-h-screen bg-[#f3eee4] text-[#0c0c0c]">
+    <main className="min-h-screen bg-[#e9e8e3] text-[#0c0c0c]">
       {/* Subtle paper grain */}
       <div
         aria-hidden

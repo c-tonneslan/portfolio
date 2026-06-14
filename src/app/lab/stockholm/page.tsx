@@ -13,7 +13,7 @@ const editions = [
 
 export default function StockholmDemo() {
   return (
-    <main className="min-h-screen bg-[#f4ede0] text-[#1a1a1a]">
+    <main className="min-h-screen bg-[#e6ebee] text-[#1a1a1a]">
       {/* Vertical edition strip */}
       <div
         aria-hidden
@@ -159,7 +159,7 @@ export default function StockholmDemo() {
             <p className="text-[11px] uppercase tracking-[0.3em] opacity-70">
               · 42 of 80 remain
             </p>
-            <button className="ml-auto px-4 py-2 bg-[#1a1a1a] text-[#f4ede0] text-[11px] uppercase tracking-[0.25em]">
+            <button className="ml-auto px-4 py-2 bg-[#1a1a1a] text-[#e6ebee] text-[11px] uppercase tracking-[0.25em]">
               Reservera →
             </button>
           </div>
@@ -184,7 +184,7 @@ export default function StockholmDemo() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.04 }}
-              className="grid grid-cols-12 gap-3 border-b border-[#1a1a1a]/15 py-6 items-baseline hover:bg-[#1a1a1a] hover:text-[#f4ede0] transition-colors cursor-pointer group"
+              className="grid grid-cols-12 gap-3 border-b border-[#1a1a1a]/15 py-6 items-baseline hover:bg-[#1a1a1a] hover:text-[#e6ebee] transition-colors cursor-pointer group"
             >
               <span className="col-span-1 font-mono text-xs opacity-60">
                 № {e.num}
@@ -215,7 +215,7 @@ export default function StockholmDemo() {
       </section>
 
       {/* About the studio */}
-      <section className="px-6 md:px-12 py-24 md:py-32 grid grid-cols-12 gap-6 bg-[#1a1a1a] text-[#f4ede0]">
+      <section className="px-6 md:px-12 py-24 md:py-32 grid grid-cols-12 gap-6 bg-[#1a1a1a] text-[#e6ebee]">
         <div className="col-span-12 md:col-span-3">
           <p className="text-[11px] uppercase tracking-[0.3em] mb-3 text-[#c08350]">
             ⸺ Om oss · about the house

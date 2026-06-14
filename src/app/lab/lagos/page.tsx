@@ -33,9 +33,9 @@ const Zigzag = ({ color = "#1a1410", className = "" }: { color?: string; classNa
 
 export default function LagosDemo() {
   return (
-    <main className="min-h-screen bg-[#f4ecd8] text-[#1a1410] relative overflow-x-hidden">
+    <main className="min-h-screen bg-[#e7efda] text-[#1a1410] relative overflow-x-hidden">
       {/* Marquee */}
-      <div className="bg-[#1a1410] text-[#f4ecd8] py-3 overflow-hidden border-b-4 border-[#ed4e8d]">
+      <div className="bg-[#1a1410] text-[#e7efda] py-3 overflow-hidden border-b-4 border-[#ed4e8d]">
         <div className="flex animate-[marquee_30s_linear_infinite] whitespace-nowrap text-base md:text-lg font-black tracking-tight">
           {Array.from({ length: 4 }).map((_, k) => (
             <div key={k} className="flex items-center gap-6 px-6">
@@ -71,7 +71,7 @@ export default function LagosDemo() {
             </a>
           ))}
         </div>
-        <button className="px-4 py-2 bg-[#ed4e8d] text-[#f4ecd8] rounded-full font-black">
+        <button className="px-4 py-2 bg-[#ed4e8d] text-[#e7efda] rounded-full font-black">
           Tickets ↗
         </button>
       </header>
@@ -133,7 +133,7 @@ export default function LagosDemo() {
           className="col-span-12 mt-10 max-w-3xl"
         >
           <p className="text-lg md:text-xl leading-[1.6]">
-            <span className="bg-[#ed4e8d] text-[#f4ecd8] px-2 font-black">AYÒ</span>
+            <span className="bg-[#ed4e8d] text-[#e7efda] px-2 font-black">AYÒ</span>
             {" "}is the Yorùbá word for joy. The festival takes its name
             seriously. Three days, eighty-four artists, two food markets, a
             sunrise drumming circle. Bring shoes you can dance in.
@@ -194,11 +194,11 @@ export default function LagosDemo() {
       </section>
 
       {/* Programme — day one */}
-      <section className="px-6 md:px-10 py-24 md:py-32 bg-[#1a1410] text-[#f4ecd8] relative overflow-hidden">
+      <section className="px-6 md:px-10 py-24 md:py-32 bg-[#1a1410] text-[#e7efda] relative overflow-hidden">
         <div aria-hidden className="absolute -top-10 -left-10 w-40 h-40 rounded-full bg-[#ed4e8d] opacity-20 blur-2xl" />
         <div aria-hidden className="absolute bottom-10 right-1/4 w-32 h-32 bg-[#b4d943] opacity-20 blur-2xl" />
 
-        <div className="flex items-end justify-between mb-10 border-b border-[#f4ecd8]/30 pb-3 relative">
+        <div className="flex items-end justify-between mb-10 border-b border-[#e7efda]/30 pb-3 relative">
           <div>
             <p className="text-xs uppercase tracking-[0.3em] mb-3 text-[#ed4e8d] font-black">
               ★ Day 01 · ÌBẸ̀RẸ̀
@@ -220,7 +220,7 @@ export default function LagosDemo() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.04 }}
-              className="grid grid-cols-12 gap-3 border-b border-[#f4ecd8]/20 py-4 items-baseline hover:bg-[#f4ecd8]/5 cursor-pointer group"
+              className="grid grid-cols-12 gap-3 border-b border-[#e7efda]/20 py-4 items-baseline hover:bg-[#e7efda]/5 cursor-pointer group"
             >
               <span className="col-span-2 font-mono text-base text-[#e9a93a]">
                 {p.time}
@@ -272,8 +272,8 @@ export default function LagosDemo() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.03 }}
-              className="p-5 hover:bg-[#1a1410] hover:text-[#f4ecd8] transition-colors cursor-pointer relative overflow-hidden group"
-              style={{ backgroundColor: i === 11 ? "#1a1410" : "#f4ecd8", color: i === 11 ? "#f4ecd8" : "#1a1410" }}
+              className="p-5 hover:bg-[#1a1410] hover:text-[#e7efda] transition-colors cursor-pointer relative overflow-hidden group"
+              style={{ backgroundColor: i === 11 ? "#1a1410" : "#e7efda", color: i === 11 ? "#e7efda" : "#1a1410" }}
             >
               <p
                 className="absolute top-3 right-3 w-3 h-3 rounded-full"
@@ -320,7 +320,7 @@ export default function LagosDemo() {
             ].map((t) => (
               <div
                 key={t.name}
-                className="border-2 border-[#1a1410] p-4 bg-[#f4ecd8] hover:bg-[#1a1410] hover:text-[#f4ecd8] cursor-pointer transition"
+                className="border-2 border-[#1a1410] p-4 bg-[#e7efda] hover:bg-[#1a1410] hover:text-[#e7efda] cursor-pointer transition"
               >
                 <p className="text-[10px] uppercase tracking-[0.25em] font-black mb-1">
                   {t.name}
@@ -334,7 +334,7 @@ export default function LagosDemo() {
       </section>
 
       {/* Footer */}
-      <footer className="px-6 md:px-10 py-12 grid grid-cols-12 gap-6 text-sm bg-[#1a1410] text-[#f4ecd8]">
+      <footer className="px-6 md:px-10 py-12 grid grid-cols-12 gap-6 text-sm bg-[#1a1410] text-[#e7efda]">
         <div className="col-span-12 md:col-span-4">
           <p className="text-3xl font-black tracking-tighter mb-2">
             AYÒ <span className="font-serif italic font-normal text-[#ed4e8d]">'26</span>

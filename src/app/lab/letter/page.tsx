@@ -17,7 +17,7 @@ export default function LetterDemo() {
   const [year, setYear] = useState("2026");
 
   return (
-    <main className="min-h-screen bg-[#faf6ed] text-[#0d1e3a] relative">
+    <main className="min-h-screen bg-[#f4e6e6] text-[#0d1e3a] relative">
       {/* Paper texture */}
       <div
         aria-hidden

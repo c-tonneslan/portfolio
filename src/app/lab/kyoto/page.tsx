@@ -36,7 +36,7 @@ const seasons = [
 
 export default function KyotoDemo() {
   return (
-    <main className="min-h-screen bg-[#f5f1e6] text-[#1a1612] relative">
+    <main className="min-h-screen bg-[#e8ece0] text-[#1a1612] relative">
       {/* Vertical kana, very subtle, right edge */}
       <div
         aria-hidden

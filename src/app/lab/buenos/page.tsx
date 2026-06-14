@@ -17,7 +17,7 @@ const toc = [
 
 export default function BuenosDemo() {
   return (
-    <main className="min-h-screen bg-[#f2ecd8] text-[#19234a] relative">
+    <main className="min-h-screen bg-[#dde8f2] text-[#19234a] relative">
       {/* Vertical strip, left */}
       <div
         aria-hidden
@@ -95,7 +95,7 @@ export default function BuenosDemo() {
       </section>
 
       {/* Editor's letter block */}
-      <section className="border-y-2 border-[#19234a] bg-[#19234a] text-[#f2ecd8] px-6 md:px-16 py-16">
+      <section className="border-y-2 border-[#19234a] bg-[#19234a] text-[#dde8f2] px-6 md:px-16 py-16">
         <div className="grid grid-cols-12 gap-6">
           <div className="col-span-12 md:col-span-3 text-[11px] uppercase tracking-[0.25em] opacity-70">
             <p>Carta del editor</p>
@@ -143,7 +143,7 @@ export default function BuenosDemo() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.04 }}
-              className={`grid grid-cols-12 gap-3 border-b border-[#19234a]/30 py-5 items-baseline hover:bg-[#19234a] hover:text-[#f2ecd8] transition-colors cursor-pointer group ${
+              className={`grid grid-cols-12 gap-3 border-b border-[#19234a]/30 py-5 items-baseline hover:bg-[#19234a] hover:text-[#dde8f2] transition-colors cursor-pointer group ${
                 t.featured ? "bg-[#f5c344]/30" : ""
               }`}
             >
@@ -170,7 +170,7 @@ export default function BuenosDemo() {
       </section>
 
       {/* Featured excerpt — Sobre el insomnio */}
-      <section className="px-6 md:px-16 py-24 md:py-32 grid grid-cols-12 gap-6 bg-[#f2ecd8]">
+      <section className="px-6 md:px-16 py-24 md:py-32 grid grid-cols-12 gap-6 bg-[#dde8f2]">
         <aside className="col-span-12 md:col-span-3">
           <p className="text-[11px] uppercase tracking-[0.3em] mb-2 text-[#c1273a]">
             ⸺ Adelanto · ii
@@ -223,7 +223,7 @@ export default function BuenosDemo() {
       </section>
 
       {/* Manifesto / large block */}
-      <section className="px-6 md:px-16 py-32 bg-[#c1273a] text-[#f2ecd8] relative">
+      <section className="px-6 md:px-16 py-32 bg-[#c1273a] text-[#dde8f2] relative">
         <p className="text-[11px] uppercase tracking-[0.3em] mb-6 opacity-80">
           ⸺ Nuestro proyecto, en una frase
         </p>
@@ -287,7 +287,7 @@ export default function BuenosDemo() {
               Envío incluido a CABA, GBA y resto del país.
             </p>
           </div>
-          <div className="bg-[#19234a] text-[#f2ecd8] p-5">
+          <div className="bg-[#19234a] text-[#dde8f2] p-5">
             <p className="text-[10px] uppercase tracking-[0.25em] opacity-70 mb-2">
               Internacional
             </p>

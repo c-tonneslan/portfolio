@@ -46,7 +46,7 @@ const featured = {
 
 export default function BeirutDemo() {
   return (
-    <main className="min-h-screen bg-[#f3e8d4] text-[#0d1e3a]">
+    <main className="min-h-screen bg-[#dfe9ec] text-[#0d1e3a]">
       {/* Top bar */}
       <header className="px-6 md:px-12 py-5 flex items-center justify-between border-b border-[#0d1e3a]/40 text-[11px] uppercase tracking-[0.3em]">
         <Link href="/lab" className="hover:underline underline-offset-4">
@@ -131,7 +131,7 @@ export default function BeirutDemo() {
       </section>
 
       {/* Bilingual hero */}
-      <section className="px-6 md:px-12 py-20 border-y-2 border-[#0d1e3a] bg-[#0d1e3a] text-[#f3e8d4]">
+      <section className="px-6 md:px-12 py-20 border-y-2 border-[#0d1e3a] bg-[#0d1e3a] text-[#dfe9ec]">
         <div className="grid grid-cols-12 gap-10">
           <div className="col-span-12 md:col-span-6">
             <p className="text-[11px] uppercase tracking-[0.3em] mb-5 text-[#b6612d]">
@@ -143,7 +143,7 @@ export default function BeirutDemo() {
             <p className="text-[11px] uppercase tracking-[0.3em] mt-4 opacity-80">
               By Yara Khoury · 22 pages
             </p>
-            <p className="font-serif italic text-base md:text-lg mt-6 max-w-md leading-relaxed text-[#f3e8d4]/90">
+            <p className="font-serif italic text-base md:text-lg mt-6 max-w-md leading-relaxed text-[#dfe9ec]/90">
               {featured.sub}
             </p>
           </div>
@@ -161,7 +161,7 @@ export default function BeirutDemo() {
               يارا خوري · ٢٢ صفحة
             </p>
             <p
-              className="text-base md:text-lg mt-6 max-w-md leading-relaxed text-[#f3e8d4]/90 ml-auto"
+              className="text-base md:text-lg mt-6 max-w-md leading-relaxed text-[#dfe9ec]/90 ml-auto"
               style={{ fontFamily: "serif" }}
             >
               مقالة عن العمارة بعد الانفجار، وعن البيوت التي تُبنى مرتين.
@@ -224,7 +224,7 @@ export default function BeirutDemo() {
       </section>
 
       {/* A spread — bilingual fragment */}
-      <section className="px-6 md:px-12 py-24 md:py-32 bg-[#2b6d8e] text-[#f3e8d4] relative overflow-hidden">
+      <section className="px-6 md:px-12 py-24 md:py-32 bg-[#2b6d8e] text-[#dfe9ec] relative overflow-hidden">
         <div
           aria-hidden
           className="absolute -bottom-20 -right-20 w-96 h-96 opacity-25"
@@ -317,7 +317,7 @@ export default function BeirutDemo() {
               Posted from Achrafieh.
             </p>
           </div>
-          <div className="bg-[#0d1e3a] text-[#f3e8d4] p-5">
+          <div className="bg-[#0d1e3a] text-[#dfe9ec] p-5">
             <p className="text-[10px] uppercase tracking-[0.25em] opacity-70 mb-2">
               International
             </p>
@@ -327,7 +327,7 @@ export default function BeirutDemo() {
               Two to four weeks.
             </p>
           </div>
-          <button className="sm:col-span-2 bg-[#b6612d] text-[#f3e8d4] px-5 py-4 font-bold uppercase tracking-[0.25em] text-sm">
+          <button className="sm:col-span-2 bg-[#b6612d] text-[#dfe9ec] px-5 py-4 font-bold uppercase tracking-[0.25em] text-sm">
             Subscribe · اشتراك →
           </button>
         </div>

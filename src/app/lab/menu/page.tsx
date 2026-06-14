@@ -77,7 +77,7 @@ function Section({
 
 export default function MenuDemo() {
   return (
-    <main className="min-h-screen bg-[#f3e6d0] text-[#5b1a1a] relative">
+    <main className="min-h-screen bg-[#f7e3d0] text-[#5b1a1a] relative">
       {/* Vignette */}
       <div
         aria-hidden

@@ -107,7 +107,7 @@ export default function RepertoryDemo() {
   const [activeDay, setActiveDay] = useState(0);
 
   return (
-    <main className="min-h-screen bg-[#efe6d2] text-[#0c0c0c] relative overflow-hidden">
+    <main className="min-h-screen bg-[#e4e8da] text-[#0c0c0c] relative overflow-hidden">
       {/* Grain */}
       <div
         aria-hidden
@@ -151,7 +151,7 @@ export default function RepertoryDemo() {
         <section className="px-6 md:px-10 py-16 md:py-24 grid md:grid-cols-12 gap-10 border-b border-[#0c0c0c]/30">
           <div className="md:col-span-5">
             {/* Faux poster */}
-            <div className="aspect-[3/4] bg-[#c41e1e] text-[#efe6d2] relative overflow-hidden">
+            <div className="aspect-[3/4] bg-[#c41e1e] text-[#e4e8da] relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/30" />
               <div className="absolute inset-0 p-6 md:p-8 flex flex-col">
                 <p className="text-[10px] uppercase tracking-[0.3em] opacity-90">
@@ -168,7 +168,7 @@ export default function RepertoryDemo() {
                   Hadži Stojić · 1984 · 4K
                 </p>
               </div>
-              <div className="absolute top-6 right-6 w-12 h-12 rounded-full border border-[#efe6d2]/70 flex items-center justify-center text-xs uppercase tracking-widest">
+              <div className="absolute top-6 right-6 w-12 h-12 rounded-full border border-[#e4e8da]/70 flex items-center justify-center text-xs uppercase tracking-widest">
                 ★
               </div>
             </div>
@@ -235,7 +235,7 @@ export default function RepertoryDemo() {
                 onClick={() => setActiveDay(i)}
                 className={`px-3 py-2 text-xs uppercase tracking-widest shrink-0 ${
                   activeDay === i
-                    ? "bg-[#0c0c0c] text-[#efe6d2]"
+                    ? "bg-[#0c0c0c] text-[#e4e8da]"
                     : "border border-[#0c0c0c]/30"
                 }`}
               >
@@ -247,7 +247,7 @@ export default function RepertoryDemo() {
           {/* Day columns (desktop) */}
           <div className="hidden md:grid grid-cols-7 gap-px bg-[#0c0c0c]/20">
             {week.map((d, di) => (
-              <div key={d.date} className="bg-[#efe6d2] p-3 min-h-[420px]">
+              <div key={d.date} className="bg-[#e4e8da] p-3 min-h-[420px]">
                 <div className="border-b border-[#0c0c0c]/30 pb-2 mb-3">
                   <p className="text-[10px] uppercase tracking-[0.2em] text-[#0c0c0c]/60">
                     {d.weekday}
@@ -271,7 +271,7 @@ export default function RepertoryDemo() {
                           {s.time}
                         </span>
                         {s.tag && (
-                          <span className="text-[9px] uppercase tracking-wider bg-[#0c0c0c] text-[#efe6d2] px-1 py-px">
+                          <span className="text-[9px] uppercase tracking-wider bg-[#0c0c0c] text-[#e4e8da] px-1 py-px">
                             {s.tag}
                           </span>
                         )}
@@ -299,7 +299,7 @@ export default function RepertoryDemo() {
                       {s.time}
                     </span>
                     {s.tag && (
-                      <span className="text-[10px] uppercase tracking-wider bg-[#0c0c0c] text-[#efe6d2] px-1.5 py-px">
+                      <span className="text-[10px] uppercase tracking-wider bg-[#0c0c0c] text-[#e4e8da] px-1.5 py-px">
                         {s.tag}
                       </span>
                     )}

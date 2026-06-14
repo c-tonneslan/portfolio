@@ -27,9 +27,9 @@ const designers = [
 
 export default function BossaDemo() {
   return (
-    <main className="min-h-screen bg-[#fff4e3] text-[#1b1410] relative overflow-hidden">
+    <main className="min-h-screen bg-[#f3eecb] text-[#1b1410] relative overflow-hidden">
       {/* Marquee */}
-      <div className="border-y-2 border-[#1b1410] bg-[#fff4e3] overflow-hidden">
+      <div className="border-y-2 border-[#1b1410] bg-[#f3eecb] overflow-hidden">
         <div className="flex whitespace-nowrap animate-[marquee_28s_linear_infinite] text-base md:text-lg font-bold tracking-tight py-3">
           {Array.from({ length: 4 }).map((_, k) => (
             <div key={k} className="flex items-center gap-8 px-6">
@@ -67,7 +67,7 @@ export default function BossaDemo() {
             ),
           )}
         </div>
-        <button className="px-4 py-2 rounded-full bg-[#1b1410] text-[#fff4e3]">
+        <button className="px-4 py-2 rounded-full bg-[#1b1410] text-[#f3eecb]">
           Ingressos →
         </button>
       </nav>
@@ -164,7 +164,7 @@ export default function BossaDemo() {
         >
           Doze semanas, oito sextas-feiras, cento e vinte designers. O tema
           deste ano é{" "}
-          <span className="not-italic font-sans font-bold bg-[#1b1410] text-[#fff4e3] px-2">
+          <span className="not-italic font-sans font-bold bg-[#1b1410] text-[#f3eecb] px-2">
             forma & floresta
           </span>
           {" "}— a forma que o design toma quando o lugar não esquece.
@@ -194,7 +194,7 @@ export default function BossaDemo() {
               className="group cursor-pointer"
             >
               <div
-                className="aspect-square rounded-full flex flex-col items-center justify-center text-[#fff4e3] mb-4 transition-transform group-hover:scale-[1.04]"
+                className="aspect-square rounded-full flex flex-col items-center justify-center text-[#f3eecb] mb-4 transition-transform group-hover:scale-[1.04]"
                 style={{ backgroundColor: d.color }}
               >
                 <span className="text-[10px] uppercase tracking-[0.3em] opacity-80">
@@ -214,7 +214,7 @@ export default function BossaDemo() {
       </section>
 
       {/* Big quote */}
-      <section className="px-6 md:px-12 py-32 bg-[#1b1410] text-[#fff4e3] -mx-0 relative overflow-hidden">
+      <section className="px-6 md:px-12 py-32 bg-[#1b1410] text-[#f3eecb] -mx-0 relative overflow-hidden">
         <div aria-hidden className="absolute top-10 right-10 w-32 h-32 rounded-full bg-[#E8763A] opacity-30 blur-2xl" />
         <div aria-hidden className="absolute bottom-10 left-20 w-40 h-40 rounded-full bg-[#3B5BA5] opacity-30 blur-2xl" />
         <div className="relative max-w-5xl mx-auto">
@@ -268,7 +268,7 @@ export default function BossaDemo() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.04 }}
-              className="bg-[#fff4e3] p-5 hover:bg-[#1b1410] hover:text-[#fff4e3] transition-colors cursor-pointer group"
+              className="bg-[#f3eecb] p-5 hover:bg-[#1b1410] hover:text-[#f3eecb] transition-colors cursor-pointer group"
             >
               <p className="font-mono text-[10px] uppercase opacity-60 group-hover:opacity-80">
                 Nº {String(i + 1).padStart(2, "0")}
@@ -306,13 +306,13 @@ export default function BossaDemo() {
             </p>
           </div>
           <div className="self-end space-y-3 text-base">
-            <button className="block w-full text-left px-5 py-4 rounded-2xl bg-[#1b1410] text-[#fff4e3] font-bold hover:bg-black transition">
+            <button className="block w-full text-left px-5 py-4 rounded-2xl bg-[#1b1410] text-[#f3eecb] font-bold hover:bg-black transition">
               Inscrever-se em workshop →
             </button>
-            <button className="block w-full text-left px-5 py-4 rounded-2xl border-2 border-[#1b1410] hover:bg-[#1b1410] hover:text-[#fff4e3] transition">
+            <button className="block w-full text-left px-5 py-4 rounded-2xl border-2 border-[#1b1410] hover:bg-[#1b1410] hover:text-[#f3eecb] transition">
               Visita guiada · grátis →
             </button>
-            <button className="block w-full text-left px-5 py-4 rounded-2xl bg-[#fff4e3] border border-[#1b1410]">
+            <button className="block w-full text-left px-5 py-4 rounded-2xl bg-[#f3eecb] border border-[#1b1410]">
               Apoio escolar · grupos
             </button>
           </div>

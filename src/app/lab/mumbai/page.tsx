@@ -57,7 +57,7 @@ const poems = [
 
 export default function MumbaiDemo() {
   return (
-    <main className="min-h-screen bg-[#f3eedc] text-[#2c2467] relative">
+    <main className="min-h-screen bg-[#f7e0c4] text-[#2c2467] relative">
       {/* Top meta */}
       <header className="px-6 md:px-12 py-5 border-b border-[#2c2467]/40 flex items-center justify-between text-[11px] uppercase tracking-[0.25em]">
         <div className="flex items-center gap-2">
@@ -135,7 +135,7 @@ export default function MumbaiDemo() {
       </section>
 
       {/* Big subhead — editor's note */}
-      <section className="px-6 md:px-12 py-20 border-y-2 border-[#2c2467] bg-[#2c2467] text-[#f3eedc]">
+      <section className="px-6 md:px-12 py-20 border-y-2 border-[#2c2467] bg-[#2c2467] text-[#f7e0c4]">
         <div className="grid grid-cols-12 gap-6">
           <p className="col-span-12 md:col-span-3 text-[11px] uppercase tracking-[0.3em] opacity-80">
             Editor's note
@@ -184,10 +184,10 @@ export default function MumbaiDemo() {
                       "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.85'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
                   }}
                 />
-                <span className="absolute top-4 left-4 font-mono text-xs uppercase tracking-widest text-[#f3eedc]/80">
+                <span className="absolute top-4 left-4 font-mono text-xs uppercase tracking-widest text-[#f7e0c4]/80">
                   №{f.num}
                 </span>
-                <span className="absolute bottom-4 left-4 text-[11px] uppercase tracking-[0.3em] text-[#f3eedc] font-medium">
+                <span className="absolute bottom-4 left-4 text-[11px] uppercase tracking-[0.3em] text-[#f7e0c4] font-medium">
                   {f.kicker}
                 </span>
               </div>
@@ -209,7 +209,7 @@ export default function MumbaiDemo() {
       </section>
 
       {/* Poems */}
-      <section className="px-6 md:px-12 py-24 md:py-32 bg-[#f3eedc] relative">
+      <section className="px-6 md:px-12 py-24 md:py-32 bg-[#f7e0c4] relative">
         <div aria-hidden className="absolute top-10 right-10 text-9xl opacity-10" style={{ fontFamily: "serif" }}>
           कविता
         </div>
@@ -295,7 +295,7 @@ export default function MumbaiDemo() {
                     "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='1.4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
                 }}
               />
-              <span className="absolute top-3 left-3 text-[10px] uppercase tracking-widest text-[#f3eedc]/80 font-mono">
+              <span className="absolute top-3 left-3 text-[10px] uppercase tracking-widest text-[#f7e0c4]/80 font-mono">
                 0{i + 1} / 06
               </span>
             </motion.div>
@@ -330,7 +330,7 @@ export default function MumbaiDemo() {
             ].map((p) => (
               <div
                 key={p.region}
-                className="border-2 border-[#2c2467] p-4 bg-[#f3eedc] hover:bg-[#2c2467] hover:text-[#f3eedc] transition cursor-pointer"
+                className="border-2 border-[#2c2467] p-4 bg-[#f7e0c4] hover:bg-[#2c2467] hover:text-[#f7e0c4] transition cursor-pointer"
               >
                 <p className="text-[10px] uppercase tracking-[0.25em] mb-1">
                   {p.region}
