@@ -45,12 +45,12 @@ export default function Contact() {
                 cst0520@gmail.com →
               </a>
               <a
-                href="https://github.com/charlestonneslan"
+                href="https://github.com/c-tonneslan"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-5 py-2.5 rounded-lg bg-white/8 border border-white/12 backdrop-blur text-sm hover:bg-white/12 transition"
               >
-                github.com/charlestonneslan
+                github.com/c-tonneslan
               </a>
             </div>
           </div>

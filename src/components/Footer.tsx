@@ -44,12 +44,12 @@ export default function Footer() {
             </li>
             <li>
               <a
-                href="https://github.com/charlestonneslan"
+                href="https://github.com/c-tonneslan"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-accent transition-colors"
               >
-                github.com/charlestonneslan
+                github.com/c-tonneslan
               </a>
             </li>
           </ul>

@@ -23,7 +23,7 @@ const projects: Project[] = [
       "A real-asset civic tool. 5,000+ housing developments, zoning permits, transit projects, and capital infrastructure investments in Philadelphia, joined against 408 ACS census tracts, 10 council district polygons, 239 RCOs, every council member's contact, 4,212 OPA owners, and 6,400+ L&I displacement signals. Full-text search, public API, RSS, OG, equity overlay, mobile bottom-sheet for organizers at meetings.",
     metrics: ["5,000+ projects", "Public JSON API", "Per-district RSS"],
     tech: ["TypeScript", "Next.js 16", "MapLibre GL", "PostGIS", "Census ACS"],
-    github: "https://github.com/charlestonneslan/civic-philly",
+    github: "https://github.com/c-tonneslan/civic-philly",
     live: "https://civic-philly.vercel.app",
     featured: true,
   },
@@ -35,7 +35,7 @@ const projects: Project[] = [
       "Live map of every SEPTA mode that publishes realtime data: Regional Rail, BSL, MFL, NHSL, five subway-surface trolleys, Girard, and the suburban trolleys. Hits five SEPTA endpoints through Next.js routes that proxy through Vercel's edge cache. Trains and trolleys reused across polls so they slide instead of flicker.",
     metrics: ["25 lines", "~140 stations", "15s poll, edge-cached"],
     tech: ["TypeScript", "Next.js 16", "Leaflet", "SEPTA APIs"],
-    github: "https://github.com/charlestonneslan/septa-live",
+    github: "https://github.com/c-tonneslan/septa-live",
     live: "https://septa-live.vercel.app",
   },
   {
@@ -46,7 +46,7 @@ const projects: Project[] = [
       "Interactive map of 6,500+ affordable-housing projects across NYC, SF, LA, DC, Chicago, and Philly, unified into one Postgres + PostGIS schema. Census-tract rent-burden choropleth, supply-demand gap analysis (PostGIS spatial join), and a stakeholders panel that surfaces the elected representative for any clicked development.",
     metrics: ["6 cities", "6,500+ projects", "PostGIS spatial joins"],
     tech: ["TypeScript", "Next.js", "Postgres", "PostGIS", "Leaflet"],
-    github: "https://github.com/charlestonneslan/groundwork",
+    github: "https://github.com/c-tonneslan/groundwork",
     live: "https://groundwork-tan.vercel.app",
   },
   {
@@ -57,7 +57,7 @@ const projects: Project[] = [
       "Ask plain-English questions about city council legislation, get cited answers. Hybrid retrieval (BM25 + dense embeddings, fused with RRF) over Legistar matters and events, indexed in a single SQLite file via sqlite-vec and FTS5 with no vector DB to run. Local sentence-transformers by default, Voyage AI behind a flag. Claude generates the answer and the CLI parses the citation markers back out and prints the source URLs alongside.",
     metrics: ["Hybrid retrieval", "Single SQLite file", "Cited answers"],
     tech: ["Python", "Anthropic Claude", "sqlite-vec", "sentence-transformers"],
-    github: "https://github.com/charlestonneslan/civic-rag",
+    github: "https://github.com/c-tonneslan/civic-rag",
   },
   {
     title: "convene",
@@ -67,7 +67,7 @@ const projects: Project[] = [
       "Two-platform municipal-data tool: hits Legistar's REST API and HTML-scrapes Granicus's ViewPublisher pages, with 24 US cities preconfigured. Streams events, agenda items, votes, legislation, sponsors, and action history as OCD-shaped JSON, ndjson for jq, or into a 9-table SQLite database.",
     metrics: ["24 cities", "Legistar + Granicus", "OCD-shaped JSON"],
     tech: ["Python 3.11+", "Pydantic 2", "httpx", "SQLite"],
-    github: "https://github.com/charlestonneslan/convene",
+    github: "https://github.com/c-tonneslan/convene",
   },
   {
     title: "soda",
@@ -77,7 +77,7 @@ const projects: Project[] = [
       "A Go CLI for Socrata-based open data portals. 49 government portals preconfigured. Nine commands including watch for new rows and diff between snapshots. Outputs JSON, NDJSON, CSV, or directly into SQLite — pull --all auto-paginates million-row datasets, upserts on :id.",
     metrics: ["49 portals", "9 commands", "JSON / CSV / SQLite"],
     tech: ["Go 1.25+", "cobra", "modernc.org/sqlite"],
-    github: "https://github.com/charlestonneslan/soda",
+    github: "https://github.com/c-tonneslan/soda",
   },
   {
     title: "datamade-challenge",
@@ -87,7 +87,7 @@ const projects: Project[] = [
       "Django + React-Leaflet choropleth of Chicago restaurant-permit issuance by community area and year, a completion of DataMade's public code challenge. A single aggregate GROUP BY in the view feeds the serializer, AbortController-cancelled fetches keep year changes from racing, the color legend is keyed to each year's max, hover popups show raw counts, and a top-5 sidebar gives the page a takeaway beyond the map.",
     metrics: ["77 community areas", "Single aggregate query", "PostGIS + Docker"],
     tech: ["Django", "DRF", "react-leaflet", "PostGIS", "Docker"],
-    github: "https://github.com/charlestonneslan/code-challenge-v2",
+    github: "https://github.com/c-tonneslan/code-challenge-v2",
   },
   {
     title: "bandstand",
@@ -97,7 +97,7 @@ const projects: Project[] = [
       "Philadelphia jazz, tonight. Twenty-one rooms across the city: live clubs, jam sessions, listening rooms, vinyl bars, DJ nights, and the bistros that play real jazz on the system. Per-venue scrapers pull Chris' Jazz Cafe and South Jazz Kitchen nightly, the rest hand-curated with confidence tags. Repertory-style editorial layout, Source Serif italic mastheads, paper-grain texture. City map at /map with tag-colored markers and filter chips.",
     metrics: ["21 rooms", "City map by tag", "Two nightly scrapers"],
     tech: ["TypeScript", "Next.js 16", "Tailwind v4", "MapLibre GL", "cheerio"],
-    github: "https://github.com/charlestonneslan/bandstand",
+    github: "https://github.com/c-tonneslan/bandstand",
     live: "https://bandstand-bay.vercel.app",
   },
 ];
